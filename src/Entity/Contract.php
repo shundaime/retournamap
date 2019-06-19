@@ -54,4 +54,12 @@ class Contract
 
         return $this;
     }
+
+    /**
+     * @var Productor
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Productor", inversedBy="contracts")
+     * @ORM\JoinColumn(name="productor_id", referencedColumnName="id")
+     */
+    private $productor;
 }

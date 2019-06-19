@@ -136,33 +136,9 @@ class Productor
     }
 
     /**
-     * @return Collection|Contract[]
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Contract", mappedBy="productor", cascade={"persist", "remove"})
      */
-    public function getContractsName(): Collection
-    {
-        return $this->contracts_name;
-    }
-
-    public function addContractsName(Contract $contractsName): self
-    {
-        if (!$this->contracts_name->contains($contractsName)) {
-            $this->contracts_name[] = $contractsName;
-            $contractsName->setLink($this);
-        }
-
-        return $this;
-    }
-
-    public function removeContractsName(Contract $contractsName): self
-    {
-        if ($this->contracts_name->contains($contractsName)) {
-            $this->contracts_name->removeElement($contractsName);
-            // set the owning side to null (unless already changed)
-            if ($contractsName->getLink() === $this) {
-                $contractsName->setLink(null);
-            }
-        }
-
-        return $this;
-    }
+    private $contracts;
 }
