@@ -23,28 +23,28 @@ class PagesController extends Controller
     }
 
     /**
-     * @Route("/", name="explain"))
+     * @Route("/fonctionnement", name="explain"))
      */
     public function explain () {
         return $this->render('pages/explain.html.twig');
     }
 
     /**
-     * @Route("/", name="productors"))
+     * @Route("/producteurs", name="productors"))
      */
     public function productors () {
         return $this->render('pages/productors.html.twig');
     }
 
     /**
-     * @Route("/", name="gallery"))
+     * @Route("/gallerie", name="gallery"))
      */
     public function gallery () {
         return $this->render('pages/gallery.html.twig');
     }
 
     /**
-     * @Route("/", name="contact"))
+     * @Route("/contact", name="contact"))
      */
     public function contact () {
         return $this->render('pages/contact.html.twig');
