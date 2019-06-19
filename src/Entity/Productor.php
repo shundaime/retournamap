@@ -34,11 +34,6 @@ class Productor
     private $products;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $contacts;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $delivery;

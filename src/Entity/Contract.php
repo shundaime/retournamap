@@ -46,7 +46,7 @@ class Contract
         return $this;
     }
 
-    public function getLink(): ?Productor
+    public function getContract(): ?Productor
     {
         return $this->productor;
     }
