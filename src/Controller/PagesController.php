@@ -9,17 +9,17 @@ use Twig\Environment;
 
 
 /**
- * Class MainController
+ * Class PagesController
  * @package App\Controller
  */
 
-class MainController extends Controller
+class PagesController extends Controller
 {
     /**
      * @Route("/", name="home"))
      */
     public function home () {
-        return $this->render('default/home.html.twig');
+        return $this->render('pages/home.html.twig');
     }
 
     /**
