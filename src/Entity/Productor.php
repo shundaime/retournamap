@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,6 +47,16 @@ class Productor
      * @ORM\Column(type="text")
      */
     private $label;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Contract", mappedBy="link")
+     */
+    private $contracts_name;
+
+    public function __construct()
+    {
+        $this->contracts_name = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +131,37 @@ class Productor
     public function setLabel(string $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contract[]
+     */
+    public function getContractsName(): Collection
+    {
+        return $this->contracts_name;
+    }
+
+    public function addContractsName(Contract $contractsName): self
+    {
+        if (!$this->contracts_name->contains($contractsName)) {
+            $this->contracts_name[] = $contractsName;
+            $contractsName->setLink($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContractsName(Contract $contractsName): self
+    {
+        if ($this->contracts_name->contains($contractsName)) {
+            $this->contracts_name->removeElement($contractsName);
+            // set the owning side to null (unless already changed)
+            if ($contractsName->getLink() === $this) {
+                $contractsName->setLink(null);
+            }
+        }
 
         return $this;
     }
