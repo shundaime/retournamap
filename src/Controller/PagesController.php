@@ -3,9 +3,8 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Twig\Environment;
 
 
 /**
@@ -13,7 +12,7 @@ use Twig\Environment;
  * @package App\Controller
  */
 
-class PagesController extends Controller
+class PagesController extends AbstractController
 {
     /**
      * @Route("/", name="home"))
