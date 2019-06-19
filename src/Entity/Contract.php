@@ -22,9 +22,12 @@ class Contract
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Productor", inversedBy="contracts_name")
+     * @var Productor
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Productor", inversedBy="contracts")
+     * @ORM\JoinColumn(name="productor_id", referencedColumnName="id")
      */
-    private $link;
+    private $productor;
 
     public function getId(): ?int
     {
@@ -45,7 +48,7 @@ class Contract
 
     public function getLink(): ?Productor
     {
-        return $this->link;
+        return $this->productor;
     }
 
     public function setLink(?Productor $link): self
@@ -54,12 +57,4 @@ class Contract
 
         return $this;
     }
-
-    /**
-     * @var Productor
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Productor", inversedBy="contracts")
-     * @ORM\JoinColumn(name="productor_id", referencedColumnName="id")
-     */
-    private $productor;
 }

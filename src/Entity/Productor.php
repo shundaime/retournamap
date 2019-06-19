@@ -49,13 +49,15 @@ class Productor
     private $label;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Contract", mappedBy="link")
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Contract", mappedBy="productor", cascade={"persist", "remove"})
      */
-    private $contracts_name;
+    private $contracts;
 
     public function __construct()
     {
-        $this->contracts_name = new ArrayCollection();
+        $this->contracts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -134,11 +136,4 @@ class Productor
 
         return $this;
     }
-
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="App\Entity\Contract", mappedBy="productor", cascade={"persist", "remove"})
-     */
-    private $contracts;
 }
