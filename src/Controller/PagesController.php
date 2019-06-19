@@ -37,7 +37,7 @@ class PagesController extends Controller
     }
 
     /**
-     * @Route("/gallerie", name="gallery"))
+     * @Route("/galerie", name="gallery"))
      */
     public function gallery () {
         return $this->render('pages/gallery.html.twig');
