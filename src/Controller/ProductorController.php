@@ -18,15 +18,15 @@ class ProductorController extends PagesController
         $entityManager = $this->getDoctrine()->getManager();
 
         $productor = new Productor();
-        $productor->setName("...")
-            ->setPicture("...")
-            ->setProducts("...")
-            ->setDelivery("...")
-            ->setLabel("...");
+        $productor->setName("Brasserie de l'emblavez")
+            ->setPicture("emblavez.jpg")
+            ->setProducts("Bières blondes, ambrées, blanches, IPA")
+            ->setDelivery("Bi-ensuelle")
+            ->setLabel("nature.jpg");
         $entityManager->persist($productor);
         $entityManager->flush();
 
-        return new Response("Nouveau producteur enregistré avec l'id". $productor->getId());
+        return new Response("Nouveau producteur enregistré avec l'id ". $productor->getId());
     }
 
     /**
