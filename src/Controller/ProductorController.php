@@ -26,7 +26,7 @@ class ProductorController extends PagesController
         $entityManager->persist($productor);
         $entityManager->flush();
 
-        return new Response('Saved new product with id '. $productor->getId());
+        return new Response("Nouveau producteur enregistré avec l'id". $productor->getId());
     }
 
     /**
@@ -37,5 +37,35 @@ class ProductorController extends PagesController
         $repository = $this->getDoctrine()->getRepository(Productor::class);
         $productor = $repository->findAll();
         return $this->render('pages/productors.html.twig', compact('productor'));
+    }
+
+    /**
+     * @Route("/admin/edit")
+     */
+    public function update($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $productor = $entityManager->getRepository(Productor::class)->find($id);
+
+        if(!$productor){
+            throw $this->createNotFoundException(
+              "Aucun producteur avec l'id ".$id
+            );
+        }
+
+        $productor->setName('');
+        $entityManager->flush();
+
+        return $this->redirectToRoute('show_productors', [
+           'id' => $productor->getId()
+        ]);
+    }
+
+    public function delete()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $productor = $entityManager->getRepository(Productor::class)->findAll();
+        $entityManager->remove($productor);
+        $entityManager->flush();
     }
 }
