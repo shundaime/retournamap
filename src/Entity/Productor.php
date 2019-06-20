@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -98,12 +97,12 @@ class Productor
 
     public function getContacts(): ?string
     {
-        return $this->contacts;
+        return $this->contracts;
     }
 
-    public function setContacts(string $contacts): self
+    public function setContracts(string $contracts): self
     {
-        $this->contacts = $contacts;
+        $this->contracts = $contracts;
 
         return $this;
     }
