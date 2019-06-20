@@ -3,5 +3,43 @@
 {% block title "Les producteurs" %}
 
 {% block body %}
-
+<main>
+    <div class="container flex">
+        <section class="container">
+            <h2 class="title">Les producteurs</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Producteurs</th>
+                    <th scope="col">Produits / Contrats</th>
+                    <th scope="col">Livraison</th>
+                    <th scope="col">Label</th>
+                </tr>
+                </thead>
+                <tbody class="table">
+                {% for productor in productor %}
+                <tr>
+                    <td>
+                        <figure>
+                            <figcaption><a href="#">{{ productor.name }}</a></figcaption>
+                            <img class="otherimg" src="img/producteurs/{{ productor.picture }}" alt="">
+                        </figure>
+                    </td>
+                    <td>
+                        <figure>
+                            <a href="doc/contrats/">
+                                <figcaption>{{ productor.products }}</figcaption>
+                                <img src="img/logopetit.png">
+                            </a>
+                        </figure>
+                    </td>
+                    <td>{{ productor.delivery }}</td>
+                    <td><img class="otherimg" src="img/label/{{ productor.label }}" alt=""></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>
 {% endblock %}
