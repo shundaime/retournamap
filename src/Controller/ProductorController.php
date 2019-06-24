@@ -15,7 +15,7 @@ class ProductorController extends PagesController
      * @Route("/producteurs_creation", name="productors_create")
      */
 
-    public function index()
+    public function index(): Response
     {
 
 
