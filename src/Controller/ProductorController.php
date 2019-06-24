@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Contract;
 use App\Entity\Productor;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +14,37 @@ class ProductorController extends PagesController
     /**
      * @Route("/producteurs_creation", name="productors_create")
      */
-    public function createProductor():Response
+
+    public function index()
+    {
+
+
+        $contract = new Contract();
+        $contract->setName("legumes.pdf");
+
+        $productor = new Productor();
+        $productor->setName("GAEC d'Artias")
+            ->setPicture("artias.jpg")
+            ->setProducts('Légumes')
+            ->setDelivery('Hebdomadaire')
+            ->setLabel('nature.jpg');
+
+        $productor ->setContracts($contract);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($contract);
+        $entityManager->persist($productor);
+        $entityManager->flush();
+
+        return new Response(
+          "Producteur enregistré avec l'id: ".$productor->getId()
+            ." et contrat avec l'id: ".$contract->getId()
+        );
+    }
+
+
+
+    /*public function createProductor():Response
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -27,7 +58,7 @@ class ProductorController extends PagesController
         $entityManager->flush();
 
         return new Response("Nouveau producteur enregistré avec l'id ". $productor->getId());
-    }
+    }*/
 
     /**
      * @Route("/producteurs", name="show_productors")
