@@ -96,14 +96,35 @@ class Productor
         return $this;
     }
 
-    public function getContacts(): ?string
+    /**
+     * @param Contract $contract
+     *
+     * @return Productor
+     */
+    public function addContract(Contract $contract): Productor
+    {
+        $contract->setProductor($this);
+        $this->contracts[] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getContracts()
     {
         return $this->contracts;
     }
 
-    public function setContracts(string $contracts): self
+    /**
+     * @param Contract $contract
+     *
+     * @return Productor
+     */
+    public function removeContract(Contract $contract): Productor
     {
-        $this->contracts = $contracts;
+        $this->contracts->removeElement($contract);
 
         return $this;
     }

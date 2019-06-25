@@ -29,7 +29,7 @@ class ProductorController extends PagesController
             ->setDelivery('Hebdomadaire')
             ->setLabel('nature.jpg');
 
-        $productor ->setContracts($contract);
+        $productor->addContract($contract);
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($contract);

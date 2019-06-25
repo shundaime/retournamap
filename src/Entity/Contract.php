@@ -51,10 +51,9 @@ class Contract
         return $this->productor;
     }
 
-    public function setLink(?Productor $link): self
+    public function setProductor(?Productor $productor): self
     {
-        $this->link = $link;
-
+        $this->productor = $productor;
         return $this;
     }
 }
