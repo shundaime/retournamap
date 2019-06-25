@@ -29,6 +29,11 @@ class Contract
      */
     private $productor;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pdf;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +59,18 @@ class Contract
     public function setProductor(?Productor $productor): self
     {
         $this->productor = $productor;
+        return $this;
+    }
+
+    public function getPdf(): ?string
+    {
+        return $this->pdf;
+    }
+
+    public function setPdf(string $pdf): self
+    {
+        $this->pdf = $pdf;
+
         return $this;
     }
 }

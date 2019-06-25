@@ -20,10 +20,14 @@
                 {% for productor in productors %}
                 <tr>
                     <td>
-                        <figure>
-                            <figcaption><a href="#">{{ productor.name }}</a></figcaption>
-                            <img class="otherimg" src="img/producteurs/{{ productor.picture }}" alt="">
-                        </figure>
+                        {% for contract in productor.contracts %}
+                            <figure>
+                                <a href="/doc/contrats/{{ contract.file }}" target="_blank">
+                                    <figcaption>{{ contract.name }}</figcaption>
+                                    <p>Voir le contrat <img src="img/logopetit.png"></p>
+                                </a>
+                            </figure>
+                        {% endfor %}
                     </td>
                     <td>
                         <figure>

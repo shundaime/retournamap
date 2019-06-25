@@ -25,7 +25,6 @@ class ProductorController extends PagesController
         $productor = new Productor();
         $productor->setName("GAEC d'Artias")
             ->setPicture("artias.jpg")
-            ->setProducts('Légumes')
             ->setDelivery('Hebdomadaire')
             ->setLabel('nature.jpg');
 
