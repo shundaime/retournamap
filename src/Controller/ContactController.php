@@ -5,13 +5,17 @@ namespace App\Controller;
 
 
 use App\Entity\ContactMessage;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
-class ContactController extends AbstractController
+class ContactController extends PagesController
 {
+    /**
+     * @Route("/contact", name="contact"))
+     */
+
     public function new(Request $request)
     {
         $contact = new ContactMessage();
@@ -20,7 +24,7 @@ class ContactController extends AbstractController
             ->add('mail', TextType::class)
             ->add('subject', TextType::class)
             ->add('content', TextType::class)
-            ->add('send', SubmitType::class, ['label' => 'envoyer'])
+            ->add('send', SubmitType::class, ['label' => 'Envoyer'])
             ->getForm();
 
         $form->handleRequest($request);
@@ -34,7 +38,7 @@ class ContactController extends AbstractController
         }
 
         return $this->render('pages/contact.html.twig', [
-            'form'=> $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
 }
