@@ -5848,10 +5848,11 @@ a:hover {
   color: #8bc636;
 }
 
-ul {
+ul li {
   padding: 0;
   margin: 0;
   list-style: none;
+  text-decoration: none;
 }
 
 section {
@@ -5983,37 +5984,34 @@ thead > tr > th:last-child {
 }
 
 /*GALERIE*/
-.gallery {
+#photos {
+  line-height: 0;
+  -webkit-column-count: 5;
+  -webkit-column-gap: 5px;
+  -moz-column-count: 5;
+  -moz-column-gap: 5px;
+  column-count: 5;
+  column-gap: 5px;
   /* Unopened lightbox */
   /* Opened lightbox */
   /* Close button */
   /* Lightbox overlay */
 }
-.gallery .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  align-items: start;
-  justify-items: center;
-}
-.gallery .grid img:nth-child(2) {
-  grid-column: span 3;
-  grid-row: span 3;
-}
-.gallery #myImg {
+#photos #myImg {
   cursor: pointer;
   transition: 0.3s;
+  margin: 5px;
 }
-.gallery #myImg:hover {
+#photos #myImg:hover {
   opacity: 0.7;
 }
-.gallery .diapo-img {
+#photos .diapo-img {
   filter: brightness(100%);
 }
-.gallery .lightbox {
+#photos .lightbox {
   display: none;
 }
-.gallery .lightbox:target {
+#photos .lightbox:target {
   position: absolute;
   left: 33%;
   top: 25%;
@@ -6023,11 +6021,11 @@ thead > tr > th:last-child {
   align-items: center;
   justify-content: center;
 }
-.gallery .lightbox .close {
+#photos .lightbox .close {
   position: relative;
   display: block;
 }
-.gallery .lightbox .close::after {
+#photos .lightbox .close::after {
   right: -1rem;
   top: -3rem;
   width: 3rem;
@@ -6043,7 +6041,7 @@ thead > tr > th:last-child {
   content: "×";
   cursor: pointer;
 }
-.gallery .lightbox .close::before {
+#photos .lightbox .close::before {
   left: 0;
   top: 0;
   width: 100%;
@@ -6053,24 +6051,45 @@ thead > tr > th:last-child {
   content: "";
   cursor: default;
 }
-.gallery figure {
+#photos figure {
   margin: 0 auto;
   position: relative;
 }
-.gallery .box-caption {
+#photos .box-caption {
   position: absolute;
   bottom: 0;
   left: 0;
   background: rgba(80, 80, 80, 0.75);
   width: 100%;
 }
-.gallery .box-caption figcaption {
+#photos .box-caption figcaption {
   color: #fff;
   display: block;
   font-size: 0.85em;
   padding: 10px;
 }
 
+@media (max-width: 1000px) {
+  #photos {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+@media (max-width: 800px) {
+  #photos {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+@media (max-width: 400px) {
+  #photos {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+}
 /*CONTACT*/
 .form-container {
   display: flex;

@@ -7,20 +7,22 @@
     <div id="scroll" class="flex">
         <section class="gallery">
             <h2 class="title">Galerie</h2>
-            <div class="grid">
+            <ul class="grid" id="photos">
                 {% for gallery in gallery %}
-                    <a href="#{{ gallery.id }}"><img src="img/gallery/{{ gallery.picture }}" id="myImg" alt=""></a>
-                    <div class="lightbox" id="{{ gallery.id }}">
-                        <figure>
-                            <a href="#" class="close"></a>
-                            <img src="img/gallery/{{ gallery.picture }}" class="diapo-img" alt="">
-                            <div class="box-caption">
-                                <figcaption>{{ gallery.description }}</figcaption>
-                            </div>
-                        </figure>
-                    </div>
+                    <li>
+                        <a href="#{{ gallery.id }}"><img src="img/gallery/{{ gallery.picture }}" id="myImg" alt=""></a>
+                        <div class="lightbox" id="{{ gallery.id }}">
+                            <figure>
+                                <a href="#" class="close"></a>
+                                <img src="img/gallery/{{ gallery.picture }}" class="diapo-img" alt="">
+                                <div class="box-caption">
+                                    <figcaption>{{ gallery.description }}</figcaption>
+                                </div>
+                            </figure>
+                        </div>
+                    </li>
                 {% endfor %}
-            </div>
+            </ul>
         </section>
     </div>
 </main>
