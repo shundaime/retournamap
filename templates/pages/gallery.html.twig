@@ -8,15 +8,15 @@
         <section class="gallery">
             <h2 class="title">Galerie</h2>
             <ul class="grid" id="photos">
-                {% for gallery in gallery %}
+                {% for image in images %}
                     <li>
-                        <a href="#{{ gallery.id }}"><img src="img/gallery/{{ gallery.picture }}" id="myImg" alt=""></a>
-                        <div class="lightbox" id="{{ gallery.id }}">
+                        <a href="#{{ image.id }}"><img src="img/gallery/{{ image.picture }}" id="myImg" alt=""></a>
+                        <div class="lightbox" id="{{ image.id }}">
                             <figure>
                                 <a href="#" class="close"></a>
-                                <img src="img/gallery/{{ gallery.picture }}" class="diapo-img" alt="">
+                                <img src="img/gallery/{{ image.picture }}" class="diapo-img" alt="">
                                 <div class="box-caption">
-                                    <figcaption>{{ gallery.description }}</figcaption>
+                                    <figcaption>{{ image.description }}</figcaption>
                                 </div>
                             </figure>
                         </div>

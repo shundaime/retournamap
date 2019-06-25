@@ -63,11 +63,11 @@ class ProductorController extends PagesController
     /**
      * @Route("/producteurs", name="show_productors")
      */
-    public function show()
+    public function list()
     {
         $repository = $this->getDoctrine()->getRepository(Productor::class);
-        $productor = $repository->findAll();
-        return $this->render('pages/productors.html.twig', compact('productor'));
+        $productors = $repository->findAll();
+        return $this->render('pages/productors.html.twig', ['productors' => $productors]);
     }
 
     /**

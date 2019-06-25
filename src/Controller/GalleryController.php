@@ -15,7 +15,7 @@ class GalleryController extends PagesController
     public function showGallery()
     {
         $repository = $this->getDoctrine()->getRepository(GalleryImage::class);
-        $gallery = $repository->findAll();
-        return $this->render('pages/gallery.html.twig', compact('gallery'));
+        $images = $repository->findAll();
+        return $this->render('pages/gallery.html.twig',['images' => $images]);
     }
 }
