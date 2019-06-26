@@ -22,6 +22,8 @@ class ContactController extends PagesController
     {
         $contact = new ContactMessage();
         $form = $this->createFormBuilder($contact)
+            ->setAction($this->generateUrl('contact'))
+            ->setMethod('POST')
             ->add('name', TextType::class)
             ->add('mail', EmailType::class)
             ->add('subject', TextType::class)

@@ -341,12 +341,18 @@ thead>tr>th:last-child{
   text-align: center;
   justify-content: space-between;
 
+  aside{
+    width: 100%;
+  }
+
   iframe{
-    margin: 15px 0;
+    width: 100%;
+    margin: 15px;
   }
 
   form{
     width: 50%;
+    margin: 0 15px;
   }
 
   label{
@@ -409,6 +415,19 @@ footer {
     }
 }
 
-@media  #{$medium-up}{
+@media  #{$medium-down}{
+  .form-container{
+    display: block;
+    margin: 0 auto;
 
+    form{
+      width: 100%;
+    }
+  }
+}
+
+@media #{$small-down} {
+  .tools{
+    flex-direction: column;
+  }
 }
