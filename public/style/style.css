@@ -5825,7 +5825,7 @@ img {
   margin: 0 auto;
 }
 
-h1, label {
+h1 {
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -6093,21 +6093,25 @@ thead > tr > th:last-child {
 /*CONTACT*/
 .form-container {
   display: flex;
+  text-align: center;
   justify-content: space-between;
 }
 .form-container iframe {
   margin: 15px 0;
 }
-
-.form {
+.form-container form {
   width: 50%;
 }
-.form textarea {
+.form-container label {
+  visibility: hidden;
+}
+.form-container input {
+  font-size: 2rem;
+}
+.form-container textarea {
   font-size: 2rem;
   width: 100%;
-}
-.form input {
-  font-size: 2rem;
+  height: 30%;
 }
 
 aside .tools {

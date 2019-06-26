@@ -2,30 +2,53 @@
 
 {% block title "Contact" %}
 
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 {% block body %}
 <main>
-    <div class="flex">
-        <section class="container">
-            <h2 class="title">Contactez-nous</h2>
-            <article class="form-container">
-                {{ form_start(form) }}
-                <div>{{ form_label(form.name, 'Nom / prénom') }}</div>
-                {{ form_end(form) }}
-                <aside>
-                    <p><i class="fas fa-map-signs"></i> Lieu des permanences :</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2811.2815334479724!2d4.039526025565037!3d45.2016381976201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5ea3a5bc97001%3A0xd3b753f697a3a251!2sLa+Filature!5e0!3m2!1sfr!2sfr!4v1559825895807!5m2!1sfr!2sfr" width="500" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    <ul class="tools">
-                        <li><i class="fas fa-phone"></i> 07.82.90.98.00</li>
-                        <li>
-                            <a href="mailto:retournamap@gmail.com"><i class="fas fa-envelope-square"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/RetournAMAP/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        </li>
-                    </ul>
-                </aside>
-            </article>
-        </section>
-    </div>
+    <section class="container">
+        <h2 class="title">Contactez-nous</h2>
+        <article class="form-container">
+            {{ form_start(form) }}
+                {{ form_label(form.name, 'Nom / prénom') }}
+                {{ form_widget(form.name, {
+                    attr:{
+                        placeholder: 'Nom / prénom'
+                    }
+                }) }}
+                {{ form_label(form.mail, 'Mail') }}
+                {{ form_widget(form.mail, {
+                    attr:{
+                        placeholder: 'Mail'
+                    }
+                }) }}
+                {{ form_label(form.subject, 'Sujet') }}
+                {{ form_widget(form.subject, {
+                    attr:{
+                        placeholder: 'Sujet'
+                    }
+                }) }}
+                {{ form_label(form.content, 'Message') }}
+                {{ form_widget(form.content, {
+                    attr:{
+                        placeholder: 'Message'
+                    }
+                }) }}
+            {{ form_end(form) }}
+            <aside>
+                <p><i class="fas fa-map-signs"></i> Lieu des permanences :</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2811.2815334479724!2d4.039526025565037!3d45.2016381976201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5ea3a5bc97001%3A0xd3b753f697a3a251!2sLa+Filature!5e0!3m2!1sfr!2sfr!4v1559825895807!5m2!1sfr!2sfr" width="500" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <ul class="tools">
+                    <li><i class="fas fa-phone"></i> 07.82.90.98.00</li>
+                    <li>
+                        <a href="mailto:retournamap@gmail.com"><i class="fas fa-envelope-square"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/RetournAMAP/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+            </aside>
+        </article>
+    </section>
 </main>
 {% endblock %}
