@@ -20,13 +20,13 @@ class ProductorController extends PagesController
 
 
         $contract = new Contract();
-        $contract->setName("Fromage de brebis et pain")
-                    ->setPdf('fromage.pdf');
+        $contract->setName("Confitures, sirops")
+                    ->setPdf('confitures.pdf');
 
         $productor = new Productor();
-        $productor->setName("La ferme des Fromentaux")
-            ->setPicture("fromentaux.jpg")
-            ->setDelivery('Hebdomadaire')
+        $productor->setName("Gourmandises Buissonnières")
+            ->setPicture("gourmandises.jpg")
+            ->setDelivery('Bi-mensuelle')
             ->setLabel('bio.png');
 
         $productor->addContract($contract);
@@ -41,24 +41,6 @@ class ProductorController extends PagesController
             ." et contrat avec l'id: ".$contract->getId()
         );
     }
-
-
-
-    /*public function createProductor():Response
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $productor = new Productor();
-        $productor->setName("Brasserie de l'emblavez")
-            ->setPicture("emblavez.jpg")
-            ->setProducts("Bières blondes, ambrées, blanches, IPA")
-            ->setDelivery("Bi-ensuelle")
-            ->setLabel("nature.jpg");
-        $entityManager->persist($productor);
-        $entityManager->flush();
-
-        return new Response("Nouveau producteur enregistré avec l'id ". $productor->getId());
-    }*/
 
     /**
      * @Route("/producteurs", name="show_productors")
