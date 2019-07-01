@@ -5932,6 +5932,9 @@ span {
 .intro {
   text-align: center;
 }
+.intro ul {
+  padding: 0;
+}
 
 .news {
   width: 20%;
@@ -5950,14 +5953,15 @@ span {
 }
 
 /*PRODUCTOR*/
-.table {
-  text-align: start;
+.table thead > tr > th:first-child {
+  width: 30%;
 }
-
-.otherimg {
-  width: 85%;
+.table thead > tr > th:last-child {
+  width: 15%;
 }
-
+.table td {
+  vertical-align: middle;
+}
 .table figcaption {
   text-align: center;
 }
@@ -5967,22 +5971,62 @@ span {
   display: flex;
   flex-direction: column;
 }
-.table td:first-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-thead > tr > th:first-child {
-  width: 40%;
-}
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
 
-thead > tr > th:last-child {
-  width: 12%;
-}
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+  Label the data
+  */
+  td:nth-of-type(1):before {
+    content: "";
+  }
+
+  td:nth-of-type(2):before {
+    content: "";
+  }
+
+  td:nth-of-type(3):before {
+    content: "";
+  }
+
+  td:nth-of-type(4):before {
+    content: "";
+  }
+}
 /*GALERIE*/
 #photos {
   line-height: 0;
@@ -6104,7 +6148,7 @@ thead > tr > th:last-child {
   margin: 15px;
 }
 .form-container form {
-  width: 50%;
+  width: 100%;
   margin: 0 15px;
 }
 .form-container label {
@@ -6162,16 +6206,16 @@ footer ul {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 768px) {
   .form-container {
     display: block;
     margin: 0 auto;
   }
   .form-container form {
     width: 100%;
+    margin: 0 auto;
   }
-}
-@media only screen and (max-width: 400px) {
+
   .tools {
     flex-direction: column;
   }

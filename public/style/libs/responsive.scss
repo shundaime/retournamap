@@ -1,6 +1,7 @@
-$small: 400!default;
-$medium: 1100!default;
-$large: 1000!default;
+
+$small: 768!default;
+$medium: 970!default;
+$large: 1170!default;
 
 $small-down: "only screen and (max-width: #{$small}px)";
 
