@@ -28,9 +28,11 @@
                     <td>
                         {% for contract in productor.contracts %}
                             <h4>{{ contract.name }}</h4>
+                            {% if contract.pdf %}
                             <a href="/doc/contrats/{{ contract.pdf }}" target="_blank">
                                 <p>Voir le contrat <img src="img/logopetit.png"></p>
                             </a>
+                            {% endif %}
                         {% endfor %}
                     </td>
                     <td>{{ productor.delivery }}</td>
