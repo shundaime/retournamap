@@ -26,6 +26,11 @@ class GalleryImage
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $alt_attribute;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class GalleryImage
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getAltAttribute(): ?string
+    {
+        return $this->alt_attribute;
+    }
+
+    public function setAltAttribute(string $alt_attribute): self
+    {
+        $this->alt_attribute = $alt_attribute;
 
         return $this;
     }
