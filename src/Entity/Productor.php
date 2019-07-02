@@ -45,6 +45,11 @@ class Productor
      */
     private $contracts;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image_description;
+
     public function __construct()
     {
         $this->contracts = new ArrayCollection();
@@ -133,6 +138,18 @@ class Productor
     public function setLabel(string $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function getImageDescription(): ?string
+    {
+        return $this->image_description;
+    }
+
+    public function setImageDescription(string $image_description): self
+    {
+        $this->image_description = $image_description;
 
         return $this;
     }
