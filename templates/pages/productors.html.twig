@@ -2,6 +2,8 @@
 
 {% block title "Les producteurs" %}
 
+{% set active = 'producteurs' %}
+
 {% block body %}
 <main>
     <div class="container flex">
@@ -30,7 +32,7 @@
                             <h4>{{ contract.name }}</h4>
                             {% if contract.pdf %}
                             <a href="/doc/contrats/{{ contract.pdf }}" target="_blank">
-                                <p>Voir le contrat <img src="img/logopetit.png"></p>
+                                <p>Voir le contrat <img src="img/logopetit.png" alt="petit logo"></p>
                             </a>
                             {% endif %}
                         {% endfor %}

@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PagesController extends AbstractController
 {
     /**
-     * @Route("/", name="home"))
+     * @Route("/accueil", name="home"))
      */
     public function home()
     {
