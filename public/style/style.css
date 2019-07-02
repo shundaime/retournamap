@@ -5957,10 +5957,13 @@ span {
 
 /*PRODUCTOR*/
 .table thead > tr > th:first-child {
-  width: 30%;
+  width: 25%;
+}
+.table thead > tr > th:nth-child(2) {
+  width: 45%;
 }
 .table thead > tr > th:last-child {
-  width: 15%;
+  width: 10%;
 }
 .table td {
   vertical-align: middle;
