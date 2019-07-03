@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% set active = null %}
+
+{% block title "Gérer les producteurs" %}
+
+{% block body %}
+    <main>
+        <div class="flex">
+            <section class="container">
+                <h2>Gérer les producteurs</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for productor in productors %}
+                    <tr>
+                        <td>{{ productor.name }}</td>
+                        <td>
+                            <a href="{{ path('admin.edit', {id: productor.id}) }}" class="btn btn-secondary">Editer</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('admin.new') }}" class="btn btn-primary">Créer un producteur</a>
+            </section>
+        </div>
+    </main>
+{% endblock %}
