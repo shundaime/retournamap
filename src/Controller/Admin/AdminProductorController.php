@@ -10,6 +10,7 @@ use App\Repository\ProductorRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminProductorController extends AbstractController
@@ -45,12 +46,13 @@ class AdminProductorController extends AbstractController
     public function new(Request $request)
     {
         $productor = new Productor();
-        $form = $this->createForm(ProductorType::class,$productor);
+        $form = $this->createForm(ProductorType::class, $productor);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
             $this->em->persist($productor);
             $this->em->flush();
+            $this->addFlash('success', "Producteur créé avec succès");
             return $this->redirectToRoute('admin.index');
         }
         return $this->render('admin/productor/new.html.twig',
@@ -72,6 +74,7 @@ class AdminProductorController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $this->em->flush();
+            $this->addFlash('success', "Producteur modifié avec succès");
             return $this->redirectToRoute('admin.index');
         }
 
@@ -82,7 +85,7 @@ class AdminProductorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/productor/{id}", name="admin.delete", methods="DELETE")
+     * @Route("/admin/productor/{id}", name="admin.productor.delete", methods="DELETE")
      * @param Productor $productor
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -91,6 +94,7 @@ class AdminProductorController extends AbstractController
         if($this->isCsrfTokenValid('delete' . $productor->getId(), $request->get('_token'))){
             $this->em->remove($productor);
             $this->em->flush();
+            $this->addFlash('success', "Producteur supprimé avec succès");
         }
         return $this->redirectToRoute('admin.index');
     }

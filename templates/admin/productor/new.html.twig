@@ -11,10 +11,7 @@
         <div class="flex">
             <section class="container">
                 <h2>Créer un producteur</h2>
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <button class="btn btn-primary">Créer</button>
-                {{ form_end(form) }}
+                {{ include('admin/productor/_form.htm.twig', {button: 'Enregistrer'}) }}
             </section>
         </div>
     </main>

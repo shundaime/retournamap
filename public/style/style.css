@@ -5887,6 +5887,13 @@ section {
   background: #d98400;
 }
 
+.admin-form {
+  display: inline-block;
+}
+.admin-form .btn-danger {
+  background: red;
+}
+
 /*HEADER*/
 header {
   display: flex;

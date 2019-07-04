@@ -9,6 +9,11 @@
         <div class="flex">
             <section class="container">
                 <h2>Gérer les producteurs</h2>
+                {% for message in app.flashes('success')  %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -22,6 +27,11 @@
                         <td>{{ productor.name }}</td>
                         <td>
                             <a href="{{ path('admin.edit', {id: productor.id}) }}" class="btn btn-secondary">Editer</a>
+                            <form method="post" action="{{ path('admin.productor.delete', {id: productor.id}) }}" onsubmit="return confirm('Êtes vous sûr ?')" class="admin-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ productor.id) }}">
+                                <button class="btn btn-danger">Supprimer</button>
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}

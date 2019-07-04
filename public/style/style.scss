@@ -115,6 +115,14 @@ section{
   }
 }
 
+.admin-form{
+  display: inline-block;
+
+  .btn-danger{
+    background: red;
+  }
+}
+
 /*HEADER*/
 header{
   display: flex;

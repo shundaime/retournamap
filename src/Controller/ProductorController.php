@@ -20,15 +20,15 @@ class ProductorController extends PagesController
 
 
         $contract = new Contract();
-        $contract->setName("")
+        $contract->setName("Fraises et framboises")
                     ->setPdf('');
 
         $productor = new Productor();
-        $productor->setName("")
-            ->setPicture("")
-            ->setDelivery("")
-            ->setLabel('')
-            ->setImageDescription("");
+        $productor->setName("Marie-François Bourgeat")
+            ->setPicture("bourgeat.jpg")
+            ->setDelivery("Hebdomadaire en été")
+            ->setLabel('ecocert.jpg')
+            ->setImageDescription("Fruits rouges");
 
         $productor->addContract($contract);
 
