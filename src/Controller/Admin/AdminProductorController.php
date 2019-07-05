@@ -4,6 +4,7 @@
 namespace App\Controller\Admin;
 
 
+use App\Entity\Contract;
 use App\Entity\Productor;
 use App\Form\ProductorType;
 use App\Repository\ProductorRepository;
@@ -46,6 +47,8 @@ class AdminProductorController extends AbstractController
     public function new(Request $request)
     {
         $productor = new Productor();
+        $contract = new Contract();
+        $productor->addContract($contract);
         $form = $this->createForm(ProductorType::class, $productor);
         $form->handleRequest($request);
 
