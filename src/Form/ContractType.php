@@ -14,10 +14,12 @@ class ContractType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom du contrat'
+                'label' => 'Nom du contrat',
+                'required' => false
             ])
             ->add('pdf', TextType::class, [
-                'label' => 'Pdf du contrat'
+                'label' => 'Pdf du contrat',
+                'required' => false
             ])
         ;
     }

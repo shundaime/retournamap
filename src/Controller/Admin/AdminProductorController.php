@@ -8,9 +8,9 @@ use App\Entity\Contract;
 use App\Entity\Productor;
 use App\Form\ProductorType;
 use App\Repository\ProductorRepository;
+use App\Service\FileUploader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,7 +45,7 @@ class AdminProductorController extends AbstractController
     /**
      * @Route("/admin/productor/create", name="admin.new")
      */
-    public function new(Request $request)
+    public function new(Request $request,  FileUploader $fileUploader)
     {
         $productor = new Productor();
         $contract = new Contract();
@@ -54,30 +54,6 @@ class AdminProductorController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            /**
-             * @var UploadedFile $filename
-             */
-            $filename = $form['filename']->getData();
-            if ($filename) {
-                $originalFilename = pathinfo($filename->getFilename(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$filename->guessExtension();
-
-                // Move the file to the directory where brochures are stored
-                try {
-                    $filename->move(
-                        $this->getParameter('productors_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
-
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
-                $productor->setFilename($newFilename);
-            }
             $this->em->persist($productor);
             $this->em->flush();
             $this->addFlash('success', "Producteur créé avec succès");
@@ -102,6 +78,7 @@ class AdminProductorController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $this->em->persist($productor);
             $this->em->flush();
             $this->addFlash('success', "Producteur modifié avec succès");
             return $this->redirectToRoute('admin.index');

@@ -17,9 +17,8 @@ class ProductorType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('filename',FileType::class, [
+            ->add('imageFile',FileType::class, [
                 'label' => 'Picture (jpg file)',
-                'mapped' => false,
                 'required' => false,
                 'constraints' => [
                     new File([
