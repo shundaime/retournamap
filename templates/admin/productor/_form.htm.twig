@@ -1,12 +1,18 @@
 {{ form_start(form) }}
 <div class="row">
-    <div class="col-md-6">{{ form_row(form.name) }}</div>
-    <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
+    <div class="col-md-5">{{ form_row(form.name) }}</div>
+    <div class="col-md-5">{{ form_row(form.delivery) }}</div>
+    <div class="col-md-2">{{ form_row(form.label) }}</div>
 </div>
 <div class="row">
-    <div class="col-md-6">{{ form_row(form.delivery) }}</div>
-    <div class="col-md-6">{{ form_row(form.label) }}</div>
-    <div class="col-md-12">{{ form_row(form.contracts) }}</div>
+    {% for contract in form.contracts %}
+        <div class="col-md-6">{{ form_row(contract.name) }}</div>
+        <div class="col-md-6">{{ form_row(contract.pdf) }}</div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="col-md-6">{{ form_row(form.filename) }}</div>
+    <div class="col-md-6">{{ form_row(form.image_description) }}</div>
 </div>
 {{ form_widget(form) }}
 <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>

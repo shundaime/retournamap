@@ -4,13 +4,9 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductorRepository")
- * @Vich\Uploadable
  */
 
 class Productor
@@ -26,12 +22,6 @@ class Productor
      * @ORM\Column(type="string", length=255)
      */
     private $filename;
-
-    /**
-     * @var File|null
-     * @Vich\UploadableField(mapping="productor_image", fileNameProperty="filename")
-     */
-    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -59,11 +49,6 @@ class Productor
      * @ORM\Column(type="string", length=255)
      */
     private $image_description;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $updated_at;
 
     public function __construct()
     {
@@ -156,62 +141,14 @@ class Productor
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFilename(): ?string
     {
         return $this->filename;
     }
 
-    /**
-     * @param string|null $filename
-     * @return Productor
-     */
     public function setFilename(?string $filename): Productor
     {
         $this->filename = $filename;
-        return $this;
-    }
-
-    /**
-     * @return File|null
-     */
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * @param File|null $imageFile
-     * @return Productor
-     * @throws \Exception
-     */
-    public function setImageFile(?File $imageFile): Productor
-    {
-        $this->imageFile = $imageFile;
-        if($this->imageFile instanceof UploadedFile){
-            $this->updated_at = new \DateTime('now');
-        }
-        return $this;
-    }
-
-    /**
-     * @return \DateTimeInterface|null
-     */
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * @param \DateTimeInterface $updated_at
-     * @return Productor
-     */
-    public function setUpdatedAt(\DateTimeInterface $updated_at): self
-    {
-        $this->updated_at = $updated_at;
-
         return $this;
     }
 }

@@ -48,13 +48,11 @@ main{
 }
 img {
   max-width: 100%;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 h1{
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
+  @include hidden();
 }
 
 h2{
@@ -87,7 +85,7 @@ section{
 }
 
 .flex{
-  display: flex;
+  @include flex();
   justify-content: space-evenly;
   flex-direction: column;
   text-align: center;
@@ -114,7 +112,7 @@ section{
     background: darken($carot, 5);
   }
 }
-
+/*ADMIN*/
 .admin-form{
   display: inline-block;
 
@@ -123,9 +121,15 @@ section{
   }
 }
 
+.edit_container{
+  input{
+    font-size: 1em;
+  }
+}
+
 /*HEADER*/
 header{
-  display: flex;
+  @include flex();
   justify-content: center;
   flex-direction: column;
 }
@@ -150,6 +154,7 @@ nav {
 
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
+  font-size: 1.5em;
 
   &:hover {
     color: #673b15;
@@ -184,8 +189,8 @@ span{
 
 .news{
   width: 20%;
-  top: 150px;
-  left: 1300px;
+  top: 10%;
+  right: 70%;
   position: absolute;
   border: solid 1px $carot;
 }
@@ -282,7 +287,7 @@ span{
   column-count: 5;
   column-gap: 5px;
 
-  #myImg {
+  .myImg {
     cursor: pointer;
     transition: 0.3s;
     margin: 5px;
@@ -359,13 +364,6 @@ span{
     left: 0;
     background: rgba(80, 80, 80, 0.75);
     width: 100%;
-
-    figcaption {
-      color: #fff;
-      display: block;
-      font-size: .85em;
-      padding: 10px;
-    }
   }
 }
 
@@ -412,7 +410,7 @@ span{
   }
 
   label{
-    visibility: hidden;
+    @include hidden();
   }
 
   input{

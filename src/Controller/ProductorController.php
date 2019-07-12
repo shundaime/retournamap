@@ -25,7 +25,7 @@ class ProductorController extends PagesController
 
         $productor = new Productor();
         $productor->setName("Marie-François Bourgeat")
-            ->setPicture("bourgeat.jpg")
+            ->setFilename("bourgeat.jpg")
             ->setDelivery("Hebdomadaire en été")
             ->setLabel('ecocert.jpg')
             ->setImageDescription("Fruits rouges");

@@ -5827,8 +5827,11 @@ img {
 
 h1 {
   position: absolute;
-  top: -9999px;
-  left: -9999px;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
 }
 
 h2 {
@@ -5860,6 +5863,8 @@ section {
 }
 
 .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -5887,6 +5892,7 @@ section {
   background: #d98400;
 }
 
+/*ADMIN*/
 .admin-form {
   display: inline-block;
 }
@@ -5894,8 +5900,14 @@ section {
   background: red;
 }
 
+.edit_container input {
+  font-size: 1em;
+}
+
 /*HEADER*/
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -5918,6 +5930,7 @@ nav ul {
 
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
+  font-size: 1.5em;
 }
 .navbar-dark .navbar-nav .nav-link:hover {
   color: #673b15;
@@ -5948,8 +5961,8 @@ span {
 
 .news {
   width: 20%;
-  top: 150px;
-  left: 1300px;
+  top: 10%;
+  right: 70%;
   position: absolute;
   border: solid 1px #f29400;
 }
@@ -6054,12 +6067,12 @@ span {
   /* Close button */
   /* Lightbox overlay */
 }
-#photos #myImg {
+#photos .myImg {
   cursor: pointer;
   transition: 0.3s;
   margin: 5px;
 }
-#photos #myImg:hover {
+#photos .myImg:hover {
   opacity: 0.7;
 }
 #photos .diapo-img {
@@ -6119,12 +6132,6 @@ span {
   background: rgba(80, 80, 80, 0.75);
   width: 100%;
 }
-#photos .box-caption figcaption {
-  color: #fff;
-  display: block;
-  font-size: 0.85em;
-  padding: 10px;
-}
 
 @media (max-width: 1000px) {
   #photos {
@@ -6165,7 +6172,12 @@ span {
   margin: 0 15px;
 }
 .form-container label {
-  visibility: hidden;
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
 }
 .form-container input {
   font-size: 2rem;
