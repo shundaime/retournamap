@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% set active = null %}
+
+{% block title "Gérer la galerie" %}
+
+{% block body %}
+    <main>
+        <div class="flex">
+            <section class="container">
+                <h2>Gérer la galerie</h2>
+                {% for message in app.flashes('success')  %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for image in images %}
+                        <tr>
+                            <td><img src="/img/gallery/{{ image.filename }}" alt=""></td>
+                            <td>
+                                <a href="{{ path('admin.gallery.edit', {id: image.id}) }}" class="btn btn-secondary">Editer</a>
+                                <form method="post" action="{{ path('admin.gallery.delete', {id: image.id}) }}" onsubmit="return confirm('Êtes vous sûr ?')" class="admin-form">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                                    <button class="btn btn-danger">Supprimer</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('admin.gallery.new') }}" class="btn btn-primary">Ajouter une image</a>
+            </section>
+        </div>
+    </main>
+{% endblock %}

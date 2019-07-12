@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\File;
 
 class ProductorType extends AbstractType
 {
@@ -20,12 +19,6 @@ class ProductorType extends AbstractType
             ->add('imageFile',FileType::class, [
                 'label' => 'Picture (jpg file)',
                 'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2400k',
-                        'mimeTypesMessage' => 'Merci de soumettre un fichier au format jpg'
-                    ])
-                ]
             ])
             ->add('contracts',  CollectionType::class, [
                 'entry_type' => ContractType::class,

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContractRepository")
@@ -22,6 +24,26 @@ class Contract
     private $name;
 
     /**
+     * @var UploadedFile
+     * @Assert\NotBlank()
+     * @Assert\File(
+     *     mimeTypes={"application/pdf"},
+     *     mimeTypesMessage="Merci d'enregistrer un fichier au format .pdf"
+     * )
+     */
+    private $pdfFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $fileName;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
      * @var Productor
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Productor", inversedBy="contracts")
@@ -29,10 +51,6 @@ class Contract
      */
     private $productor;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $pdf;
 
     public function getId(): ?int
     {
@@ -62,15 +80,62 @@ class Contract
         return $this;
     }
 
-    public function getPdf(): ?string
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
     {
-        return $this->pdf;
+        return $this->updatedAt;
     }
 
-    public function setPdf(string $pdf): self
+    /**
+     * @param \DateTime $updatedAt
+     * @return Contract
+     */
+    public function setUpdatedAt($updatedAt)
     {
-        $this->pdf = $pdf;
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
 
+    /**
+     * @return UploadedFile
+     */
+    public function getPdfFile(): ?UploadedFile
+    {
+        return $this->pdfFile;
+
+    }
+
+    /**
+     * @param UploadedFile $pdfFile
+     * @return Contract
+     * @throws \Exception
+     */
+    public function setPdfFile(?UploadedFile $pdfFile): Contract
+    {
+        $this->pdfFile = $pdfFile;
+        if ($this->pdfFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFileName()
+    {
+        return $this->fileName;
+    }
+
+    /**
+     * @param mixed $fileName
+     * @return Contract
+     */
+    public function setFileName($fileName)
+    {
+        $this->fileName = $fileName;
         return $this;
     }
 }

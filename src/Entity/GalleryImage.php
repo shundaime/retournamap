@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GalleryImageRepository")
@@ -17,36 +19,36 @@ class GalleryImage
     private $id;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $picture;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $alt_attribute;
+    private $filename;
+
+    /**
+     * @var UploadedFile
+     * @Assert\NotBlank(groups={"new"})
+     * @Assert\Image(
+     *     mimeTypes={"image/jpeg", "image/png"},
+     *     mimeTypesMessage="Merci d'enregistrer une image au format .jpg ou .png"
+     * )
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     */
+    private $description;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -60,15 +62,63 @@ class GalleryImage
         return $this;
     }
 
-    public function getAltAttribute(): ?string
+    /**
+     * @return mixed
+     */
+    public function getFilename()
     {
-        return $this->alt_attribute;
+        return $this->filename;
     }
 
-    public function setAltAttribute(string $alt_attribute): self
+    /**
+     * @param mixed $filename
+     * @return GalleryImage
+     */
+    public function setFilename($filename)
     {
-        $this->alt_attribute = $alt_attribute;
-
+        $this->filename = $filename;
         return $this;
     }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getImageFile(): ?UploadedFile
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param UploadedFile $imageFile
+     * @return GalleryImage
+     * @throws \Exception
+     */
+    public function setImageFile(?UploadedFile $imageFile): GalleryImage
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     * @return GalleryImage
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
+
 }

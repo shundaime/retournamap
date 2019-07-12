@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% set active = null %}
+
+{% block title "Modifier l'image" %}
+
+{% block body %}
+    <main>
+        <div class="flex">
+            <section class="container edit_container">
+                <h2>Modifier l'image</h2>
+                {{ include('admin/gallery/_form.htm.twig', {button: 'Sauvegarder'}) }}
+            </section>
+        </div>
+    </main>
+{% endblock %}
+

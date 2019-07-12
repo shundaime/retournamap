@@ -11,7 +11,6 @@ use App\Repository\ProductorRepository;
 use App\Service\FileUploader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -50,7 +49,7 @@ class AdminProductorController extends AbstractController
         $productor = new Productor();
         $contract = new Contract();
         $productor->addContract($contract);
-        $form = $this->createForm(ProductorType::class, $productor);
+        $form = $this->createForm(ProductorType::class, $productor, ['validation_groups' => ['Default', 'new']]);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){

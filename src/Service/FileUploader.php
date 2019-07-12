@@ -4,21 +4,68 @@
 namespace App\Service;
 
 
+use App\Entity\Contract;
+use App\Entity\GalleryImage;
 use App\Entity\Productor;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileUploader
 {
-    private $targetDirectory;
+    private $productorDirectory;
+    private $contractDirectory;
+    private $galleryDirectory;
 
-    public function __construct($targetDirectory)
+    public function __construct($productorDirectory, $contractDirectory, $galleryDirectory)
     {
-        $this->targetDirectory = $targetDirectory;
+        $this->productorDirectory = $productorDirectory;
+        $this->contractDirectory = $contractDirectory;
+        $this->galleryDirectory = $galleryDirectory;
     }
 
-    public function upload(UploadedFile $file)
+    public function upload($entity)
     {
+        if($entity instanceof Productor){
+            return $this->uploadFile($entity->getImageFile(), $this->productorDirectory);
+        }
+
+        if($entity instanceof Contract){
+            return $this->uploadFile($entity->getPdfFile(), $this->contractDirectory);
+        }
+
+        if($entity instanceof GalleryImage){
+            return $this->uploadFile($entity->getImageFile(), $this->galleryDirectory);
+        }
+        return null;
+    }
+
+    public function remove($entity)
+    {
+        if($entity instanceof Productor){
+            try {
+                unlink($this->productorDirectory.'/'.$entity->getFilename());
+            }catch (\Exception $exception){
+
+            }
+        }
+        if($entity instanceof Contract){
+            try {
+                unlink($this->contractDirectory.'/'.$entity->getFilename());
+            }catch (\Exception $exception){
+
+            }
+        }
+
+        if($entity instanceof GalleryImage){
+            try {
+                unlink($this->galleryDirectory.'/'.$entity->getImageFile());
+            }catch (\Exception $exception){
+
+            }
+        }
+    }
+
+    private function uploadFile(UploadedFile $file, $directory){
         $fileName = null;
         if($file){
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -26,22 +73,11 @@ class FileUploader
             $fileName = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
 
             try {
-                $file->move($this->getTargetDirectory(), $fileName);
+                $file->move($directory, $fileName);
             } catch (FileException $e) {
                 // ... handle exception if something happens during file upload
             }
         }
         return $fileName;
     }
-
-    public function remove(Productor $productor)
-    {
-        unlink($this->getTargetDirectory().'/'.$productor->getFilename());
-    }
-
-    public function getTargetDirectory()
-    {
-        return $this->targetDirectory;
-    }
-
 }

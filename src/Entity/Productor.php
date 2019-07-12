@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductorRepository")
@@ -26,6 +28,11 @@ class Productor
 
     /**
      * @var UploadedFile
+     * @Assert\NotBlank(groups={"new"})
+     * @Assert\Image(
+     *     mimeTypes={"image/jpeg", "image/png"},
+     *     mimeTypesMessage="Merci d'enregistrer une image au format .jpg ou .png"
+     * )
      */
     private $imageFile;
 
@@ -36,28 +43,31 @@ class Productor
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $delivery;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text")
      */
     private $label;
 
     /**
      * @var ArrayCollection
-     *
      * @ORM\OneToMany(targetEntity="App\Entity\Contract", mappedBy="productor", cascade={"persist", "remove"})
      */
     private $contracts;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $image_description;
 
@@ -85,7 +95,6 @@ class Productor
 
     /**
      * @param Contract $contract
-     *
      * @return Productor
      */
     public function addContract(Contract $contract): Productor
@@ -106,7 +115,6 @@ class Productor
 
     /**
      * @param Contract $contract
-     *
      * @return Productor
      */
     public function removeContract(Contract $contract): Productor

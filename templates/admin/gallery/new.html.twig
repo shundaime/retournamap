@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% set active = null %}
+
+{% block title "Créer un producteur" %}
+
+{% block body %}
+    <main>
+        <div class="flex">
+            <section class="container">
+                <h2>Ajouter une image</h2>
+                {{ include('admin/gallery/_form.htm.twig', {button: 'Enregistrer'}) }}
+            </section>
+        </div>
+    </main>
+{% endblock %}
+

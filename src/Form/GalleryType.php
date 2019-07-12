@@ -1,34 +1,32 @@
 <?php
 
+
 namespace App\Form;
 
-use App\Entity\Contract;
+
+use App\Entity\GalleryImage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ContractType extends AbstractType
+class GalleryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Nom du contrat',
-                'required' => false
+            ->add('imageFile',FileType::class, [
+                'label' => 'Picture (jpg file)',
+                'required' => false,
             ])
-            ->add('pdfFile', FileType::class, [
-                'label' => 'Pdf du contrat',
-                'required' => false
-            ])
-        ;
+            ->add('description', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Contract::class,
+            'data_class' => GalleryImage::class,
             'translation_domain' => 'forms'
         ]);
     }

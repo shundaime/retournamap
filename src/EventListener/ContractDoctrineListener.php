@@ -3,12 +3,12 @@
 
 namespace App\EventListener;
 
-
-use App\Entity\Productor;
+use App\Entity\Contract;
 use App\Service\FileUploader;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 
-class ProductorDoctrineListener
+
+class ContractDoctrineListener
 {
     private $fileUploader;
 
@@ -21,7 +21,7 @@ class ProductorDoctrineListener
     {
         $entity = $args->getEntity();
 
-        if ($entity instanceof Productor) {
+        if ($entity instanceof Contract) {
             $this->fileUploader->remove($entity);
         }
     }
@@ -29,11 +29,11 @@ class ProductorDoctrineListener
     public function preUpdate(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
-        if ($entity instanceof Productor) {
-            if($entity->getImageFile()){
+        if ($entity instanceof Contract) {
+            if($entity->getPdfFile()){
                 $this->fileUploader->remove($entity);
                 $filename = $this->fileUploader->upload($entity);
-                $entity->setFilename($filename);
+                $entity->setFileName($filename);
             }
         }
     }
@@ -41,10 +41,9 @@ class ProductorDoctrineListener
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
-        if ($entity instanceof Productor) {
+        if ($entity instanceof Contract) {
             $filename = $this->fileUploader->upload($entity);
             $entity->setFilename($filename);
         }
     }
-
 }
