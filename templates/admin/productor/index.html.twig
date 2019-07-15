@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{ productor.name }}</td>
                         <td>
-                            <a href="{{ path('admin.edit', {id: productor.id}) }}" class="btn btn-secondary">Editer</a>
+                            <a href="{{ path('admin.productor.edit', {id: productor.id}) }}" class="btn btn-secondary">Editer</a>
                             <form method="post" action="{{ path('admin.productor.delete', {id: productor.id}) }}" onsubmit="return confirm('Êtes vous sûr ?')" class="admin-form">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ productor.id) }}">
@@ -37,7 +37,7 @@
                     {% endfor %}
                     </tbody>
                 </table>
-                <a href="{{ path('admin.new') }}" class="btn btn-primary">Créer un producteur</a>
+                <a href="{{ path('admin.productor.new') }}" class="btn btn-primary">Créer un producteur</a>
             </section>
         </div>
     </main>

@@ -32,7 +32,7 @@ class AdminProductorController extends AbstractController
     }
 
     /**
-     * @Route("/admin", name="admin.index")
+     * @Route("/admin/productor", name="admin.productor.index")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index()
@@ -42,7 +42,7 @@ class AdminProductorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/productor/create", name="admin.new")
+     * @Route("/admin/productor/new", name="admin.productor.new")
      */
     public function new(Request $request,  FileUploader $fileUploader)
     {
@@ -56,7 +56,7 @@ class AdminProductorController extends AbstractController
             $this->em->persist($productor);
             $this->em->flush();
             $this->addFlash('success', "Producteur créé avec succès");
-            return $this->redirectToRoute('admin.index');
+            return $this->redirectToRoute('admin.productor.index');
         }
         return $this->render('admin/productor/new.html.twig',
             ['productor' => $productor,
@@ -66,7 +66,7 @@ class AdminProductorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/productor/{id}", name="admin.edit", methods="GET|POST")
+     * @Route("/admin/productor/{id}", name="admin.productor.edit", methods="GET|POST")
      * @param Productor $productor
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -80,7 +80,7 @@ class AdminProductorController extends AbstractController
             $this->em->persist($productor);
             $this->em->flush();
             $this->addFlash('success', "Producteur modifié avec succès");
-            return $this->redirectToRoute('admin.index');
+            return $this->redirectToRoute('admin.productor.index');
         }
 
         return $this->render('admin/productor/edit.html.twig',
@@ -101,6 +101,6 @@ class AdminProductorController extends AbstractController
             $this->em->flush();
             $this->addFlash('success', "Producteur supprimé avec succès");
         }
-        return $this->redirectToRoute('admin.index');
+        return $this->redirectToRoute('admin.productor.index');
     }
 }

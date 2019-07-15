@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% set active = null %}
+
+{% block title "Gestion admin"%}
+
+{% block body %}
+<main>
+    <div class="flex">
+        <section class="container">
+            <button class="btn"><a href="{{ path('admin.productor.index') }}">Gérer les producteurs</a></button>
+            <button class="btn"><a href="{{ path('admin.gallery.index') }}">Gérer la gallerie</a></button>
+        </section>
+    </div>
+</main>
+{% endblock %}
+
