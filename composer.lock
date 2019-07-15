@@ -4,52 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e3652f29791ca375be385f4045e98ed",
+    "content-hash": "e6269ffd1514898734946e12a9a7e920",
     "packages": [
-        {
-            "name": "behat/transliterator",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Behat/Transliterator.git",
-                "reference": "826ce7e9c2a6664c0d1f381cbb38b1fb80a7ee2c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Transliterator/zipball/826ce7e9c2a6664c0d1f381cbb38b1fb80a7ee2c",
-                "reference": "826ce7e9c2a6664c0d1f381cbb38b1fb80a7ee2c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "chuyskywalker/rolling-curl": "^3.1",
-                "php-yaoi/php-yaoi": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Transliterator": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Artistic-1.0"
-            ],
-            "description": "String transliterator",
-            "keywords": [
-                "i18n",
-                "slug",
-                "transliterator"
-            ],
-            "time": "2017-04-04T11:38:05+00:00"
-        },
         {
             "name": "clue/stream-filter",
             "version": "v1.4.1",
@@ -101,69 +57,6 @@
                 "stream_filter_register"
             ],
             "time": "2019-04-09T12:31:48+00:00"
-        },
-        {
-            "name": "cspoo/swiftmailer-mailgun-bundle",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tehplague/swiftmailer-mailgun-bundle.git",
-                "reference": "e54da0c7e4bb90609cc89d524bff56497ca2a664"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tehplague/swiftmailer-mailgun-bundle/zipball/e54da0c7e4bb90609cc89d524bff56497ca2a664",
-                "reference": "e54da0c7e4bb90609cc89d524bff56497ca2a664",
-                "shasum": ""
-            },
-            "require": {
-                "mailgun/mailgun-php": "^2.3",
-                "php": "^7.0",
-                "swiftmailer/swiftmailer": "^6.0",
-                "symfony/config": "^3.3 || ^4.0",
-                "symfony/dependency-injection": "^3.3 || ^4.0",
-                "symfony/http-kernel": "^3.3 || ^4.0"
-            },
-            "require-dev": {
-                "doctrine/annotations": "^1.3",
-                "matthiasnoback/symfony-dependency-injection-test": "^2.3.1 || ^3.0",
-                "nyholm/symfony-bundle-test": "^1.4",
-                "php-http/curl-client": "^1.7",
-                "symfony/framework-bundle": "^3.3 || ^4.0",
-                "symfony/phpunit-bridge": "^4.0",
-                "symfony/swiftmailer-bundle": "^2.5.1 || ^3.2",
-                "zendframework/zend-diactoros": "^1.7"
-            },
-            "suggest": {
-                "azine/mailgunwebhooks-bundle": "Allows to handle Mailgun event webhooks",
-                "php-http/httplug-bundle": "To manage your http clients"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "cspoo\\Swiftmailer\\MailgunBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Spoo",
-                    "email": "mail@christian-spoo.info",
-                    "homepage": "http://www.christian-spoo.info/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Swiftmailer Mailgun bundle",
-            "homepage": "https://github.com/tehplague/swiftmailer-mailgun-bundle",
-            "keywords": [
-                "e-mail",
-                "mailgun",
-                "swiftmailer"
-            ],
-            "time": "2018-12-17T15:48:06+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -1476,6 +1369,251 @@
             "time": "2016-10-17T18:31:11+00:00"
         },
         {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.3-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2018-04-22T15:46:56+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "suggest": {
+                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "imagine/imagine",
+            "version": "v0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "a9a702a946073cbca166718f1b02a1e72d742daa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/a9a702a946073cbca166718f1b02a1e72d742daa",
+                "reference": "a9a702a946073cbca166718f1b02a1e72d742daa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "^3.3",
+                "symfony/phpunit-bridge": "^3.2"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2017-05-16T10:31:22+00:00"
+        },
+        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.17",
             "source": {
@@ -1526,37 +1664,46 @@
             "time": "2014-01-12T16:20:24+00:00"
         },
         {
-            "name": "jms/metadata",
-            "version": "2.0.0",
+            "name": "kriswallsmith/buzz",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/schmittjoh/metadata.git",
-                "reference": "e918c3a65105f73b74d94a0837b9f7d611d5bf0c"
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "3d436434ab6019a309b8813839a3693997d03774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/e918c3a65105f73b74d94a0837b9f7d611d5bf0c",
-                "reference": "e918c3a65105f73b74d94a0837b9f7d611d5bf0c",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/3d436434ab6019a309b8813839a3693997d03774",
+                "reference": "3d436434ab6019a309b8813839a3693997d03774",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2"
+                "php": "^7.1",
+                "php-http/httplug": "^1.1 || ^2.0",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "symfony/options-resolver": "^3.4 || ^4.0"
+            },
+            "provide": {
+                "php-http/client-implementation": "1.0",
+                "psr/http-client-implementation": "1.0"
             },
             "require-dev": {
-                "doctrine/cache": "^1.0",
-                "doctrine/coding-standard": "^4.0",
-                "phpunit/phpunit": "^7.0",
-                "symfony/cache": "^3.1|^4.0"
+                "nyholm/psr7": "^1.0",
+                "php-http/client-integration-tests": "^2.0.1",
+                "phpunit/phpunit": "^6.5.7",
+                "psr/log": "^1.0",
+                "symfony/phpunit-bridge": "^4.2.3"
+            },
+            "suggest": {
+                "ext-curl": "To use our cUrl clients",
+                "nyholm/psr7": "For PSR-7 and PSR-17 implementation"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "Metadata\\": "src/"
+                    "Buzz\\": "lib"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1565,22 +1712,123 @@
             ],
             "authors": [
                 {
-                    "name": "Asmir Mustafic",
-                    "email": "goetas@gmail.com"
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "http://tnyholm.se/"
                 }
             ],
-            "description": "Class/method/property metadata management in PHP",
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
             "keywords": [
-                "annotations",
-                "metadata",
-                "xml",
-                "yaml"
+                "curl",
+                "http client"
             ],
-            "time": "2018-11-09T13:57:43+00:00"
+            "time": "2019-04-17T18:49:52+00:00"
+        },
+        {
+            "name": "liip/imagine-bundle",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipImagineBundle.git",
+                "reference": "1acae6ac066e431c3c55c4d39971827a02cbe4d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/1acae6ac066e431c3c55c4d39971827a02cbe4d5",
+                "reference": "1acae6ac066e431c3c55c4d39971827a02cbe4d5",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "^0.7.1,<0.8",
+                "php": "^7.1",
+                "symfony/asset": "^3.4|^4.0",
+                "symfony/filesystem": "^3.4|^4.0",
+                "symfony/finder": "^3.4|^4.0",
+                "symfony/framework-bundle": "^3.4|^4.0",
+                "symfony/options-resolver": "^3.4|^4.0",
+                "symfony/process": "^3.4|^4.0",
+                "symfony/templating": "^3.4|^4.0",
+                "symfony/translation": "^3.4|^4.0"
+            },
+            "require-dev": {
+                "amazonwebservices/aws-sdk-for-php": "^1.0",
+                "aws/aws-sdk-php": "^2.4",
+                "doctrine/cache": "^1.1",
+                "doctrine/orm": "^2.3",
+                "enqueue/enqueue-bundle": "^0.7|^0.8",
+                "ext-gd": "*",
+                "friendsofphp/php-cs-fixer": "^2.10",
+                "league/flysystem": "^1.0",
+                "psr/log": "^1.0",
+                "symfony/browser-kit": "^3.4|^4.0",
+                "symfony/console": "^3.4|^4.0",
+                "symfony/dependency-injection": "^3.4|^4.0",
+                "symfony/form": "^3.4|^4.0",
+                "symfony/phpunit-bridge": "^3.4|^4.0",
+                "symfony/validator": "^3.4|^4.0",
+                "symfony/yaml": "^3.4|^4.0",
+                "twig/twig": "^1.12|^2.0"
+            },
+            "suggest": {
+                "alcaeus/mongo-php-adapter": "required on PHP >= 7.0 to use mongo components with mongodb extension",
+                "amazonwebservices/aws-sdk-for-php": "required to use AWS version 1 cache resolver",
+                "aws/aws-sdk-php": "required to use AWS version 2/3 cache resolver",
+                "doctrine/mongodb-odm": "required to use mongodb-backed doctrine components",
+                "enqueue/enqueue-bundle": "^0.7 add if you like to process images in background",
+                "ext-exif": "required to read EXIF metadata from images",
+                "ext-gd": "required to use gd driver",
+                "ext-gmagick": "required to use gmagick driver",
+                "ext-imagick": "required to use imagick driver",
+                "ext-mongo": "required for mongodb components on PHP <7.0",
+                "ext-mongodb": "required for mongodb components on PHP >=7.0",
+                "league/flysystem": "required to use FlySystem data loader or cache resolver",
+                "monolog/monolog": "A psr/log compatible logger is required to enable logging",
+                "twig/twig": "required to use the provided Twig extension. Version 1.12 or greater needed"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0": "1.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liip\\ImagineBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip and other contributors",
+                    "homepage": "https://github.com/liip/LiipImagineBundle/contributors"
+                }
+            ],
+            "description": "This bundle provides an image manipulation abstraction toolkit for Symfony-based projects.",
+            "homepage": "http://liip.ch",
+            "keywords": [
+                "bundle",
+                "image",
+                "imagine",
+                "liip",
+                "manipulation",
+                "photos",
+                "pictures",
+                "symfony",
+                "transformation"
+            ],
+            "time": "2018-07-10T12:53:54+00:00"
         },
         {
             "name": "mailgun/mailgun-php",
@@ -1711,6 +1959,68 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
+        },
+        {
+            "name": "nyholm/psr7",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nyholm/psr7.git",
+                "reference": "701fe7ea8c12c07b985b156d589134d328160cf7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/701fe7ea8c12c07b985b156d589134d328160cf7",
+                "reference": "701fe7ea8c12c07b985b156d589134d328160cf7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "php-http/message-factory": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "http-interop/http-factory-tests": "dev-master",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nyholm\\Psr7\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com"
+                },
+                {
+                    "name": "Martijn van der Ven",
+                    "email": "martijn@vanderven.se"
+                }
+            ],
+            "description": "A fast PHP7 implementation of PSR-7",
+            "homepage": "http://tnyholm.se",
+            "keywords": [
+                "psr-17",
+                "psr-7"
+            ],
+            "time": "2019-02-16T17:20:43+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -1956,6 +2266,66 @@
                 "psr7"
             ],
             "time": "2019-06-30T09:04:27+00:00"
+        },
+        {
+            "name": "php-http/guzzle6-adapter",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/guzzle6-adapter.git",
+                "reference": "a56941f9dc6110409cfcddc91546ee97039277ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/a56941f9dc6110409cfcddc91546ee97039277ab",
+                "reference": "a56941f9dc6110409cfcddc91546ee97039277ab",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": ">=5.5.0",
+                "php-http/httplug": "^1.0"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "1.0",
+                "php-http/client-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "php-http/adapter-integration-tests": "^0.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Adapter\\Guzzle6\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "David de Boer",
+                    "email": "david@ddeboer.nl"
+                }
+            ],
+            "description": "Guzzle 6 HTTP Adapter",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "Guzzle",
+                "http"
+            ],
+            "time": "2016-05-10T06:13:32+00:00"
         },
         {
             "name": "php-http/httplug",
@@ -2490,6 +2860,107 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+            "name": "psr/http-client",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-client.git",
+                "reference": "496a823ef742b632934724bf769560c2a5c7c44e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/496a823ef742b632934724bf769560c2a5c7c44e",
+                "reference": "496a823ef742b632934724bf769560c2a5c7c44e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP clients",
+            "homepage": "https://github.com/php-fig/http-client",
+            "keywords": [
+                "http",
+                "http-client",
+                "psr",
+                "psr-18"
+            ],
+            "time": "2018-10-30T23:29:13+00:00"
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2019-04-30T12:38:16+00:00"
+        },
+        {
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -2634,6 +3105,46 @@
                 "psr-3"
             ],
             "time": "2018-11-20T15:27:04+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -3909,125 +4420,6 @@
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
             "time": "2019-06-06T08:35:06+00:00"
-        },
-        {
-            "name": "symfony/http-client",
-            "version": "v4.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-client.git",
-                "reference": "c453b1bb8e8a8b79c9db65a1bd86822f8c6e2bb7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/c453b1bb8e8a8b79c9db65a1bd86822f8c6e2bb7",
-                "reference": "c453b1bb8e8a8b79c9db65a1bd86822f8c6e2bb7",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3",
-                "psr/log": "^1.0",
-                "symfony/http-client-contracts": "^1.1.3",
-                "symfony/polyfill-php73": "^1.11"
-            },
-            "provide": {
-                "psr/http-client-implementation": "1.0",
-                "symfony/http-client-implementation": "1.1"
-            },
-            "require-dev": {
-                "nyholm/psr7": "^1.0",
-                "psr/http-client": "^1.0",
-                "symfony/http-kernel": "^4.3",
-                "symfony/process": "^4.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\HttpClient\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony HttpClient component",
-            "homepage": "https://symfony.com",
-            "time": "2019-06-05T13:19:12+00:00"
-        },
-        {
-            "name": "symfony/http-client-contracts",
-            "version": "v1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-client-contracts.git",
-                "reference": "05201f91d4f03c58f7324d019bdd791c8e8e418b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/05201f91d4f03c58f7324d019bdd791c8e8e418b",
-                "reference": "05201f91d4f03c58f7324d019bdd791c8e8e418b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3"
-            },
-            "suggest": {
-                "symfony/http-client-implementation": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Contracts\\HttpClient\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Generic abstractions related to HTTP clients",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "abstractions",
-                "contracts",
-                "decoupling",
-                "interfaces",
-                "interoperability",
-                "standards"
-            ],
-            "time": "2019-06-05T13:28:50+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -6586,100 +6978,6 @@
             "time": "2019-06-18T15:37:11+00:00"
         },
         {
-            "name": "vich/uploader-bundle",
-            "version": "1.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "36632793821b9c13188166290c9ece8da9b63ac6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/36632793821b9c13188166290c9ece8da9b63ac6",
-                "reference": "36632793821b9c13188166290c9ece8da9b63ac6",
-                "shasum": ""
-            },
-            "require": {
-                "behat/transliterator": "^1.2",
-                "ext-simplexml": "*",
-                "jms/metadata": "^2.0",
-                "php": "^7.2",
-                "symfony/config": "^3.4 || ^4.0",
-                "symfony/dependency-injection": "^3.4 || ^4.0",
-                "symfony/event-dispatcher": "^3.4 || ^4.0",
-                "symfony/form": "^3.4.19 || ^4.0",
-                "symfony/http-foundation": "^3.4 || ^4.0",
-                "symfony/http-kernel": "^3.4 || ^4.0",
-                "symfony/property-access": "^3.4 || ^4.0",
-                "symfony/templating": "^3.4 || ^4.0"
-            },
-            "require-dev": {
-                "alcaeus/mongo-php-adapter": "^1.1",
-                "doctrine/doctrine-bundle": "^1.8",
-                "doctrine/mongodb-odm": "^1.2",
-                "doctrine/orm": "^2.5",
-                "ext-sqlite3": "*",
-                "knplabs/knp-gaufrette-bundle": "^0.5",
-                "matthiasnoback/symfony-dependency-injection-test": "^4.0",
-                "mikey179/vfsstream": "^1.6",
-                "oneup/flysystem-bundle": "^3.0",
-                "phpunit/phpunit": "^8.0",
-                "symfony/browser-kit": "^3.4 || ^4.0",
-                "symfony/css-selector": "^3.4 || ^4.0",
-                "symfony/doctrine-bridge": "^3.4 || ^4.0",
-                "symfony/dom-crawler": "^3.4 || ^4.0",
-                "symfony/framework-bundle": "^3.4.23 || ^4.2.4",
-                "symfony/phpunit-bridge": "^4.3",
-                "symfony/security-csrf": "^3.4 || ^4.0",
-                "symfony/translation": "^3.4 || ^4.0",
-                "symfony/twig-bridge": "^3.4 || ^4.0",
-                "symfony/twig-bundle": "^3.4 || ^4.0",
-                "symfony/validator": "^3.4 || ^4.0",
-                "symfony/var-dumper": "^3.4 || ^4.0",
-                "symfony/yaml": "^3.4 || ^4.0"
-            },
-            "suggest": {
-                "doctrine/doctrine-bundle": "For integration with Doctrine",
-                "doctrine/mongodb-odm-bundle": "For integration with Doctrine ODM",
-                "doctrine/orm": "For integration with Doctrine ORM",
-                "doctrine/phpcr-odm": "For integration with Doctrine PHPCR",
-                "knplabs/knp-gaufrette-bundle": "For integration with Gaufrette",
-                "liip/imagine-bundle": "To generate image thumbnails",
-                "ocramius/proxy-manager": "To use lazy services",
-                "oneup/flysystem-bundle": "For integration with Flysystem",
-                "symfony/yaml": "To use YAML mapping",
-                "willdurand/propel-eventdispatcher-bundle": "For integration with Propel"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.10.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Vich\\UploaderBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dustin Dobervich",
-                    "email": "ddobervich@gmail.com"
-                }
-            ],
-            "description": "Ease file uploads attached to entities",
-            "homepage": "https://github.com/dustin10/VichUploaderBundle",
-            "keywords": [
-                "file uploads",
-                "upload"
-            ],
-            "time": "2019-07-05T13:37:47+00:00"
-        },
-        {
             "name": "webmozart/assert",
             "version": "1.4.0",
             "source": {
@@ -6839,6 +7137,69 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "cspoo/swiftmailer-mailgun-bundle",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tehplague/swiftmailer-mailgun-bundle.git",
+                "reference": "e54da0c7e4bb90609cc89d524bff56497ca2a664"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tehplague/swiftmailer-mailgun-bundle/zipball/e54da0c7e4bb90609cc89d524bff56497ca2a664",
+                "reference": "e54da0c7e4bb90609cc89d524bff56497ca2a664",
+                "shasum": ""
+            },
+            "require": {
+                "mailgun/mailgun-php": "^2.3",
+                "php": "^7.0",
+                "swiftmailer/swiftmailer": "^6.0",
+                "symfony/config": "^3.3 || ^4.0",
+                "symfony/dependency-injection": "^3.3 || ^4.0",
+                "symfony/http-kernel": "^3.3 || ^4.0"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.3",
+                "matthiasnoback/symfony-dependency-injection-test": "^2.3.1 || ^3.0",
+                "nyholm/symfony-bundle-test": "^1.4",
+                "php-http/curl-client": "^1.7",
+                "symfony/framework-bundle": "^3.3 || ^4.0",
+                "symfony/phpunit-bridge": "^4.0",
+                "symfony/swiftmailer-bundle": "^2.5.1 || ^3.2",
+                "zendframework/zend-diactoros": "^1.7"
+            },
+            "suggest": {
+                "azine/mailgunwebhooks-bundle": "Allows to handle Mailgun event webhooks",
+                "php-http/httplug-bundle": "To manage your http clients"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "cspoo\\Swiftmailer\\MailgunBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Spoo",
+                    "email": "mail@christian-spoo.info",
+                    "homepage": "http://www.christian-spoo.info/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Swiftmailer Mailgun bundle",
+            "homepage": "https://github.com/tehplague/swiftmailer-mailgun-bundle",
+            "keywords": [
+                "e-mail",
+                "mailgun",
+                "swiftmailer"
+            ],
+            "time": "2018-12-17T15:48:06+00:00"
+        },
         {
             "name": "doctrine/data-fixtures",
             "version": "v1.3.1",
@@ -7392,6 +7753,125 @@
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
             "time": "2019-05-31T18:55:30+00:00"
+        },
+        {
+            "name": "symfony/http-client",
+            "version": "v4.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client.git",
+                "reference": "e903ab079c99eab322fc5c71eb63fc467cd19a2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/e903ab079c99eab322fc5c71eb63fc467cd19a2a",
+                "reference": "e903ab079c99eab322fc5c71eb63fc467cd19a2a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/log": "^1.0",
+                "symfony/http-client-contracts": "^1.1.4",
+                "symfony/polyfill-php73": "^1.11"
+            },
+            "provide": {
+                "psr/http-client-implementation": "1.0",
+                "symfony/http-client-implementation": "1.1"
+            },
+            "require-dev": {
+                "nyholm/psr7": "^1.0",
+                "psr/http-client": "^1.0",
+                "symfony/http-kernel": "^4.3",
+                "symfony/process": "^4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpClient\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony HttpClient component",
+            "homepage": "https://symfony.com",
+            "time": "2019-06-26T07:29:23+00:00"
+        },
+        {
+            "name": "symfony/http-client-contracts",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client-contracts.git",
+                "reference": "e1924aea9c70ae3e69fff05afa3cb8ce541bf3bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/e1924aea9c70ae3e69fff05afa3cb8ce541bf3bb",
+                "reference": "e1924aea9c70ae3e69fff05afa3cb8ce541bf3bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "suggest": {
+                "symfony/http-client-implementation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\HttpClient\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to HTTP clients",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "time": "2019-06-17T17:43:54+00:00"
         },
         {
             "name": "symfony/maker-bundle",

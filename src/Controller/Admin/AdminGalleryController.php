@@ -88,13 +88,13 @@ class AdminGalleryController extends AbstractController
 
     /**
      * @Route("/admin/gallery/{id}", name="admin.gallery.delete", methods="DELETE")
-     * @param GalleryImage $galleryImage
+     * @param GalleryImage $image
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function delete(GalleryImage $galleryImage, Request $request)
+    public function delete(GalleryImage $image, Request $request)
     {
-        if($this->isCsrfTokenValid('delete' . $galleryImage->getId(), $request->get('_token'))){
-            $this->em->remove($galleryImage);
+        if($this->isCsrfTokenValid('delete' . $image->getId(), $request->get('_token'))){
+            $this->em->remove($image);
             $this->em->flush();
             $this->addFlash('success', "Image supprimée avec succès");
         }

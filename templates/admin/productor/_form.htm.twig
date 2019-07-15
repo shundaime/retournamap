@@ -1,4 +1,8 @@
-{{ form_start(form) }}
+{{ form_start(form, {
+    attr:{
+        class: 'form_container'
+    }
+}) }}
 <div class="row">
     <div class="col-md-5">{{ form_row(form.name) }}</div>
     <div class="col-md-5">{{ form_row(form.delivery) }}</div>
@@ -6,8 +10,8 @@
 </div>
 <div class="row">
     {% for contract in form.contracts %}
-        <div class="col-md-6">{{ form_row(contract.name) }}</div>
         <div class="col-md-6">{{ form_row(contract.pdfFile) }}</div>
+        <div class="col-md-6">{{ form_row(contract.name) }}</div>
     {% endfor %}
 </div>
 <div class="row">

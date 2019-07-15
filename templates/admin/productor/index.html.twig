@@ -15,8 +15,15 @@
                     </div>
                 {% endfor %}
                 <table class="table table-striped">
-                    <a href="{{ path('admin.productor.new') }}" class="btn btn-primary">Créer un producteur</a>
-                    <thead>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin.productor.new') }}" class="btn btn-primary">Ajouter une image</a>
+
+                        </li>
+                        <li>
+                            <a href="{{ path('admin') }}" class="btn btn-primary">Menu</a>
+                        </li>
+                    </ul>                    <thead>
                     <tr>
                         <th>Nom</th>
                         <th>Action</th>

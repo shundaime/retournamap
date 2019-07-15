@@ -30,10 +30,10 @@ class GalleryDoctrineListener
     {
         $entity = $args->getEntity();
         if ($entity instanceof GalleryImage) {
-            if($entity->getPdfFile()){
+            if($entity->getImageFile()){
                 $this->fileUploader->remove($entity);
                 $filename = $this->fileUploader->upload($entity);
-                $entity->setFileName($filename);
+                $entity->setImageFileName($filename);
             }
         }
     }
@@ -43,7 +43,7 @@ class GalleryDoctrineListener
         $entity = $args->getEntity();
         if ($entity instanceof GalleryImage) {
             $filename = $this->fileUploader->upload($entity);
-            $entity->setFilename($filename);
+            $entity->setImageFileName($filename);
         }
     }
 }

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Productor;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,7 +18,7 @@ class ProductorType extends AbstractType
         $builder
             ->add('name')
             ->add('imageFile',FileType::class, [
-                'label' => 'Picture (jpg file)',
+                'label' => 'Picture',
                 'required' => false,
             ])
             ->add('contracts',  CollectionType::class, [
@@ -25,7 +26,11 @@ class ProductorType extends AbstractType
                 'entry_options' => ['label' => false],
             ])
             ->add('delivery',TextType::class)
-            ->add('label',TextType::class)
+            ->add('label',ChoiceType::class, [
+                'choices' => ['Bio' => 'bio.png',
+                'Nature & Progrès' => 'nature.png',
+                'Ecocert' => 'ecocert.jpg']
+            ])
             ->add('image_description')
         ;
     }

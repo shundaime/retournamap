@@ -21,7 +21,7 @@ class GalleryImage
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $filename;
+    private $ImageFileName;
 
     /**
      * @var UploadedFile
@@ -62,21 +62,14 @@ class GalleryImage
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getFilename()
+    public function getImageFileName(): ?string
     {
-        return $this->filename;
+        return $this->ImageFileName;
     }
 
-    /**
-     * @param mixed $filename
-     * @return GalleryImage
-     */
-    public function setFilename($filename)
+    public function setImageFileName(?string $ImageFileName): GalleryImage
     {
-        $this->filename = $filename;
+        $this->ImageFileName = $ImageFileName;
         return $this;
     }
 
@@ -119,6 +112,4 @@ class GalleryImage
         $this->updatedAt = $updatedAt;
         return $this;
     }
-
-
 }

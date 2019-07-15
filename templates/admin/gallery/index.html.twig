@@ -15,17 +15,27 @@
                     </div>
                 {% endfor %}
                 <table class="table table-striped">
-                    <a href="{{ path('admin.gallery.new') }}" class="btn btn-primary">Ajouter une image</a>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin.gallery.new') }}" class="btn btn-primary">Ajouter une image</a>
+
+                        </li>
+                        <li>
+                            <a href="{{ path('admin') }}" class="btn btn-primary">Menu</a>
+                        </li>
+                    </ul>
                     <thead>
                     <tr>
                         <th>Image</th>
+                        <th>Description</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for image in images %}
                         <tr>
-                            <td><img src="/img/gallery/{{ image.filename }}" alt=""></td>
+                            <td><img src="{{ asset('/img/gallery/'~image.imageFileName) | imagine_filter('thumb') }}" alt="{{ image.description }}"></td>
+                            <td>{{ image.description }}</td>
                             <td>
                                 <a href="{{ path('admin.gallery.edit', {id: image.id}) }}" class="btn btn-secondary">Editer</a>
                                 <form method="post" action="{{ path('admin.gallery.delete', {id: image.id}) }}" onsubmit="return confirm('Êtes vous sûr ?')" class="admin-form">

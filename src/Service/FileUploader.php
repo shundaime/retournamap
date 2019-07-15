@@ -58,7 +58,7 @@ class FileUploader
 
         if($entity instanceof GalleryImage){
             try {
-                unlink($this->galleryDirectory.'/'.$entity->getImageFile());
+                unlink($this->galleryDirectory.'/'.$entity->getImageFileName());
             }catch (\Exception $exception){
 
             }

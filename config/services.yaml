@@ -27,7 +27,18 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    App\Service\EmailManager:
+        public: true
+        arguments:
+            $twig: "@twig"
+            $apiKey: '%env(MAILGUN_API_KEY)%'
+            $domain: '%env(MAILGUN_DOMAIN)%'
+            $endpoint: '%env(MAILGUN_ENDPOINT)%'
+            $sender: '%env(MAILGUN_SENDER)%'
+            $recipient: '%env(MAILGUN_RECIPIENT)%'
+
     App\Service\FileUploader:
+        public: true
         arguments:
             $productorDirectory: '%productors_directory%'
             $contractDirectory: '%contracts_directory%'
@@ -56,5 +67,6 @@ services:
             - { name: doctrine.event_listener, event: preRemove }
             - { name: doctrine.event_listener, event: preUpdate }
             - { name: doctrine.event_listener, event: prePersist }
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

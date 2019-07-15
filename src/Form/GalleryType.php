@@ -17,7 +17,7 @@ class GalleryType extends AbstractType
     {
         $builder
             ->add('imageFile',FileType::class, [
-                'label' => 'Picture (jpg file)',
+                'label' => 'Picture',
                 'required' => false,
             ])
             ->add('description', TextType::class);

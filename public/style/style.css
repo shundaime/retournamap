@@ -5900,7 +5900,7 @@ section {
   background: red;
 }
 
-.edit_container input {
+.form_container input, .form_container select {
   font-size: 1em;
 }
 
@@ -5983,7 +5983,7 @@ span {
   width: 45%;
 }
 .table thead > tr > th:last-child {
-  width: 10%;
+  width: 15%;
 }
 .table td {
   vertical-align: middle;

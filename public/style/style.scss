@@ -121,8 +121,8 @@ section{
   }
 }
 
-.edit_container{
-  input{
+.form_container{
+  input, select{
     font-size: 1em;
   }
 }
@@ -214,7 +214,7 @@ span{
   }
 
   thead>tr>th:last-child{
-    width: 10%;
+    width: 15%;
   }
 
   td{

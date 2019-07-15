@@ -13,14 +13,12 @@
             <ul class="grid" id="photos">
                 {% for image in images %}
                     <li>
-                        <a href="#{{ image.id }}"><img src="img/gallery/{{ image.filename }}" class="myImg" alt="{{ image.description }}"></a>
+                        <a href="#{{ image.id }}"><img src="img/gallery/{{ image.imageFileName }}" class="myImg" alt="{{ image.description }}"></a>
                         <div class="lightbox" id="{{ image.id }}">
                             <figure>
                                 <a href="#" class="close"></a>
-                                <img src="img/gallery/{{ image.filename }}" class="diapo-img" alt="{{ image.description }}">
-                                <div class="box-caption">
-                                    <figcaption>{{ image.description }}</figcaption>
-                                </div>
+                                <img src="img/gallery/{{ image.imageFileName }}" class="diapo-img" alt="{{ image.description }}">
+                                <figcaption>{{ image.description }}</figcaption>
                             </figure>
                         </div>
                     </li>
