@@ -8,8 +8,15 @@
 <main>
     <div class="flex">
         <section class="container">
-            <button class="btn"><a href="{{ path('admin.productor.index') }}">Gérer les producteurs</a></button>
-            <button class="btn"><a href="{{ path('admin.gallery.index') }}">Gérer la gallerie</a></button>
+            <h2>Gestion du contenu</h2>
+            <ul>
+                <li>
+                    <a href="{{ path('admin.productor.index') }}" class="btn">Gérer les producteurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin.gallery.index') }}" class="btn">Gérer la gallerie</a>
+                </li>
+            </ul>
         </section>
     </div>
 </main>

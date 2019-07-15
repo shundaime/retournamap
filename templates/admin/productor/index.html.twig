@@ -15,6 +15,7 @@
                     </div>
                 {% endfor %}
                 <table class="table table-striped">
+                    <a href="{{ path('admin.productor.new') }}" class="btn btn-primary">Créer un producteur</a>
                     <thead>
                     <tr>
                         <th>Nom</th>
@@ -37,7 +38,6 @@
                     {% endfor %}
                     </tbody>
                 </table>
-                <a href="{{ path('admin.productor.new') }}" class="btn btn-primary">Créer un producteur</a>
             </section>
         </div>
     </main>
