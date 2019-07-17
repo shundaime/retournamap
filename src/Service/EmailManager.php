@@ -48,6 +48,7 @@ class EmailManager
 
     /**
      * @param ContactMessage $contactMessage
+     * @Twig
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
@@ -59,9 +60,9 @@ class EmailManager
             'from' => $this->sender,
             'to' => $this->recipient,
             'subject' => 'Nouveau message depuis le site',
-            'html' => $this->twig->render('emails/contact.html.twig'), [
+            'html' => $this->twig->render('emails/contact.html.twig', [
                 'message' => $contactMessage,
-            ]
+            ])
         ]);
     }
 
