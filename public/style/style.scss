@@ -103,7 +103,7 @@ section{
   border: 2px solid #673b15;
   font-size: 1.8rem;
   font-weight: bold;
-  margin: 20px auto;
+  margin: 10px auto;
   background: $carot;
   color: #fff;
 
@@ -196,6 +196,13 @@ span{
 }
 
 /*EXPLAIN*/
+.section-divider{
+  display: flex;
+
+  .container{
+    padding: 0 20px;
+  }
+}
 
 .btn-list{
   @include flex;
@@ -470,10 +477,19 @@ footer {
 }
 
 @media  #{$medium-down}{
-
+  .news{
+    position: initial;
+    margin: 15px auto;
+    width: 80%;
+  }
 }
 
 @media #{$small-down} {
+  .news{
+    margin: 15px auto;
+    width: 100%;
+  }
+
   .form-container{
     display: block;
     margin: 0 auto;
@@ -482,6 +498,10 @@ footer {
       width: 100%;
       margin: 0 auto;
     }
+  }
+
+  .section-divider{
+    display: block;
   }
 
   .tools{
