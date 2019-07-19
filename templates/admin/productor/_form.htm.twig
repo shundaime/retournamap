@@ -9,14 +9,14 @@
     <div class="col-md-2">{{ form_row(form.label) }}</div>
 </div>
 <div class="row">
-    {% for contract in form.contracts %}
-        <div class="col-md-6">{{ form_row(contract.pdfFile) }}</div>
-        <div class="col-md-6">{{ form_row(contract.name) }}</div>
-    {% endfor %}
-</div>
-<div class="row">
     <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
     <div class="col-md-6">{{ form_row(form.image_description) }}</div>
+</div>
+<div class="row contracts" data-prototype-pdf-file="{{ form_widget(form.contracts.vars.prototype.pdfFile)|e }}" data-prototype-name="{{ form_widget(form.contracts.vars.prototype.name)|e }}">
+    {% for contract in form.contracts %}
+        <div class="col-md-5">{{ form_row(contract.pdfFile) }}</div>
+        <div class="col-md-6">{{ form_row(contract.name) }}</div>
+    {% endfor %}
 </div>
 {{ form_widget(form) }}
 <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>

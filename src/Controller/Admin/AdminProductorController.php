@@ -12,6 +12,7 @@ use App\Service\FileUploader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminProductorController extends AbstractController
@@ -33,7 +34,7 @@ class AdminProductorController extends AbstractController
 
     /**
      * @Route("/admin/productor", name="admin.productor.index")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function index()
     {
@@ -69,7 +70,7 @@ class AdminProductorController extends AbstractController
      * @Route("/admin/productor/{id}", name="admin.productor.edit", methods="GET|POST")
      * @param Productor $productor
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function edit(Productor $productor, Request $request)
     {

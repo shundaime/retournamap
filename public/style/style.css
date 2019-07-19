@@ -5904,6 +5904,13 @@ section {
   font-size: 1em;
 }
 
+.add-link {
+  border: 2px solid #673b15;
+  border-radius: 50%;
+  background: #f29400;
+  color: #fff;
+}
+
 /*HEADER*/
 header {
   display: -webkit-box;
@@ -6128,8 +6135,11 @@ span {
   content: "";
   cursor: default;
 }
-#photos figure {
-  margin: 0 auto;
+#photos figure figcaption {
+  background-color: #222;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
   position: relative;
 }
 #photos .box-caption {
@@ -6193,7 +6203,7 @@ span {
 .form-container textarea {
   font-size: 2rem;
   width: 100%;
-  height: 34%;
+  height: 37%;
 }
 
 .fas, .fab {
@@ -6223,7 +6233,7 @@ footer ul {
 }
 
 /*BOUTON SCROLL*/
-.scrollup {
+.scrollUp {
   width: 40px;
   height: 40px;
   position: fixed;
@@ -6236,7 +6246,7 @@ footer ul {
   text-align: center;
   line-height: 37px;
 }
-.scrollup:hover {
+.scrollUp:hover {
   color: white;
   cursor: pointer;
 }
@@ -6249,11 +6259,6 @@ footer ul {
   }
 }
 @media only screen and (max-width: 768px) {
-  .news {
-    margin: 15px auto;
-    width: 100%;
-  }
-
   .form-container {
     display: block;
     margin: 0 auto;

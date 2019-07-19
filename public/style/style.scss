@@ -127,6 +127,13 @@ section{
   }
 }
 
+.add-link{
+  border: 2px solid #673b15;
+  border-radius: 50%;
+  background: $carot;
+  color: #fff;
+}
+
 /*HEADER*/
 header{
   @include flex();
@@ -360,9 +367,14 @@ span{
     cursor: default;
   }
 
-  figure {
-    margin: 0 auto;
-    position: relative;
+  figure{
+    figcaption{
+      background-color: #222;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
   }
 
   .box-caption {
@@ -428,7 +440,7 @@ span{
   textarea{
     font-size: 2rem;
     width: 100%;
-    height: 34%;
+    height: 37%;
   }
 }
 
@@ -457,7 +469,7 @@ footer {
 
 /*BOUTON SCROLL*/
 
-.scrollup {
+.scrollUp {
   width: 40px;
   height: 40px;
   position: fixed;
@@ -485,10 +497,6 @@ footer {
 }
 
 @media #{$small-down} {
-  .news{
-    margin: 15px auto;
-    width: 100%;
-  }
 
   .form-container{
     display: block;
