@@ -12,20 +12,25 @@
     <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
     <div class="col-md-6">{{ form_row(form.image_description) }}</div>
 </div>
-<div class="contracts" data-prototype-pdf-file="{{ form_widget(form.contracts.vars.prototype.pdfFile)|e }}" data-prototype-name="{{ form_widget(form.contracts.vars.prototype.name)|e }}">
+<div class="contracts" data-prototype-pdf-file="{{ form_widget(form.contracts.vars.prototype.pdfFile)|e }}"
+     data-prototype-name="{{ form_widget(form.contracts.vars.prototype.name)|e }}">
     {% for index,contract in form.contracts %}
-        <div class="row contract" data-index="{{ index }}">
-            <div class="col-md-6">{{ form_row(contract.pdfFile) }}</div>
-            <div class="col-md-5">{{ form_row(contract.name) }}</div>
-            <div class="col-md-1">
-                <button type="button" class="add-contract-btn contract-btn" title="Ajouter un contrat">+</button>
-                {% if showDeleteBtn == true %}
-                <button type="button" class="delete-contract-form-btn contract-btn" title="Supprimer" data-index="{{ index }}">-</button>
-                {% endif %}
-            </div>
+    <div class="row contract" data-index="{{ index }}">
+        <div class="col-md-6">{{ form_row(contract.pdfFile) }}</div>
+        <div class="{% if edit == null %}col-md-6{% else %}col-md-5{% endif %}">{{ form_row(contract.name) }}</div>
+        {% if edit == true %}
+        <div class="col-md-1">
+            <button type="button" title="Supprimer le champ" class="delete-contract-form-btn contract-btn" data-index="{{ index }}">-</button>
         </div>
-    {% endfor %}
+        {% endif %}
+    </div>
+        {% endfor %}
 </div>
 {{ form_widget(form) }}
-<button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
+<div class="row form-btn">
+    <div class="col-md-12">
+        <button type="button" class="add-contract-btn btn" title="Ajouter un contrat">Ajouter un contrat</button>
+        <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
+    </div>
+</div>
 {{ form_end(form) }}

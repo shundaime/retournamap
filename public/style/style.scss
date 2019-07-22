@@ -125,19 +125,28 @@ section{
   input, select{
     font-size: 1em;
   }
+
+  .row{
+    align-items: center;
+  }
+
+  .new{
+    margin-top: 10px;
+  }
+}
+
+.form-btn{
+  display: inline-block;
 }
 
 .contract-btn{
   border: 2px solid #673b15;
   border-radius: 50%;
-  background: $carot;
+  background: #f29400;
   color: #fff;
-  padding: 20px;
-  text-align: center;
   text-decoration: none;
-  font-size:20px;
-  font-weight:bold;
-  margin: 4px 2px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /*HEADER*/

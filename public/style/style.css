@@ -5903,18 +5903,25 @@ section {
 .form_container input, .form_container select {
   font-size: 1em;
 }
+.form_container .row {
+  align-items: center;
+}
+.form_container .new {
+  margin-top: 10px;
+}
+
+.form-btn {
+  display: inline-block;
+}
 
 .contract-btn {
   border: 2px solid #673b15;
   border-radius: 50%;
   background: #f29400;
   color: #fff;
-  padding: 20px;
-  text-align: center;
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
-  margin: 4px 2px;
 }
 
 /*HEADER*/

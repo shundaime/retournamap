@@ -37,33 +37,22 @@ var $contracts;
 // setup an "add" link
 var $addContractButton = $('.add-contract-btn');
 
-jQuery(document).ready(function() {
+$(document).ready(function() {
     // Get the ul that holds the collection of tags
     $contracts = $('div.contracts');
 
-    // add the "add a tag" anchor and li to the tags ul
-    //$contracts.append($newLinkLi);
+    $contracts.data('index', $contracts.find('.contract').length);
 
-    // add a delete link to all of the existing tag form li elements
-    $contracts.find('.contract').each(function() {
-        addContractFormDeleteBtn($(this));
-    });
-
-    // count the current form inputs we have (e.g. 2), use that as the new
-    // index when inserting a new item (e.g. 2)
-    $contracts.data('index', $contracts.find('.contract').length); // là on est bon je pense ok  epna frai t sans le -1
-
-    // au clic du bouton "add contract", on insère un formulaire de contrat à la volée
+    // Au clic du bouton "add contract", on insère un formulaire de contrat à la volée
     $addContractButton.on('click', function(e) {
         addContractForm($contracts);
     });
 
-    // Au clic d'un bouton delete d'un form de contrat, on supprime le formulaire
     $('.delete-contract-form-btn').on('click', function(e) {
         var index = parseInt($(this).data('index'));
-        // remove the li for the tag form
         $('.contract[data-index='+index+']').remove();
     });
+
 });
 
 // On ajoute le formulaire d'un contrat
@@ -91,7 +80,7 @@ function addContractForm($contracts) {
     $contracts.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newContractForm = $('<div class="contract row" data-index="'+index+'"><div class="col-md-5">'+pdfFileWidget+'</div><div class="col-md-6">'+nameWidget+'</div></div>');
+    var $newContractForm = $('<div class="contract new row" data-index="'+index+'"><div class="col-md-6">'+pdfFileWidget+'</div><div class="col-md-5">'+nameWidget+'</div></div>');
     $('.contracts').append($newContractForm);
 
     addContractFormDeleteBtn($newContractForm, index);
@@ -99,9 +88,20 @@ function addContractForm($contracts) {
 
 // on fait apparaitre le bouton delete quand on ajoute un contrat à la volée
 function addContractFormDeleteBtn($newContractForm, index) {
-    var $removeFormButton = $('<button type="button" class="delete-contract-form-btn contract-btn" data-index="'+index+'">-</button>');
+    var $removeFormButton = $('<div class="col-md-1"><button type="button" title="Supprimer le champ" class="delete-contract-form-btn contract-btn" data-index="'+index+'">-</button></div>');
     $newContractForm.append($removeFormButton);
+
+    // Au clic d'un bouton delete d'un form de contrat, on supprime le formulaire
+    $('.delete-contract-form-btn').on('click', function(e) {
+        var index = parseInt($(this).data('index'));
+        $('.contract[data-index='+index+']').remove();
+    });
 }
+
+$(document).on('change', '.custom-file-input', function () {
+    let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
+    $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
+});
 
 
 
