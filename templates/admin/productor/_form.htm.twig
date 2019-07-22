@@ -12,10 +12,18 @@
     <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
     <div class="col-md-6">{{ form_row(form.image_description) }}</div>
 </div>
-<div class="row contracts" data-prototype-pdf-file="{{ form_widget(form.contracts.vars.prototype.pdfFile)|e }}" data-prototype-name="{{ form_widget(form.contracts.vars.prototype.name)|e }}">
-    {% for contract in form.contracts %}
-        <div class="col-md-5">{{ form_row(contract.pdfFile) }}</div>
-        <div class="col-md-6">{{ form_row(contract.name) }}</div>
+<div class="contracts" data-prototype-pdf-file="{{ form_widget(form.contracts.vars.prototype.pdfFile)|e }}" data-prototype-name="{{ form_widget(form.contracts.vars.prototype.name)|e }}">
+    {% for index,contract in form.contracts %}
+        <div class="row contract" data-index="{{ index }}">
+            <div class="col-md-6">{{ form_row(contract.pdfFile) }}</div>
+            <div class="col-md-5">{{ form_row(contract.name) }}</div>
+            <div class="col-md-1">
+                <button type="button" class="add-contract-btn contract-btn" title="Ajouter un contrat">+</button>
+                {% if showDeleteBtn == true %}
+                <button type="button" class="delete-contract-form-btn contract-btn" title="Supprimer" data-index="{{ index }}">-</button>
+                {% endif %}
+            </div>
+        </div>
     {% endfor %}
 </div>
 {{ form_widget(form) }}

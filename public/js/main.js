@@ -27,48 +27,56 @@ $(window).scroll(function () {
 });
 
     var div = document.getElementById('scroll');
-    div.scrollTop = div.scrollHeight; //Fait descendre le scroll à son niveau maximum
+    if (div) {
+        div.scrollTop = div.scrollHeight; //Fait descendre le scroll à son niveau maximum
+    }
 };
 
-var $collectionHolder;
+var $contracts;
 
 // setup an "add" link
-var $addContractButton = $('<button type="button" class="add-link" title="Ajouter un contrat">+</button>');
-var $newLinkLi = $('<div></div>').append($addContractButton);
+var $addContractButton = $('.add-contract-btn');
 
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of tags
-    $collectionHolder = $('div.contracts');
+    $contracts = $('div.contracts');
 
     // add the "add a tag" anchor and li to the tags ul
-    $collectionHolder.append($newLinkLi);
+    //$contracts.append($newLinkLi);
 
     // add a delete link to all of the existing tag form li elements
-    $collectionHolder.find('li').each(function() {
-        addTagFormDeleteLink($(this));
+    $contracts.find('.contract').each(function() {
+        addContractFormDeleteBtn($(this));
     });
 
     // count the current form inputs we have (e.g. 2), use that as the new
     // index when inserting a new item (e.g. 2)
-    $collectionHolder.data('index', $collectionHolder.find(':input').length);
+    $contracts.data('index', $contracts.find('.contract').length); // là on est bon je pense ok  epna frai t sans le -1
 
+    // au clic du bouton "add contract", on insère un formulaire de contrat à la volée
     $addContractButton.on('click', function(e) {
-        // add a new tag form (see next code block)
-        addTagForm($collectionHolder, $newLinkLi);
+        addContractForm($contracts);
+    });
+
+    // Au clic d'un bouton delete d'un form de contrat, on supprime le formulaire
+    $('.delete-contract-form-btn').on('click', function(e) {
+        var index = parseInt($(this).data('index'));
+        // remove the li for the tag form
+        $('.contract[data-index='+index+']').remove();
     });
 });
 
-
-function addTagForm($collectionHolder, $newLinkLi) {
+// On ajoute le formulaire d'un contrat
+function addContractForm($contracts) {
     // Get the data-prototype explained earlier
-    var prototype = $collectionHolder.data('prototype');
-    var prototypePdfFile = $collectionHolder.data('prototype-pdf-file');
-    var prototypeName = $collectionHolder.data('prototype-name');
+    var prototypePdfFile = $contracts.data('prototype-pdf-file');
+    var prototypeName = $contracts.data('prototype-name');
 
     // get the new index
-    var index = $collectionHolder.data('index');
+    var index = $contracts.data('index');
 
-    var newForm = prototype;
+    var pdfFileWidget = prototypePdfFile;
+    var nameWidget = prototypeName;
     // You need this only if you didn't set 'label' => false in your tags field in TaskType
     // Replace '__name__label__' in the prototype's HTML to
     // instead be a number based on how many items we have
@@ -76,26 +84,23 @@ function addTagForm($collectionHolder, $newLinkLi) {
 
     // Replace '__name__' in the prototype's HTML to
     // instead be a number based on how many items we have
-    newForm = newForm.replace(/__name__/g, index);
+    pdfFileWidget = pdfFileWidget.replace(/__name__/g, index);
+    nameWidget = nameWidget.replace(/__name__/g, index);
 
     // increase the index with one for the next item
-    $collectionHolder.data('index', index + 1);
+    $contracts.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newFormLi = $('.contracts').append('<li class="col-md-6">'+prototypePdfFile+'</li><li class="col-md-5">'+prototypeName+'</li>')
-    $newLinkLi.before($newFormLi);
+    var $newContractForm = $('<div class="contract row" data-index="'+index+'"><div class="col-md-5">'+pdfFileWidget+'</div><div class="col-md-6">'+nameWidget+'</div></div>');
+    $('.contracts').append($newContractForm);
 
-    addTagFormDeleteLink($newFormLi);
+    addContractFormDeleteBtn($newContractForm, index);
 }
 
-function addTagFormDeleteLink($tagFormLi) {
-    var $removeFormButton = $('<button type="button">Supprimer</button>');
-    $tagFormLi.append($removeFormButton);
-
-    $removeFormButton.on('click', function(e) {
-        // remove the li for the tag form
-        $tagFormLi.remove();
-    });
+// on fait apparaitre le bouton delete quand on ajoute un contrat à la volée
+function addContractFormDeleteBtn($newContractForm, index) {
+    var $removeFormButton = $('<button type="button" class="delete-contract-form-btn contract-btn" data-index="'+index+'">-</button>');
+    $newContractForm.append($removeFormButton);
 }
 
 

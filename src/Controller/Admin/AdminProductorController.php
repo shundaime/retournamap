@@ -9,6 +9,7 @@ use App\Entity\Productor;
 use App\Form\ProductorType;
 use App\Repository\ProductorRepository;
 use App\Service\FileUploader;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,10 +75,27 @@ class AdminProductorController extends AbstractController
      */
     public function edit(Productor $productor, Request $request)
     {
+        $originalContracts = new ArrayCollection(); // on liste les contrats deja existants pour ce producteur, avant soumission du formulaire
+
+        // Create an ArrayCollection of the current Tag objects in the database
+        foreach ($productor->getContracts() as $contract) {
+            $originalContracts->add($contract);
+        }
+
         $form = $this->createForm(ProductorType::class, $productor);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            // on compare les anciens contrats, et on regarde si ils sont encore dans le array $contracts du Productor récupéré après soumission du form
+            // si on ne les trouve plus, on les supprime via doctrine définitivement
+
+            foreach ($originalContracts as $contract) {
+                if (false === $productor->getContracts()->contains($contract)) { // contains permet de vérifier si le contrat existe dans le Array (amélioré) $contracts
+                    // le contrat n'est pas trouvé dans les données du formulaire apres soumission, on le supprime de la base de donnée
+                    $this->em->remove($contract);
+                }
+            }
+
             $this->em->persist($productor);
             $this->em->flush();
             $this->addFlash('success', "Producteur modifié avec succès");
