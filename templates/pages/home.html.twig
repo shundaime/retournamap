@@ -24,7 +24,9 @@
         </section>
         <section class="news">
             <h2 class="little-title">Actualité</h2>
-            <p>News du jour</p>
+            {% for news in news %}
+                <p>{{ news.content }}</p>
+            {% endfor %}
         </section>
     </div>
 </main>

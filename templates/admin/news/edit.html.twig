@@ -3,15 +3,16 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% set active = null %}
+{% set edit = true %}
 
-{% block title "Créer un producteur" %}
+{% block title "Modifier l'actualité" %}
 
 {% block body %}
     <main>
         <div class="flex">
             <section class="container">
-                <h2>Ajouter une image</h2>
-                {{ include('admin/gallery/_form.html.twig', {button: 'Enregistrer'}) }}
+                <h2>Modifier l'actualité</h2>
+                {{ include('admin/news/_form.html.twig', {button: 'Sauvegarder'}) }}
             </section>
         </div>
     </main>

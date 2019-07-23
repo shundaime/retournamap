@@ -7,7 +7,6 @@ namespace App\Controller\Admin;
 use App\Entity\GalleryImage;
 use App\Form\GalleryType;
 use App\Repository\GalleryImageRepository;
-use App\Service\FileUploader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,7 +43,7 @@ class AdminGalleryController extends AbstractController
     /**
      * @Route("/admin/gallery/new", name="admin.gallery.new")
      */
-    public function new(Request $request,  FileUploader $fileUploader)
+    public function new(Request $request)
     {
         $image = new GalleryImage();
         $form = $this->createForm(GalleryType::class, $image, ['validation_groups' => ['Default', 'new']]);

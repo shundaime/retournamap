@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% set active = null %}
+
+{% block title "Gérer l'onglet actualité" %}
+
+{% block body %}
+    <main>
+        <div class="flex">
+            <section class="container">
+                <h2>Gérer l'onglet actualité</h2>
+                {% for message in app.flashes('success')  %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <table class="table table-striped">
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin.news.new') }}" class="btn btn-primary">Ajouter une actualité</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin') }}" class="btn btn-primary">Menu</a>
+                        </li>
+                    </ul>
+                    <thead>
+                    <tr>
+                        <th>Contenu</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for new in news %}
+                        <tr>
+                            <td>{{ new.content }}</td>
+                            <td>
+                                <a href="{{ path('admin.news.edit', {id: new.id}) }}" class="btn btn-secondary">Editer</a>
+                                <form method="post" action="{{ path('admin.news.delete', {id: new.id}) }}" onsubmit="return confirm('Êtes vous sûr ?')" class="admin-form">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ new.id) }}">
+                                    <button class="btn btn-danger">Supprimer</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+{% endblock %}
