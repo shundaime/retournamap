@@ -38,7 +38,7 @@ var $contracts;
 var $addContractButton = $('.add-contract-btn');
 
 $(document).ready(function() {
-    // Get the ul that holds the collection of tags
+    // On récupère la div qui contient les contrats
     $contracts = $('div.contracts');
 
     $contracts.data('index', $contracts.find('.contract').length);
@@ -57,11 +57,11 @@ $(document).ready(function() {
 
 // On ajoute le formulaire d'un contrat
 function addContractForm($contracts) {
-    // Get the data-prototype explained earlier
+    // On récupère le data-prototype
     var prototypePdfFile = $contracts.data('prototype-pdf-file');
     var prototypeName = $contracts.data('prototype-name');
 
-    // get the new index
+    // On récupère le nouvel index
     var index = $contracts.data('index');
 
     var pdfFileWidget = prototypePdfFile;

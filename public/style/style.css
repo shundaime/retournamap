@@ -5900,6 +5900,10 @@ section {
   background: red;
 }
 
+.connection {
+  margin: 0 auto;
+}
+
 .form_container input, .form_container select {
   font-size: 1em;
 }
@@ -5908,10 +5912,6 @@ section {
 }
 .form_container .new {
   margin-top: 10px;
-}
-
-.form-btn {
-  display: inline-block;
 }
 
 .contract-btn {
@@ -6025,7 +6025,7 @@ span {
   flex-direction: column;
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (max-width: 970px) {
   /* Force table to not be like tables anymore */
   table, thead, tbody, th, td, tr {
     display: block;
@@ -6078,6 +6078,10 @@ span {
 
   td:nth-of-type(4):before {
     content: "";
+  }
+
+  .img-label {
+    width: 30%;
   }
 }
 /*GALERIE*/
@@ -6218,8 +6222,7 @@ span {
   width: 100%;
   height: 37%;
 }
-
-.fas, .fab {
+.form-container .fas, .form-container .fab {
   font-size: 4rem;
   color: #8bc636;
 }
