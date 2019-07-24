@@ -19,6 +19,20 @@ class ContactMessageRepository extends ServiceEntityRepository
         parent::__construct($registry, ContactMessage::class);
     }
 
+    /**
+     * @param \DateTime $date
+     * @return ContactMessage[]
+     * @throws \Exception
+     */
+    public function findAllLowerThanDate(\DateTime $date)
+    {
+        return $this->createQueryBuilder('cm')
+            ->where('cm.date < :duration')
+            ->setParameter('duration', $date)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return ContactMessage[] Returns an array of ContactMessage objects
     //  */
