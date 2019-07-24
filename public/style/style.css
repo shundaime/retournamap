@@ -5800,7 +5800,11 @@ readers do not read off random characters that represent icons */
 /*GENERAL*/
 * {
   -webkit-box-sizing: border-box;
+  /* Android ≤ 2.3, iOS ≤ 4 */
+  -moz-box-sizing: border-box;
+  /* Firefox 1+ */
   box-sizing: border-box;
+  /* Chrome, IE 8+, Opera, Safari 5.1 */
 }
 
 html {
@@ -5817,7 +5821,7 @@ body {
 main {
   max-width: 80%;
   margin: 0 auto;
-  min-height: 59vh;
+  min-height: 59.5vh;
 }
 
 img {
@@ -5832,6 +5836,10 @@ h1 {
   height: 1px;
   top: auto;
   overflow: hidden;
+}
+
+.hidden {
+  display: none;
 }
 
 h2 {
@@ -5984,7 +5992,9 @@ span {
   top: 10%;
   right: 70%;
   position: absolute;
-  border: solid 1px #f29400;
+}
+.news .news-message {
+  font-weight: bold;
 }
 
 /*EXPLAIN*/
@@ -6234,6 +6244,10 @@ span {
   justify-content: space-around;
   margin-top: 50px;
 }
+.tools .fas, .tools .fab {
+  font-size: 4rem;
+  color: #8bc636;
+}
 
 /*FOOTER*/
 footer {
@@ -6246,6 +6260,9 @@ footer ul {
   display: -ms-flexbox;
   display: flex;
   justify-content: space-evenly;
+}
+footer .credit {
+  color: #fff;
 }
 
 /*BOUTON SCROLL*/

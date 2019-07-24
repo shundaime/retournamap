@@ -1,5 +1,15 @@
 "use strict";
+
+$(document).on('change', '.custom-file-input', function () {
+    let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
+    $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
+});
+
 window.onload = function () {
+
+$('p.hidden').each(function () {
+    $(this).fadeIn(1500).removeClass('hidden');
+});
 
 function ScrollToTop() {
     var s = $(window).scrollTop();
@@ -52,7 +62,6 @@ $(document).ready(function() {
         var index = parseInt($(this).data('index'));
         $('.contract[data-index='+index+']').remove();
     });
-
 });
 
 // On ajoute le formulaire d'un contrat
@@ -97,11 +106,6 @@ function addContractFormDeleteBtn($newContractForm, index) {
         $('.contract[data-index='+index+']').remove();
     });
 }
-
-$(document).on('change', '.custom-file-input', function () {
-    let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
-    $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
-});
 
 
 

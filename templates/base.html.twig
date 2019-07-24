@@ -41,12 +41,12 @@
     <footer>
         <nav class="navbar navbar-expand-lg navbar-dark bg-light">
             <ul class="nav navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Statuts</a></li>
+                <li class="nav-item"><a href="{{ asset('doc/Statut.pdf') }}" class="nav-link" target="_blank">Statuts</a></li>
                 <li class="nav-item"><a href="#legal" class="nav-link modal-opener" id="legal" data-id="modal-legal">Mentions légales</a></li>
             </ul>
         </nav>
         <button type="button" value="Haut de page" class="scrollUp"><i class="fas fa-chevron-up"></i></button>
-        <small><i class="far fa-copyright"></i>2019 Tous droits réservés Guillaume Charmasson</small>
+        <small><i class="far fa-copyright"></i>2019 Tous droits réservés <a href="https://gcharmasson.com/" class="credit">Guillaume Charmasson</a></small>
     </footer>
 {% block javascripts %}
     <script src="http://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
