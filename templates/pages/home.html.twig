@@ -24,9 +24,11 @@
         </section>
         <section class="news">
             <h2 class="little-title">Actualité</h2>
-            {% for news in news %}
-                <p class="news-message hidden">{{ news.content }}</p>
-            {% endfor %}
+            <div class="scroll-wrapper">
+                {% for news in news %}
+                    <p class="news-message scroll-text">{{ news.content }}</p>
+                {% endfor %}
+            </div>
         </section>
     </div>
 </main>

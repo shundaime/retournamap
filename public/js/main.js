@@ -5,62 +5,60 @@ $(document).on('change', '.custom-file-input', function () {
     $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
 });
 
-window.onload = function () {
-
-$('p.hidden').each(function () {
-    $(this).fadeIn(1500).removeClass('hidden');
-});
-
-function ScrollToTop() {
-    var s = $(window).scrollTop();
-    if (s > 400) {
-        $('.scrollUp').fadeIn();
-    } else {
-        $('.scrollUp').fadeOut();
-    }
-
-    $('.scrollUp').click(function () {
-        $("html, body").animate({scrollTop: 0}, 500);
-        return false;
-    });
-}
-
-function StopAnimation() {
-    $("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function () {
-        $('html, body').stop();
-    });
-}
-
-$(window).scroll(function () {
-    ScrollToTop();
-    StopAnimation();
-});
+$(document).ready(function () {
 
     var div = document.getElementById('scroll');
     if (div) {
         div.scrollTop = div.scrollHeight; //Fait descendre le scroll à son niveau maximum
     }
-};
 
-var $contracts;
+    $(window).scroll(function () {
+        ScrollToTop();
+        StopAnimation();
+    });
 
-// setup an "add" link
-var $addContractButton = $('.add-contract-btn');
+    var $contracts;
 
-$(document).ready(function() {
+    // setup an "add" link
+    var $addContractButton = $('.add-contract-btn');
+
     // On récupère la div qui contient les contrats
     $contracts = $('div.contracts');
 
     $contracts.data('index', $contracts.find('.contract').length);
 
     // Au clic du bouton "add contract", on insère un formulaire de contrat à la volée
-    $addContractButton.on('click', function(e) {
+    $addContractButton.on('click', function (e) {
         addContractForm($contracts);
     });
 
-    $('.delete-contract-form-btn').on('click', function(e) {
+    $('.delete-contract-form-btn').on('click', function (e) {
         var index = parseInt($(this).data('index'));
-        $('.contract[data-index='+index+']').remove();
+        $('.contract[data-index=' + index + ']').remove();
+    });
+
+    $("nav a").on("click", function (event) {
+        event.preventDefault();
+
+        var href = $(this).attr("href");
+
+        window.history.pushState(null, null, href);
+
+        $("nav a").removeClass("active");
+        $(this).addClass("active");
+
+        $.ajax({
+            url:href,
+            success: function (data) {
+                $("main").fadeOut(250, function () {
+                    var newPage = $(data).filter("main").html();
+
+                    $("main").html(newPage);
+
+                    $("main").fadeIn(250)
+                })
+            }
+        })
     });
 });
 
@@ -89,7 +87,7 @@ function addContractForm($contracts) {
     $contracts.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newContractForm = $('<div class="contract new row" data-index="'+index+'"><div class="col-md-6">'+pdfFileWidget+'</div><div class="col-md-5">'+nameWidget+'</div></div>');
+    var $newContractForm = $('<div class="contract new row" data-index="' + index + '"><div class="col-md-6">' + pdfFileWidget + '</div><div class="col-md-5">' + nameWidget + '</div></div>');
     $('.contracts').append($newContractForm);
 
     addContractFormDeleteBtn($newContractForm, index);
@@ -97,13 +95,33 @@ function addContractForm($contracts) {
 
 // on fait apparaitre le bouton delete quand on ajoute un contrat à la volée
 function addContractFormDeleteBtn($newContractForm, index) {
-    var $removeFormButton = $('<div class="col-md-1"><button type="button" title="Supprimer le champ" class="delete-contract-form-btn contract-btn" data-index="'+index+'">-</button></div>');
+    var $removeFormButton = $('<div class="col-md-1"><button type="button" title="Supprimer le champ" class="delete-contract-form-btn contract-btn" data-index="' + index + '">-</button></div>');
     $newContractForm.append($removeFormButton);
 
     // Au clic d'un bouton delete d'un form de contrat, on supprime le formulaire
-    $('.delete-contract-form-btn').on('click', function(e) {
+    $('.delete-contract-form-btn').on('click', function (e) {
         var index = parseInt($(this).data('index'));
-        $('.contract[data-index='+index+']').remove();
+        $('.contract[data-index=' + index + ']').remove();
+    });
+}
+
+function ScrollToTop() {
+    var s = $(window).scrollTop();
+    if (s > 400) {
+        $('.scrollUp').fadeIn();
+    } else {
+        $('.scrollUp').fadeOut();
+    }
+
+    $('.scrollUp').click(function () {
+        $("html, body").animate({scrollTop: 0}, 500);
+        return false;
+    });
+}
+
+function StopAnimation() {
+    $("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function () {
+        $('html, body').stop();
     });
 }
 

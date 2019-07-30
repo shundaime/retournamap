@@ -5838,10 +5838,6 @@ h1 {
   overflow: hidden;
 }
 
-.hidden {
-  display: none;
-}
-
 h2 {
   color: #f29400;
   margin: 15px;
@@ -5962,6 +5958,14 @@ nav ul {
 }
 .navbar-dark .navbar-nav .nav-link:hover {
   color: #673b15;
+  -moz-transform: translateY(5px);
+  -webkit-transform: translateY(5px);
+  -o-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .navbar-dark .navbar-nav .nav-link.active {
   color: #673b15;
@@ -5995,6 +5999,26 @@ span {
 }
 .news .news-message {
   font-weight: bold;
+}
+.news .scroll-text {
+  animation: scrollText 10s linear infinite;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+}
+.news .scroll-wrapper {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+@keyframes scrollText {
+  0% {
+    transform: translateX(40%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /*EXPLAIN*/
