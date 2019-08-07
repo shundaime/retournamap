@@ -4,14 +4,14 @@
 
 {% block body %}
 <main>
-    <div id="scroll" class="flex">
+    <div id="scroll" class="flex" role="complementary">
         <section class="gallery">
             <h2 class="title">Galerie</h2>
             <ul class="grid" id="photos">
                 {% for image in images %}
                     <li>
                         <a href="#{{ image.id }}"><img src="img/gallery/{{ image.imageFileName }}" class="myImg" alt="{{ image.description }}"></a>
-                        <div class="lightbox" id="{{ image.id }}">
+                        <div class="lightbox" id="{{ image.id }}" role="complementary">
                             <figure>
                                 <a href="#" class="close"></a>
                                 <img src="img/gallery/{{ image.imageFileName }}" class="diapo-img" alt="{{ image.description }}">

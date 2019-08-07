@@ -3,34 +3,34 @@
         class: 'form_container'
     }
 }) }}
-<div class="row">
-    <div class="col-md-5">{{ form_row(form.name) }}</div>
-    <div class="col-md-5">{{ form_row(form.delivery) }}</div>
-    <div class="col-md-2">{{ form_row(form.label) }}</div>
-</div>
-<div class="row">
-    <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
-    <div class="col-md-6">{{ form_row(form.image_description) }}</div>
-</div>
+<ul class="row">
+    <li class="col-md-5">{{ form_row(form.name) }}</li>
+    <li class="col-md-5">{{ form_row(form.delivery) }}</li>
+    <li class="col-md-2">{{ form_row(form.label) }}</li>
+</ul>
+<ul class="row">
+    <li class="col-md-6">{{ form_row(form.imageFile) }}</li>
+    <li class="col-md-6">{{ form_row(form.image_description) }}</li>
+</ul>
 <div class="contracts" data-prototype-pdf-file="{{ form_widget(form.contracts.vars.prototype.pdfFile)|e }}"
      data-prototype-name="{{ form_widget(form.contracts.vars.prototype.name)|e }}">
     {% for index,contract in form.contracts %}
-    <div class="row contract" data-index="{{ index }}">
-        <div class="col-md-6">{{ form_row(contract.pdfFile) }}</div>
-        <div class="{% if edit == null %}col-md-6{% else %}col-md-5{% endif %}">{{ form_row(contract.name) }}</div>
+    <ul class="row contract" data-index="{{ index }}">
+        <li class="col-md-6">{{ form_row(contract.pdfFile) }}</li>
+        <li class="{% if edit == null %}col-md-6{% else %}col-md-5{% endif %}">{{ form_row(contract.name) }}</li>
         {% if edit == true %}
-        <div class="col-md-1">
+        <li class="col-md-1">
             <button type="button" title="Supprimer le champ" class="delete-contract-form-btn contract-btn" data-index="{{ index }}">-</button>
-        </div>
+        </li>
         {% endif %}
-    </div>
+    </ul>
         {% endfor %}
 </div>
 {{ form_widget(form) }}
-<div class="row form-btn">
-    <div class="col-md-12">
+<ul class="row form-btn">
+    <li class="col-md-12">
         <button type="button" class="add-contract-btn btn" title="Ajouter un contrat">Ajouter un contrat</button>
         <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
-    </div>
-</div>
+    </li>
+</ul>
 {{ form_end(form) }}

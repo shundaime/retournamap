@@ -3,10 +3,10 @@
         class: 'form_container'
     }
 }) }}
-<div class="row">
-    <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
-    <div class="col-md-6">{{ form_row(form.description) }}</div>
-</div>
+<ul class="row flex">
+    <li class="col-md-6">{{ form_row(form.imageFile) }}</li>
+    <li class="col-md-6">{{ form_row(form.description) }}</li>
+</ul>
 {{ form_widget(form) }}
 <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
 {{ form_end(form) }}

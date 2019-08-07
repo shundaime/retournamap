@@ -5,6 +5,10 @@ $(document).on('change', '.custom-file-input', function () {
     $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
 });
 
+$(window).on('load', function () {
+    $('#overlay').fadeOut('1500');
+});
+
 $(document).ready(function () {
 
     var div = document.getElementById('scroll');

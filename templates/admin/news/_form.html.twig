@@ -3,9 +3,9 @@
         class: 'form_container'
     }
 }) }}
-<div class="row">
-    <div class="col-md-12">{{ form_row(form.content) }}</div>
-</div>
+<ul class="row">
+    <li class="col-lg-12">{{ form_row(form.content) }}</li>
+</ul>
 {{ form_widget(form) }}
 <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
 {{ form_end(form) }}

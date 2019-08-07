@@ -12,9 +12,9 @@
             {{ form_start(form) }}
             <h3><i class="fas fa-feather-alt"></i> Nous écrire :</h3>
             {% for message in app.flashes('success')  %}
-                <div class="alert alert-success">
+                <p class="alert alert-success">
                     {{ message }}
-                </div>
+                </p>
             {% endfor %}
             {{ form_label(form.name, 'Nom / prénom') }}
                 {{ form_widget(form.name, {

@@ -6058,6 +6058,14 @@ span {
   display: flex;
   flex-direction: column;
 }
+.table caption {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
 
 @media only screen and (max-width: 970px) {
   /* Force table to not be like tables anymore */
@@ -6287,6 +6295,39 @@ footer ul {
 }
 footer .credit {
   color: #fff;
+}
+
+/*LOADER*/
+.loader {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f29400;
+  border-top: 3px solid #8bc636;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 /*BOUTON SCROLL*/

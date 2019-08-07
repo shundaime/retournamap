@@ -6,25 +6,25 @@
 
 {% block body %}
 <main>
-    <div class="flex">
+    <div class="flex" role="complementary">
         <section class="container intro">
             <h1>Retourn'amap</h1>
             <p class="little-title">L’amap est plus qu’un “panier” !</p>
             <ul>
                 <li><span>A</span> comme <span>Association</span></li>
-                <li>En AMAP, pas d’intermédiaire commercial. C’est le seul système qui reverse <b>100% du montant du panier au
-                        paysan.</b> Ce sont les amapiens qui s’organisent pour faire vivre le partenariat.</li>
+                <li>En AMAP, pas d’intermédiaire commercial. C’est le seul système qui reverse <strong>100% du montant du panier au
+                        paysan.</strong> Ce sont les amapiens qui s’organisent pour faire vivre le partenariat.</li>
                 <li><span>M</span> comme <span>Maintien</span></li>
-                <li><b>Chaque amapien s’engage sur une saison :</b> le paysan a l’assurance d’être rémunéré toute l’année pour son
+                <li><strong>Chaque amapien s’engage sur une saison :</strong> le paysan a l’assurance d’être rémunéré toute l’année pour son
                     travail, et d’écouler sa production ! Cela permet de maintenir l’agriculture paysanne dans nos régions.</li>
                 <li><span>AP</span> comme <span>Agriculture Paysanne</span></li>
-                <li>L’AMAP soutient une <b>agriculture de proximité, à taille humaine, qui concilie protection de la nature, emploi
-                        agricole, pérennité des fermes et qui rétablit le lien entre paysans et consommateurs.</b></li>
+                <li>L’AMAP soutient une <strong>agriculture de proximité, à taille humaine, qui concilie protection de la nature, emploi
+                        agricole, pérennité des fermes et qui rétablit le lien entre paysans et consommateurs.</strong></li>
             </ul>
         </section>
         <section class="news">
             <h2 class="little-title">Actualité</h2>
-            <div class="scroll-wrapper">
+            <div class="scroll-wrapper" role="contentinfo">
                 {% for news in news %}
                     <p class="news-message scroll-text">{{ news.content }}</p>
                 {% endfor %}
