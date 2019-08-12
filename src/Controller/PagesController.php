@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PagesController extends AbstractController
 {
     /**
-     * @Route("/", name="home"))
+     * @Route("/", name="home")
      */
     public function home()
     {
@@ -23,7 +23,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/fonctionnement", name="explain"))
+     * @Route("/fonctionnement", name="explain")
      */
     public function explain()
     {
@@ -31,7 +31,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/producteurs", name="productors"))
+     * @Route("/producteurs", name="productors")
      */
     public function productors()
     {
@@ -39,10 +39,18 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/galerie", name="gallery"))
+     * @Route("/galerie", name="gallery")
      */
     public function gallery()
     {
         return $this->render('pages/gallery.html.twig');
+    }
+
+    /**
+     * @Route("/legal", name="legal")
+     */
+    public function legal()
+    {
+        return $this->render('pages/legal.html.twig');
     }
 }
