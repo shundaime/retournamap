@@ -69,7 +69,7 @@ class Contract
         return $this;
     }
 
-    public function getContract(): ?Productor
+    public function getProductor(): ?Productor
     {
         return $this->productor;
     }
@@ -137,5 +137,10 @@ class Contract
     {
         $this->fileName = $fileName;
         return $this;
+    }
+
+    public function __toString(): ?string
+    {
+        return $this->getName();
     }
 }

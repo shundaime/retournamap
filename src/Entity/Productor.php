@@ -208,4 +208,9 @@ class Productor
         $this->updatedAt = $updatedAt;
         return $this;
     }
+
+    public function __toString(): ?string
+    {
+        return $this->getName();
+    }
 }

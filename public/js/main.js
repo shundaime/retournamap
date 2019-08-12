@@ -111,11 +111,7 @@ function addContractFormDeleteBtn($newContractForm, index) {
 
 function ScrollToTop() {
     var s = $(window).scrollTop();
-    if (s > 400) {
-        $('.scrollUp').fadeIn();
-    } else {
-        $('.scrollUp').fadeOut();
-    }
+    s > 400 ? $('.scrollUp').fadeIn() : $('.scrollUp').fadeOut(); //Ternaire
 
     $('.scrollUp').click(function () {
         $("html, body").animate({scrollTop: 0}, 500);

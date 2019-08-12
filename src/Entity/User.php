@@ -27,6 +27,46 @@ class User implements UserInterface, \Serializable
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $role;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $zip;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $phone;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,7 +74,7 @@ class User implements UserInterface, \Serializable
 
     public function getUsername(): ?string
     {
-        return $this->username;
+        return $this->email;
     }
 
     public function setUsername(string $username): self
@@ -52,6 +92,103 @@ class User implements UserInterface, \Serializable
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): self
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getZip(): ?string
+    {
+        return $this->zip;
+    }
+
+    public function setZip(string $zip): self
+    {
+        $this->zip = $zip;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }
@@ -109,7 +246,8 @@ class User implements UserInterface, \Serializable
         return serialize([
             $this->id,
             $this->username,
-            $this->password
+            $this->password,
+            $this->email
         ]);
     }
 
@@ -127,7 +265,8 @@ class User implements UserInterface, \Serializable
         list(
             $this->id,
             $this->username,
-            $this->password
+            $this->password,
+            $this->email
             ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }
