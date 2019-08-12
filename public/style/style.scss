@@ -79,7 +79,6 @@ ul{
   padding: 0;
   margin: 0;
   list-style: none;
-  text-decoration: none;
 }
 
 section{
@@ -209,14 +208,6 @@ nav {
 span{
   font-weight: bold;
   color: $carot;
-}
-
-.intro{
-  text-align: center;
-
-  ul{
-    padding: 0;
-  }
 }
 
 .news{
@@ -511,6 +502,24 @@ span{
   .fas, .fab{
     font-size: 4rem;
     color: #8bc636;
+  }
+}
+
+/*STATUTS*/
+#status{
+  text-align: left;
+
+  h3{
+    margin: 15px 0;
+  }
+
+  ul{
+    list-style: inside;
+    margin-left: 15px;
+  }
+
+  figure{
+    text-align: center;
   }
 }
 

@@ -5859,7 +5859,6 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  text-decoration: none;
 }
 
 section {
@@ -5982,13 +5981,6 @@ nav ul {
 span {
   font-weight: bold;
   color: #f29400;
-}
-
-.intro {
-  text-align: center;
-}
-.intro ul {
-  padding: 0;
 }
 
 .news {
@@ -6279,6 +6271,21 @@ span {
 .tools .fas, .tools .fab {
   font-size: 4rem;
   color: #8bc636;
+}
+
+/*STATUTS*/
+#status {
+  text-align: left;
+}
+#status h3 {
+  margin: 15px 0;
+}
+#status ul {
+  list-style: inside;
+  margin-left: 15px;
+}
+#status figure {
+  text-align: center;
 }
 
 /*FOOTER*/

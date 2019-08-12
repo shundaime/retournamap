@@ -53,4 +53,12 @@ class PagesController extends AbstractController
     {
         return $this->render('pages/legal.html.twig');
     }
+
+    /**
+     * @Route("/status", name="status")
+     */
+    public function status()
+    {
+        return $this->render('pages/status.html.twig');
+    }
 }
