@@ -2,46 +2,48 @@
 
 {% block title "Fonctionnement" %}
 
+{% set active = "explain" %}
+
 {% block body %}
 <main>
-    <div class="flex" role="complementary">
+    <div class="flex reveal" role="complementary">
         <div class="section-divider" role="complementary">
-        <section class="container">
-            <h2 class="title">Inscription</h2>
+        <section class="container reveal-2">
+            <h2>Inscription</h2>
             <p>Adhérer à Retourn’AMAP vous garantit des produits locaux, issus de l’agriculture biologique tout en ayant
                 une consommation citoyenne et solidaire ! </p>
-            <p><b>Si vous souhaitez adhérez, complétez et envoyez nous par mail les documents ci-dessous :</b></p>
-            <ul class="btn-list">
+            <p><strong>Si vous souhaitez adhérez, complétez et envoyez nous par mail les documents ci-dessous :</strong></p>
+            <ul class="btn-list reveal-4">
                 <li><a href="{{ asset('doc/Bulletin_adhesion.doc') }}" class="btn">Bulletin d'adhésion</a></li>
-                <li><a href="{{ asset('doc/charte.docx') }}" target="_blank" class="btn">Charte</a></li>
+                <li><a href="{{ asset('doc/charte.docx') }}" class="btn">Charte</a></li>
             </ul>
         </section>
-            <section class="container">
-                <h2 class="title">Fonctionnement des permanences :</h2>
+            <section class="container reveal-2">
+                <h2>Fonctionnement des permanences :</h2>
                 <p><b>Les distributions ont lieu les jeudis soirs de 18h30 à 19h30 salle La Forge, à la Filature de
                         Retournac.</b></p>
-                <p><strong>Venez récupérer les paniers commandés pendant ces horaires de permanences !</strong></p>
+                <p><b>Venez récupérer les paniers commandés pendant ces horaires de permanences !</b></p>
             </section>
         </div>
         <div class="section-divider" role="complementary">
-            <section class="container">
-                <h2 class="title">Commander</h2>
+            <section class="container reveal-2">
+                <h2>Commander</h2>
                 <article>
                     <h3>Les contrats :</h3>
                     <p>L’AMAP est facilitatrice de contact : elle met en lien des Paysans et des Amapiens. Le contrat
                         encadre juridiquement le partenariat.</p>
-                        <strong>L’Amapien est libre de choisir le nombre de Paysans avec lequel il a des contrats, libre de choisir le
-                        contenu de ses paniers et la fréquence de ceux-ci.</strong></p>
+                        <b>L’Amapien est libre de choisir le nombre de Paysans avec lequel il a des contrats, libre de choisir le
+                        contenu de ses paniers et la fréquence de ceux-ci.</b></p>
                     <p>Ces contrats sont disponibles sur le site, ou directement lors des permanences de l’AMAP.
-                    <p>Chez Retourn’AMAP, le renouvellement des contrats se déroule deux fois par an, <strong>au 1er avril et au
-                            1er octobre.</strong> L’adhésion pour ces 6 mois est de 6€ minimum.</p>
-                    <p>Le paiement des contrats s’effectue de la façon suivante : <strong>paiement par chèque lors du
+                    <p>Chez Retourn’AMAP, le renouvellement des contrats se déroule deux fois par an, <b>au 1er avril et au
+                            1er octobre.</b> L’adhésion pour ces 6 mois est de 6€ minimum.</p>
+                    <p>Le paiement des contrats s’effectue de la façon suivante : <b>paiement par chèque lors du
                             renouvellement des contrats, avec possibilité d’émettre plusieurs chèques encaissés le long du
-                            semestre.</strong></p>
+                            semestre.</b></p>
                 </article>
             </section>
-            <section class="container">
-                <h2 class="title">Devenez un Amapien actif !</h2>
+            <section class="container reveal-2">
+                <h2>Devenez un Amapien actif !</h2>
                 <article>
                     <h3>Pendant les permanences :</h3>
                     <ul>

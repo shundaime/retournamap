@@ -2,12 +2,14 @@
 
 {% block title "Galerie" %}
 
+{% set active = "gallery" %}
+
 {% block body %}
 <main>
-    <div id="scroll" class="flex" role="complementary">
+    <div id="scroll" class="flex reveal" role="complementary">
         <section class="gallery">
-            <h2 class="title">Galerie</h2>
-            <ul class="grid" id="photos">
+            <h2 class="reveal-2">Galerie</h2>
+            <ul class="grid reveal-3" id="photos">
                 {% for image in images %}
                     <li>
                         <a href="#{{ image.id }}"><img src="img/gallery/{{ image.imageFileName }}" class="myImg" alt="{{ image.description }}"></a>

@@ -2,20 +2,22 @@
 
 {% block title "Retourn'Amap" %}
 
+{% set active = "home" %}
+
 {% block body %}
 <main>
-    <div class="flex" role="complementary">
-        <section class="container" id="intro">
+    <div class="flex reveal" role="complementary">
+        <section class="container" id="home">
             <h1>Retourn'amap</h1>
-            <p class="little-title">L’amap est plus qu’un “panier” !</p>
+            <p class="little-title reveal-2">L’amap est plus qu’un “panier” !</p>
             <ul>
-                <li><span>A</span> comme <span>Association</span></li>
-                <li><span>M</span> comme <span>Maintien</span></li>
-                <li><span>A</span> comme <span>Agriculture</span></li>
-                <li><span>P</span> comme <span>Paysanne</span></li>
+                <li class="reveal-3"><span>A</span> comme <span>Association</span></li>
+                <li class="reveal-4"><span>M</span> comme <span>Maintien</span></li>
+                <li class="reveal-5"><span>A</span> comme <span>Agriculture</span></li>
+                <li class="reveal-6"><span>P</span> comme <span>Paysanne</span></li>
             </ul>
             <br>
-            <ul>
+            <ul class="reveal-7">
                 <li>En AMAP, pas d’intermédiaire commercial. C’est le seul système qui reverse <strong>100% du montant du panier au
                         paysan.</strong> Ce sont les amapiens qui s’organisent pour faire vivre le partenariat.</li>
                 <li><strong>Chaque amapien s’engage sur une saison :</strong> le paysan a l’assurance d’être rémunéré toute l’année pour son
@@ -24,7 +26,7 @@
                         agricole, pérennité des fermes et qui rétablit le lien entre paysans et consommateurs.</strong></li>
             </ul>
         </section>
-        <section class="news">
+        <section class="news reveal-7">
             <h2 class="little-title">Actualité</h2>
             <div class="scroll-wrapper" role="contentinfo">
                 {% for news in news %}

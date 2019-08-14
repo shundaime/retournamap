@@ -2,14 +2,16 @@
 
 {% block title "Les producteurs" %}
 
+{% set active = "productors" %}
+
 {% block body %}
 <main>
-    <div class="flex" role="complementary">
+    <div class="flex reveal" role="complementary">
         <section class="container">
-            <h2 class="title">Les producteurs</h2>
+            <h2 class="reveal-2">Les producteurs</h2>
             <table class="table table-hover">
                 <caption>Liste des producteurs</caption>
-                <thead>
+                <thead class="reveal-3">
                 <tr>
                     <th scope="col">Producteurs</th>
                     <th scope="col">Produits / Contrats</th>
@@ -19,25 +21,24 @@
                 </thead>
                 <tbody class="table">
                 {% for productor in productors %}
-                <tr>
-                    <td>
+                <tr class="reveal">
+                    <td class="reveal-4">
                         <figure>
-                            <figcaption><a href="#">{{ productor.name }}</a></figcaption>
+                            <figcaption><a href="#" class="underline">{{ productor.name }}</a></figcaption>
                             <img src="img/producteurs/{{ productor.filename }}" alt="{{ productor.imageDescription }}">
                         </figure>
                     </td>
-                    <td>
+                    <td class="reveal-4">
                         {% for contract in productor.contracts %}
                             <h4>{{ contract.name }}</h4>
                             {% if contract.fileName %}
-                            <a href="/doc/contrats/{{ contract.fileName }}" target="_blank">
-                                <p>Voir le contrat <img src="img/logopetit.png" alt="petit logo"></p>
-                            </a>
+                                <p><a href="/doc/contrats/{{ contract.fileName }}" target="_blank" class="underline">Voir le contrat&nbsp;
+                                        <img src="{{ asset('img/logopetit.png') }}" alt="petit logo"></a></p>
                             {% endif %}
                         {% endfor %}
                     </td>
-                    <td>{{ productor.delivery }}</td>
-                    <td><img src="img/label/{{ productor.label }}" alt="logo du label" class="img-label"></td>
+                    <td class="reveal-4">{{ productor.delivery }}</td>
+                    <td class="reveal-4"><img src="img/label/{{ productor.label }}" alt="logo du label" class="img-label"></td>
                 </tr>
                 {% endfor %}
                 </tbody>

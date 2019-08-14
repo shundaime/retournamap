@@ -1,17 +1,7 @@
 "use strict";
-
-$(document).on('change', '.custom-file-input', function () {
-    let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
-    $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
-});
-
-$(window).on('load', function () {
-    $('#overlay').fadeOut('1500');
-});
-
 $(document).ready(function () {
 
-    var div = document.getElementById('scroll');
+    var div = $('#scroll');
     if (div) {
         div.scrollTop = div.scrollHeight; //Fait descendre le scroll à son niveau maximum
     }
@@ -19,6 +9,38 @@ $(document).ready(function () {
     $(window).scroll(function () {
         ScrollToTop();
         StopAnimation();
+    });
+
+    //Dynamic reveal
+    const ratio = .4;
+    const options = {
+        root : null,
+        rootMargin: '0px',
+        threshold: ratio
+    };
+
+    const handleIntersect = function (entries, observer) {
+        entries.forEach(function (entry) {
+            if(entry.intersectionRatio > ratio){
+                entry.target.classList.remove('reveal');
+                observer.unobserve(entry.target)
+            }
+        })
+    };
+
+    document.documentElement.classList.add('reveal-loaded');
+    const observer = new IntersectionObserver(handleIntersect, options);
+    document.querySelectorAll('.reveal').forEach(function (r) {
+        observer.observe(r)
+    });
+
+    $(document).on('change', '.custom-file-input', function () {
+        let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
+        $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
+    });
+
+    $(window).on('load', function () {
+        $('#overlay').fadeOut('1500');
     });
 
     var $contracts;
@@ -41,15 +63,11 @@ $(document).ready(function () {
         $('.contract[data-index=' + index + ']').remove();
     });
 
-    $("nav a").on("click", function (event) {
-        event.preventDefault();
+    $("nav a").on("click", function () {
 
         var href = $(this).attr("href");
 
         window.history.pushState(null, null, href);
-
-        $("nav a").removeClass("active");
-        $(this).addClass("active");
 
         $.ajax({
             url:href,

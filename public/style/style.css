@@ -5865,6 +5865,11 @@ section {
   margin: 30px;
 }
 
+span {
+  font-weight: bold;
+  color: #f29400;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5874,12 +5879,12 @@ section {
   text-align: center;
 }
 
-.title {
+.little-title {
   color: #f29400;
-  margin: 15px;
-  text-align: center;
-  font-size: 2em;
+  font-style: italic;
+  font-size: 4rem;
   font-family: "Smoothie", sans-serif;
+  grid-area: little-title;
 }
 
 .btn {
@@ -5970,40 +5975,31 @@ nav ul {
   color: #673b15;
 }
 
-/*INDEX*/
-.little-title {
-  color: #f29400;
-  font-style: italic;
-  font-size: 4rem;
-  font-family: "Smoothie", sans-serif;
-}
-
-span {
-  font-weight: bold;
-  color: #f29400;
-}
-
+/*HOME*/
 .news {
   width: 20%;
   top: 10%;
   right: 70%;
   position: absolute;
 }
-.news .news-message {
+
+.news-message {
   font-weight: bold;
 }
-.news .scroll-text {
+
+.scroll-text {
   animation: scrollText 10s linear infinite;
   overflow: hidden;
-  white-space: nowrap;
-  text-align: right;
+  text-align: center;
 }
-.news .scroll-wrapper {
-  width: 80%;
+
+.scroll-wrapper {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
 }
+
 @keyframes scrollText {
   0% {
     transform: translateX(40%);
@@ -6012,7 +6008,6 @@ span {
     transform: translateX(-100%);
   }
 }
-
 /*EXPLAIN*/
 .section-divider {
   display: flex;
@@ -6288,6 +6283,11 @@ span {
   text-align: center;
 }
 
+/*LEGAL*/
+#legal {
+  text-align: left;
+}
+
 /*FOOTER*/
 footer {
   text-align: center;
@@ -6354,6 +6354,54 @@ footer .credit {
 .scrollUp:hover {
   color: white;
   cursor: pointer;
+}
+
+/*UNDERLINE EFFECT*/
+.underline {
+  color: #97bf0d;
+  text-decoration: none;
+  background: linear-gradient(to top, rgba(151, 191, 13, 0.5) 0%, rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom/0 100%;
+  transition: background-size 0.3s;
+  font-weight: bold;
+}
+.underline:hover {
+  text-decoration: none;
+  background-size: 100% 100%;
+}
+
+/*REVEAL*/
+.reveal-loaded .reveal [class*=reveal-] {
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
+  transition: 0s !important;
+}
+
+.reveal-loaded [class*=reveal-] {
+  transition: 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-loaded .reveal-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-loaded .reveal-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-loaded .reveal-4 {
+  transition-delay: 0.4s;
+}
+
+.reveal-loaded .reveal-5 {
+  transition-delay: 0.5s;
+}
+
+.reveal-loaded .reveal-6 {
+  transition-delay: 0.6s;
+}
+
+.reveal-loaded .reveal-7 {
+  transition-delay: 0.7s;
 }
 
 @media only screen and (max-width: 970px) {
