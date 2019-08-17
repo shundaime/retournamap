@@ -4,12 +4,14 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductorRepository")
+ * @Vich\Uploadable
  */
 
 class Productor
@@ -27,8 +29,8 @@ class Productor
     private $filename;
 
     /**
-     * @var UploadedFile
-     * @Assert\NotBlank(groups={"new"})
+     * @Vich\UploadableField(mapping="productors_directory", fileNameProperty="filename")
+     * @var File
      * @Assert\Image(
      *     mimeTypes={"image/jpeg", "image/png"},
      *     mimeTypesMessage="Merci d'enregistrer une image au format .jpg ou .png"
@@ -171,22 +173,15 @@ class Productor
         return $this;
     }
 
-    /**
-     * @return UploadedFile
-     */
-    public function getImageFile(): ?UploadedFile
+    public function getImageFile()
     {
         return $this->imageFile;
     }
 
-    /**
-     * @param UploadedFile $imageFile
-     * @throws \Exception
-     */
-    public function setImageFile(?UploadedFile $imageFile): void
+    public function setImageFile(File $filename = null)
     {
-        $this->imageFile = $imageFile;
-        if ($this->imageFile instanceof UploadedFile) {
+        $this->imageFile = $filename;
+        if ($filename) {
             $this->updatedAt = new \DateTime('now');
         }
     }

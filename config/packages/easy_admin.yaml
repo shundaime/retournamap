@@ -3,69 +3,78 @@ easy_admin:
 
         Productor:
             class: App\Entity\Productor
+            label: 'Producteur'
             list:
                 title: 'Les producteurs'
                 help: 'Ajouter, modifier ou supprimer un producteur'
                 actions:
-                    - { name: 'new', label: 'Ajouter un producteur'}
+                    - { name: 'new', label: 'Ajouter un producteur' }
                     - { name: 'edit', icon: 'pencil' }
-                    - { name: 'delete', icon: 'trash-alt'}
+                    - { name: 'delete', icon: 'trash-alt' }
                 batch_actions: ['delete']
                 fields:
                     - { property: 'name', label: 'Nom' }
                     - { property: 'filename', label: 'Image', type: 'image', base_path: 'img/producteurs/' }
                     - { property: 'image_description', label: "Description de l'image" }
-                    - { property: 'delivery', label: "Livraison"}
+                    - { property: 'delivery', label: "Livraison" }
                     - label
+            show:
+                title: '%%entity_label%% (#%%entity_id%%)'
+                fields:
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'filename', label: 'Image', type: 'image', base_path: 'img/producteurs/' }
+                    - { property: 'image_description', label: "Description de l'image" }
+                    - { property: 'contracts', label: 'Contrats' }
+                    - { property: 'delivery', label: "Livraison" }
+                    - { property: 'label', label: 'Label' }
             new:
                 title: 'Créer un producteur'
                 fields:
-                    - {type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle'}
+                    - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
                     - { property: 'name', label: 'Nom' }
-                    - { property: 'delivery', label: "Livraison"}
-                    - label
-                    - {type: 'group', columns: 4, label: 'Contrat', icon: 'file-contract'}
-                    - { property: 'contracts', label: 'Contrats', type: 'embedded_list' }
-                    - {type: 'group', columns: 6, label: 'Photo', icon: 'image'}
-                    - { property: 'filename', label: 'Image', type: 'file', base_path: 'img/producteurs/'}
+                    - { property: 'delivery', label: "Livraison", type: 'text' }
+                    - { property: 'label', label: 'Label', type: 'text'}
+                    - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
+                    - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format jpg ou png uniquement' }
                     - { property: 'image_description', label: "Description de l'image" }
             edit:
                 title: 'Modifier le producteur'
                 fields:
-                    - {type: 'group', columns: 4, label: 'Informations générales', icon: 'info-circle'}
+                    - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
                     - { property: 'name', label: 'Nom' }
-                    - { property: 'delivery', label: "Livraison"}
-                    - label
-                    - {type: 'group', columns: 4, label: 'Contrat', icon: 'file-contract'}
-                    - { property: 'contracts', label: 'Contrats', type: 'embedded_list' }
-                    - {type: 'group', columns: 4, label: 'Photo', icon: 'image'}
-                    - { property: 'imageFile', label: 'Image', type: 'file', base_path: 'img/producteurs/' }
+                    - { property: 'delivery', label: "Livraison", type: 'text' }
+                    - { property: 'label', label: 'Label', type: 'text' }
+                    - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
+                    - { property: 'imageFile', label: ' ', type: 'vich_image' }
                     - { property: 'image_description', label: "Description de l'image" }
+
         Contract:
             class: App\Entity\Contract
             list:
                 title: 'Les contrats'
+                help: 'Ajouter, modifier ou supprimer un contrat'
                 actions:
-                    - { name: 'new', label: 'Ajouter un contrat'}
+                    - { name: 'new', label: 'Ajouter un contrat' }
                     - { name: 'edit', icon: 'pencil' }
-                    - { name: 'delete', icon: 'trash-alt'}
+                    - { name: 'delete', icon: 'trash-alt' }
                 fields:
-                    - { property: 'productor', label: 'Producteur'}
+                    - { property: 'productor', label: 'Producteur' }
                     - { property: 'name', label: 'Nom' }
-                    - { property: 'fileName', label: 'Fichier PDF', type: 'file', base_path: '/doc/contrats', filename: 'Voir le contrat (PDF)' }
-            help: 'Ajouter, modifier ou supprimer un contrat'
+                    - { property: 'fileName', label: 'Fichier PDF', type: 'file', base_path: 'doc/contrats', filename: 'Voir le contrat (PDF)' }
             new:
                 title: 'Ajouter un contrat'
                 fields:
-                    - { property: 'productor', label: 'Producteur'}
-                    - { property: 'name', label: 'Nom' }
-                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'file', base_path: '/doc/contrats' }
+                    - { type: 'section', label: ' ', icon: 'file-contract' }
+                    - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
+                    - { property: 'name', label: 'Nom du contrat', type: 'text', help: 'Choisissez un intitulé court' }
+                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
             edit:
                 title: 'Modifier un contrat'
                 fields:
-                    - { property: 'productor', label: 'Producteur'}
-                    - { property: 'name', label: 'Nom' }
-                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'file'}
+                    - { type: 'section', label: ' ', icon: 'file-contract' }
+                    - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
+                    - { property: 'name', label: 'Nom', type: 'text', help: 'Choisissez un intitulé court' }
+                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
 
 
 
@@ -75,13 +84,26 @@ easy_admin:
                 title: 'Galerie'
                 help: 'Ajouter, modifier ou supprimer une image de la galerie'
                 actions:
-                    - { name: 'new', label: 'Ajouter une image'}
+                    - { name: 'new', label: 'Ajouter une image' }
                     - { name: 'edit', icon: 'pencil' }
                     - { name: 'delete', icon: 'trash-alt'}
                 batch_actions: ['delete']
                 fields:
-                    - { property: 'image_file_name', label: 'Image', type: 'image', base_path: 'img/gallery/' }
+                    - { property: 'image_file_name', label: 'Image', type: 'image', base_path: 'img/gallery' }
                     - { property: 'description', label: "Description de l'image" }
+            new:
+                title: 'Ajouter une image'
+                fields:
+                    - { type: 'section', label: 'Photo', icon: 'image' }
+                    - { property: 'imageFile', label: 'Image', type: 'vich_image', base_path: 'img/gallery' }
+                    - { property: 'description', label: "Description de l'image", type: 'text' }
+            edit:
+                title: 'Modifier une image'
+                fields:
+                    - { type: 'section', label: 'Photo à modifier', icon: 'image' }
+                    - { property: 'imageFile', label: ' ', type: 'vich_image', base_path: 'img/gallery' }
+                    - { property: 'description', label: "Description de l'image", type: 'text' }
+
 
 
         News:
@@ -90,7 +112,7 @@ easy_admin:
                 title: 'Actualité'
                 help: "Ajouter, modifier ou supprimer le contenu de la page d'accueil"
                 actions:
-                    - { name: 'new', label: 'Ajouter du contenu'}
+                    - { name: 'new', label: 'Ajouter du contenu' }
                     - { name: 'edit', icon: 'pencil' }
                     - { name: 'delete', icon: 'trash-alt'}
                 fields:
@@ -98,11 +120,11 @@ easy_admin:
             new:
                 title: 'Ajouter du contenu'
                 fields:
-                    - { property: 'content', label: 'Contenu' }
+                    - { property: 'content', label: 'Contenu', type: 'text' }
             edit:
                 title: 'Modifier le contenu'
                 fields:
-                    - { property: 'content', label: 'Contenu' }
+                    - { property: 'content', label: 'Contenu', type: 'text' }
 
         User:
             class: App\Entity\User
@@ -153,11 +175,11 @@ easy_admin:
 
     design:
         menu:
-            - {entity: 'Productor', label: 'Producteurs', icon: 'tractor'}
-            - {entity: 'Contract', label: 'Contrats', icon: 'file-contract'}
-            - {entity: 'GalleryImage', label: 'Galerie', icon: 'camera'}
-            - {entity: 'News', label: 'Actualité', icon: 'newspaper'}
-            - {entity: 'User', label: 'Utilisateurs', icon: 'user'}
+            - { entity: 'Productor', label: 'Producteurs', icon: 'tractor' }
+            - { entity: 'Contract', label: 'Contrats', icon: 'file-contract' }
+            - { entity: 'GalleryImage', label: 'Galerie', icon: 'camera' }
+            - { entity: 'News', label: 'Actualité', icon: 'newspaper' }
+            - { entity: 'User', label: 'Utilisateurs', icon: 'user' }
             - { label: 'Site', url: 'http://retournamap.local/', icon: 'home'}
         assets:
             favicon: 'img/logopetit.png'

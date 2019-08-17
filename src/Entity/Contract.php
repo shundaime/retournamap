@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContractRepository")
+ * @Vich\Uploadable
  */
 class Contract
 {
@@ -20,11 +22,13 @@ class Contract
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
-     * @var UploadedFile
+     * @Vich\UploadableField(mapping="contracts_directory", fileNameProperty="filename")
+     * @var File
      * @Assert\NotBlank()
      * @Assert\File(
      *     mimeTypes={"application/pdf"},
@@ -45,7 +49,7 @@ class Contract
 
     /**
      * @var Productor
-     *
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="App\Entity\Productor", inversedBy="contracts")
      * @ORM\JoinColumn(name="productor_id", referencedColumnName="id")
      */
@@ -99,29 +103,6 @@ class Contract
     }
 
     /**
-     * @return UploadedFile
-     */
-    public function getPdfFile(): ?UploadedFile
-    {
-        return $this->pdfFile;
-
-    }
-
-    /**
-     * @param UploadedFile $pdfFile
-     * @return Contract
-     * @throws \Exception
-     */
-    public function setPdfFile(?UploadedFile $pdfFile): Contract
-    {
-        $this->pdfFile = $pdfFile;
-        if ($this->pdfFile instanceof UploadedFile) {
-            $this->updatedAt = new \DateTime('now');
-        }
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getFileName()
@@ -136,6 +117,21 @@ class Contract
     public function setFileName($fileName)
     {
         $this->fileName = $fileName;
+        return $this;
+    }
+
+    public function getPdfFile()
+    {
+        return $this->pdfFile;
+    }
+
+    /**
+     * @param File $pdfFile
+     * @return Contract
+     */
+    public function setPdfFile(File $pdfFile): Contract
+    {
+        $this->pdfFile = $pdfFile;
         return $this;
     }
 

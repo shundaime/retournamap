@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GalleryImageRepository")
+ * @Vich\Uploadable
  */
 class GalleryImage
 {
@@ -24,8 +26,8 @@ class GalleryImage
     private $ImageFileName;
 
     /**
-     * @var UploadedFile
-     * @Assert\NotBlank(groups={"new"})
+     * @Vich\UploadableField(mapping="gallery_directory", fileNameProperty="image_file_name")
+     * @var File
      * @Assert\Image(
      *     mimeTypes={"image/jpeg", "image/png"},
      *     mimeTypesMessage="Merci d'enregistrer une image au format .jpg ou .png"
@@ -73,26 +75,17 @@ class GalleryImage
         return $this;
     }
 
-    /**
-     * @return UploadedFile
-     */
-    public function getImageFile(): ?UploadedFile
+    public function getImageFile()
     {
         return $this->imageFile;
     }
 
-    /**
-     * @param UploadedFile $imageFile
-     * @return GalleryImage
-     * @throws \Exception
-     */
-    public function setImageFile(?UploadedFile $imageFile): GalleryImage
+    public function setImageFile(File $ImageFileName = null)
     {
-        $this->imageFile = $imageFile;
-        if ($this->imageFile instanceof UploadedFile) {
+        $this->imageFile = $ImageFileName;
+        if ($ImageFileName){
             $this->updatedAt = new \DateTime('now');
         }
-        return $this;
     }
 
     /**

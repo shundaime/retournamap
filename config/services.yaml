@@ -9,6 +9,7 @@ parameters:
     contracts_directory: '%kernel.project_dir%/public/doc/contrats'
     gallery_directory: '%kernel.project_dir%/public/img/gallery'
 
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -43,30 +44,6 @@ services:
             $productorDirectory: '%productors_directory%'
             $contractDirectory: '%contracts_directory%'
             $galleryDirectory: '%gallery_directory%'
-
-    App\EventListener\ProductorDoctrineListener:
-        arguments:
-            $fileUploader: '@App\Service\FileUploader'
-        tags:
-            - { name: doctrine.event_listener, event: preRemove }
-            - { name: doctrine.event_listener, event: preUpdate }
-            - { name: doctrine.event_listener, event: prePersist }
-
-    App\EventListener\ContractDoctrineListener:
-        arguments:
-            $fileUploader: '@App\Service\FileUploader'
-        tags:
-            - { name: doctrine.event_listener, event: preRemove }
-            - { name: doctrine.event_listener, event: preUpdate }
-            - { name: doctrine.event_listener, event: prePersist }
-
-    App\EventListener\GalleryDoctrineListener:
-        arguments:
-            $fileUploader: '@App\Service\FileUploader'
-        tags:
-            - { name: doctrine.event_listener, event: preRemove }
-            - { name: doctrine.event_listener, event: preUpdate }
-            - { name: doctrine.event_listener, event: prePersist }
 
     App\Command\AutoDeleteUserMessage:
         public: true
