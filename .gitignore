@@ -1,4 +1,11 @@
 
+/public/doc/contrats/*
+!public/doc/contrats/.gitkeep
+/public/img/gallery/*
+!public/img/gallery/.gitkeep
+/public/img/producteurs/*
+!public/img/producteurs/.gitkeep
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
