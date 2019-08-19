@@ -69,7 +69,6 @@ class Contract
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -125,14 +124,12 @@ class Contract
         return $this->pdfFile;
     }
 
-    /**
-     * @param File $pdfFile
-     * @return Contract
-     */
-    public function setPdfFile(File $pdfFile): Contract
+    public function setPdfFile(File $pdfFile = null)
     {
         $this->pdfFile = $pdfFile;
-        return $this;
+        if ($pdfFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
     public function __toString(): ?string
