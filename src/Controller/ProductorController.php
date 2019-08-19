@@ -15,7 +15,7 @@ class ProductorController extends PagesController
     public function list()
     {
         $repository = $this->getDoctrine()->getRepository(Productor::class);
-        $productors = $repository->findAll();
+        $productors = $repository->findByPosition();
         return $this->render('pages/productors.html.twig', ['productors' => $productors]);
     }
 }

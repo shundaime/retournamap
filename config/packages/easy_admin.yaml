@@ -18,6 +18,7 @@ easy_admin:
                     - { property: 'image_description', label: "Description de l'image" }
                     - { property: 'delivery', label: "Livraison" }
                     - label
+                    - { property: 'position', label: 'Position', params: { sortDirection: 'ASC' }}
             show:
                 title: '%%entity_label%% (#%%entity_id%%)'
                 fields:
@@ -27,6 +28,7 @@ easy_admin:
                     - { property: 'contracts', label: 'Contrats' }
                     - { property: 'delivery', label: "Livraison" }
                     - { property: 'label', label: 'Label' }
+                    - { property: 'position', label: 'Position' }
             new:
                 title: 'Créer un producteur'
                 fields:
@@ -37,6 +39,7 @@ easy_admin:
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format jpg ou png uniquement' }
                     - { property: 'image_description', label: "Description de l'image" }
+                    - { property: 'position', label: 'Position' }
             edit:
                 title: 'Modifier le producteur'
                 fields:
@@ -47,6 +50,7 @@ easy_admin:
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image' }
                     - { property: 'image_description', label: "Description de l'image" }
+                    - { property: 'position', label: 'Position' }
 
         Contract:
             class: App\Entity\Contract
