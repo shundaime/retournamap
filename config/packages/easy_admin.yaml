@@ -1,0 +1,196 @@
+easy_admin:
+    entities:
+
+        Productor:
+            class: App\Entity\Productor
+            label: 'Producteur'
+            list:
+                title: 'Les producteurs'
+                help: 'Ajouter, modifier ou supprimer un producteur'
+                actions:
+                    - { name: 'new', label: 'Ajouter un producteur' }
+                    - { name: 'edit', icon: 'pencil' }
+                    - { name: 'delete', icon: 'trash-alt' }
+                batch_actions: ['delete']
+                fields:
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'filename', label: 'Image', type: 'image', base_path: 'img/producteurs/' }
+                    - { property: 'image_description', label: "Description de l'image" }
+                    - { property: 'delivery', label: "Livraison" }
+                    - label
+                    - { property: 'position', label: 'Position', params: { sortDirection: 'ASC' }}
+            show:
+                title: '%%entity_label%% (#%%entity_id%%)'
+                fields:
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'filename', label: 'Image', type: 'image', base_path: 'img/producteurs/' }
+                    - { property: 'image_description', label: "Description de l'image" }
+                    - { property: 'contracts', label: 'Contrats' }
+                    - { property: 'delivery', label: "Livraison" }
+                    - { property: 'label', label: 'Label' }
+                    - { property: 'position', label: 'Position' }
+            new:
+                title: 'Créer un producteur'
+                fields:
+                    - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'delivery', label: "Livraison", type: 'text' }
+                    - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature': 'nature.png' } } }
+                    - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
+                    - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format jpg ou png uniquement' }
+                    - { property: 'image_description', label: "Description de l'image" }
+                    - { property: 'position', label: 'Position' }
+            edit:
+                title: 'Modifier le producteur'
+                fields:
+                    - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'delivery', label: "Livraison", type: 'text' }
+                    - { property: 'label', label: 'Label', type: 'text' }
+                    - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
+                    - { property: 'imageFile', label: ' ', type: 'vich_image' }
+                    - { property: 'image_description', label: "Description de l'image" }
+                    - { property: 'position', label: 'Position' }
+
+        Contract:
+            class: App\Entity\Contract
+            list:
+                title: 'Les contrats'
+                help: 'Ajouter, modifier ou supprimer un contrat'
+                actions:
+                    - { name: 'new', label: 'Ajouter un contrat' }
+                    - { name: 'edit', icon: 'pencil' }
+                    - { name: 'delete', icon: 'trash-alt' }
+                fields:
+                    - { property: 'productor', label: 'Producteur' }
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'fileName', label: 'Fichier PDF', type: 'file', base_path: 'doc/contrats', filename: 'Voir le contrat (PDF)' }
+            new:
+                title: 'Ajouter un contrat'
+                fields:
+                    - { type: 'section', label: ' ', icon: 'file-contract' }
+                    - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
+                    - { property: 'name', label: 'Nom du contrat', type: 'text', help: 'Choisissez un intitulé court' }
+                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
+            edit:
+                title: 'Modifier un contrat'
+                fields:
+                    - { type: 'section', label: ' ', icon: 'file-contract' }
+                    - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
+                    - { property: 'name', label: 'Nom', type: 'text', help: 'Choisissez un intitulé court' }
+                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
+
+
+
+        GalleryImage:
+            class: App\Entity\GalleryImage
+            list:
+                title: 'Galerie'
+                help: 'Ajouter, modifier ou supprimer une image de la galerie'
+                actions:
+                    - { name: 'new', label: 'Ajouter une image' }
+                    - { name: 'edit', icon: 'pencil' }
+                    - { name: 'delete', icon: 'trash-alt'}
+                batch_actions: ['delete']
+                fields:
+                    - { property: 'image_file_name', label: 'Image', type: 'image', base_path: 'img/gallery' }
+                    - { property: 'description', label: "Description de l'image" }
+            new:
+                title: 'Ajouter une image'
+                fields:
+                    - { type: 'section', label: 'Photo', icon: 'image' }
+                    - { property: 'imageFile', label: 'Image', type: 'vich_image', base_path: 'img/gallery' }
+                    - { property: 'description', label: "Description de l'image", type: 'text' }
+            edit:
+                title: 'Modifier une image'
+                fields:
+                    - { type: 'section', label: 'Photo à modifier', icon: 'image' }
+                    - { property: 'imageFile', label: ' ', type: 'vich_image', base_path: 'img/gallery' }
+                    - { property: 'description', label: "Description de l'image", type: 'text' }
+
+
+
+        News:
+            class: App\Entity\News
+            list:
+                title: 'Actualité'
+                help: "Ajouter, modifier ou supprimer le contenu de la page d'accueil"
+                actions:
+                    - { name: 'new', label: 'Ajouter du contenu' }
+                    - { name: 'edit', icon: 'pencil' }
+                    - { name: 'delete', icon: 'trash-alt'}
+                fields:
+                    - { property: 'content', label: 'Contenu' }
+            new:
+                title: 'Ajouter du contenu'
+                fields:
+                    - { property: 'content', label: 'Contenu', type: 'text' }
+            edit:
+                title: 'Modifier le contenu'
+                fields:
+                    - { property: 'content', label: 'Contenu', type: 'text' }
+
+        User:
+            class: App\Entity\User
+            list:
+                title: 'Utilisateur'
+                help: 'Ajouter, modifier ou supprimer un utilisateur'
+                action:
+                    - { name: 'new', label: 'Ajouter un utilisateur'}
+                    - { name: 'edit', icon: 'pencil' }
+                    - { name: 'delete', icon: 'trash-alt'}
+                fields:
+                    - { property: 'last_name', label: 'Nom' }
+                    - { property: 'first_name', label: 'Prénom' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'address', label: 'Adresse' }
+                    - { property: 'zip', label: 'Code postal' }
+                    - { property: 'city', label: 'Ville' }
+                    - { property: 'phone', label: 'Téléphone' }
+                    - { property: 'role', label: 'Rôle'}
+            new:
+                title: 'Créer un utilisateur'
+                fields:
+                    - {type: 'group', columns: 6, label: 'Détails', icon: 'user'}
+                    - { property: 'last_name', label: 'Nom' }
+                    - { property: 'first_name', label: 'Prénom' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'role', label: 'Rôle'}
+                    - {type: 'group', columns: 6, label: 'Coordonnées', icon: 'phone'}
+                    - { property: 'address', label: 'Adresse' }
+                    - { property: 'zip', label: 'Code postal' }
+                    - { property: 'city', label: 'Ville' }
+                    - { property: 'phone', label: 'Téléphone' }
+            edit:
+                title: 'Modifier un utilisateur'
+                fields:
+                    - {type: 'group', columns: 6, label: 'Détails', icon: 'user'}
+                    - { property: 'last_name', label: 'Nom' }
+                    - { property: 'first_name', label: 'Prénom' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'role', label: 'Rôle'}
+                    - {type: 'group', columns: 6, label: 'Coordonnées', icon: 'phone'}
+                    - { property: 'address', label: 'Adresse' }
+                    - { property: 'zip', label: 'Code postal' }
+                    - { property: 'city', label: 'Ville' }
+                    - { property: 'phone', label: 'Téléphone' }
+
+    site_name: '<img src="/img/logo.svg"/>'
+
+    design:
+        menu:
+            - { entity: 'Productor', label: 'Producteurs', icon: 'tractor' }
+            - { entity: 'Contract', label: 'Contrats', icon: 'file-contract' }
+            - { entity: 'GalleryImage', label: 'Galerie', icon: 'camera' }
+            - { entity: 'News', label: 'Actualité', icon: 'newspaper' }
+            - { entity: 'User', label: 'Utilisateurs', icon: 'user' }
+            - { label: 'Site', url: '/', icon: 'home'}
+        assets:
+            favicon: 'img/logopetit.png'
+            css:
+                - 'style/admin.css'
+        brand_color: '#f29400'
+
+    user:
+        name_property_path: 'username'
+        avatar_property_path: 'gravatar'
