@@ -5976,6 +5976,11 @@ nav ul {
 }
 
 /*HOME*/
+#home article {
+  width: 70%;
+  margin: 0 auto;
+}
+
 .news {
   width: 20%;
   top: 10%;
@@ -6261,11 +6266,17 @@ nav ul {
   display: -ms-flexbox;
   display: flex;
   justify-content: space-around;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 .tools .fas, .tools .fab {
   font-size: 4rem;
   color: #8bc636;
+}
+.tools a {
+  font-size: 2rem;
+}
+.tools li {
+  margin: 20px 0;
 }
 
 /*STATUTS*/
@@ -6331,7 +6342,7 @@ footer .credit {
 #overlay {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: url(../img/bg-body.svg);
   position: fixed;
   left: 0;
   top: 0;
@@ -6412,6 +6423,10 @@ footer .credit {
   }
 }
 @media only screen and (max-width: 768px) {
+  #home article {
+    width: 100%;
+  }
+
   .form-container {
     display: block;
     margin: 0 auto;
