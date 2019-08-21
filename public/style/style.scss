@@ -181,10 +181,24 @@ nav {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #fff;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  color: #ffff;
+  text-decoration: none;
+  background: linear-gradient(to top, rgba(103, 59, 21, 0.5) 0%,
+          rgba(103, 59, 21, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  transition: background-size .3s;
+  font-weight: bold;
 
-  &:hover {
+    &:hover {
+      text-decoration: none;
+      background-size: 100% 100%;
+    }
+
+    &.active{
+      color: #673b15;
+    }
+
+  /*&:hover {
     color: #673b15;
     -moz-transform: translateY(5px);
     -webkit-transform: translateY(5px);
@@ -194,11 +208,7 @@ nav {
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-  }
-
-  &.active{
-    color: #673b15;
-  }
+  }*/
 }
 
 /*HOME*/
@@ -500,10 +510,6 @@ nav {
     color: #8bc636;
   }
 
-  a{
-    font-size: 2rem;
-  }
-
   li{
     margin: 20px 0;
   }
@@ -611,6 +617,20 @@ footer {
   text-decoration: none;
   background: linear-gradient(to top, rgba(151, 191, 13, 0.5) 0%,
           rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  transition: background-size .3s;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: none;
+    background-size: 100% 100%;
+  }
+}
+
+.white-underline{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   transition: background-size .3s;
   font-weight: bold;
 
