@@ -65,6 +65,7 @@ easy_admin:
                     - { property: 'productor', label: 'Producteur' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'fileName', label: 'Fichier PDF', type: 'file', base_path: 'doc/contrats', filename: 'Voir le contrat (PDF)' }
+                    - { property: 'description', label: 'Descritpion'}
             new:
                 title: 'Ajouter un contrat'
                 fields:
@@ -72,6 +73,7 @@ easy_admin:
                     - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
                     - { property: 'name', label: 'Nom du contrat', type: 'text', help: 'Choisissez un intitulé court' }
                     - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
+                    - { property: 'description', label: 'Descritpion', help: 'Champ à remplir si aucun contrat pdf'}
             edit:
                 title: 'Modifier un contrat'
                 fields:
@@ -79,6 +81,7 @@ easy_admin:
                     - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
                     - { property: 'name', label: 'Nom', type: 'text', help: 'Choisissez un intitulé court' }
                     - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
+                    - { property: 'description', label: 'Descritpion', help: 'Champ à remplir si aucun contrat pdf'}
 
 
 

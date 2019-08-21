@@ -29,7 +29,6 @@ class Contract
     /**
      * @Vich\UploadableField(mapping="contracts_directory", fileNameProperty="filename")
      * @var File
-     * @Assert\NotBlank()
      * @Assert\File(
      *     mimeTypes={"application/pdf"},
      *     mimeTypesMessage="Merci d'enregistrer un fichier au format .pdf"
@@ -38,7 +37,7 @@ class Contract
     private $pdfFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $fileName;
 
@@ -54,6 +53,11 @@ class Contract
      * @ORM\JoinColumn(name="productor_id", referencedColumnName="id")
      */
     private $productor;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
 
 
     public function getId(): ?int
@@ -104,7 +108,7 @@ class Contract
     /**
      * @return mixed
      */
-    public function getFileName()
+    public function getFileName(): ?string
     {
         return $this->fileName;
     }
@@ -113,7 +117,7 @@ class Contract
      * @param mixed $fileName
      * @return Contract
      */
-    public function setFileName($fileName)
+    public function setFileName($fileName): self
     {
         $this->fileName = $fileName;
         return $this;
@@ -135,5 +139,17 @@ class Contract
     public function __toString(): ?string
     {
         return $this->getName();
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }

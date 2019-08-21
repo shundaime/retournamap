@@ -31,6 +31,9 @@
                     <td class="reveal-4">
                         {% for contract in productor.contracts %}
                             <h4>{{ contract.name }}</h4>
+                            {% if contract.description %}
+                                <p>{{ contract.description }}</p>
+                            {% endif %}
                             {% if contract.fileName %}
                                 <p><a href="/doc/contrats/{{ contract.fileName }}" target="_blank" class="underline">Voir le contrat&nbsp;
                                         <img src="{{ asset('img/logopetit.png') }}" alt="petit logo"></a></p>
