@@ -46,7 +46,7 @@ body {
 main{
   max-width: 80%;
   margin: 0 auto;
-  min-height: 59.5vh;
+  min-height: 59vh;
 }
 img {
   max-width: 100%;
@@ -204,9 +204,13 @@ nav {
 /*HOME*/
 
 #home{
-  article{
+  ul{
     width: 70%;
     margin: 0 auto;
+  }
+
+  li{
+    margin: 15px 0;
   }
 }
 
@@ -240,13 +244,6 @@ nav {
   }
 
 /*EXPLAIN*/
-.section-divider{
-  display: flex;
-
-  .container{
-    padding: 0 20px;
-  }
-}
 
 .btn-list{
   @include flex;
@@ -540,6 +537,7 @@ footer {
   text-align: center;
   background-color: #97bf0d;
   color: #fff;
+  padding: 10px 0;
 
   ul {
     @include flex;
@@ -657,11 +655,21 @@ footer {
   transition-delay: .7s;
 }
 
+@media #{$large-up} {
+  .section-divider{
+    display: flex;
+  }
+}
+
 @media  #{$medium-down}{
   .news{
     position: initial;
     margin: 15px auto;
     width: 80%;
+  }
+
+  .section-divider{
+    display: block;
   }
 }
 

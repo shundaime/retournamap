@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
     //Dynamic reveal
-    const ratio = .3;
+    const ratio = .2;
     const options = {
         root : null,
         rootMargin: '0px',
