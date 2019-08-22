@@ -92,7 +92,12 @@ span{
 
 .flex{
   @include flex();
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   text-align: center;
 }
@@ -102,7 +107,6 @@ span{
   font-style: italic;
   font-size: 4rem;
   font-family: 'Smoothie', sans-serif;
-  grid-area: little-title;
 }
 
 .btn {
@@ -118,47 +122,16 @@ span{
     background: darken($carot, 5);
   }
 }
-/*ADMIN*/
-.admin-form{
-  display: inline-block;
-
-  .btn-danger{
-    background: red;
-  }
-}
-
-.connection{
-  margin: 0 auto;
-}
-
-.form_container{
-  input, select{
-    font-size: 1em;
-  }
-
-  .row{
-    align-items: center;
-  }
-
-  .new{
-    margin-top: 10px;
-  }
-}
-
-.contract-btn{
-  border: 2px solid #673b15;
-  border-radius: 50%;
-  background: #f29400;
-  color: #fff;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-}
 
 /*HEADER*/
 header{
   @include flex();
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -171,6 +144,7 @@ nav {
 
   ul{
     width: 100%;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
   }
 }
@@ -184,8 +158,14 @@ nav {
   font-size: 1.4em;
   color: #ffff;
   text-decoration: none;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(103, 59, 21, 0.5)),
+          color-stop(10%, rgba(103, 59, 21, 0.5)), color-stop(10.01%, transparent)) no-repeat left bottom / 0 100%;
+  background: -o-linear-gradient(bottom, rgba(103, 59, 21, 0.5) 0%,
+          rgba(103, 59, 21, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   background: linear-gradient(to top, rgba(103, 59, 21, 0.5) 0%,
           rgba(103, 59, 21, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  -webkit-transition: background-size .3s;
+  -o-transition: background-size .3s;
   transition: background-size .3s;
   font-weight: bold;
 
@@ -197,18 +177,6 @@ nav {
     &.active{
       color: #673b15;
     }
-
-  /*&:hover {
-    color: #673b15;
-    -moz-transform: translateY(5px);
-    -webkit-transform: translateY(5px);
-    -o-transform: translateY(5px);
-    -ms-transform: translateY(5px);
-    transform: translateY(5px);
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }*/
 }
 
 /*HOME*/
@@ -236,6 +204,7 @@ nav {
   }
 
   .scroll-text {
+    -webkit-animation: scrollText 10s linear infinite;
     animation: scrollText 10s linear infinite;
     overflow: hidden;
     text-align: center;
@@ -248,6 +217,11 @@ nav {
     overflow: hidden;
   }
 
+  @-webkit-keyframes scrollText {
+    0% {-webkit-transform: translateX(40%);transform: translateX(40%)}
+    100% {-webkit-transform: translateX(-100%);transform: translateX(-100%)}
+  }
+
   @keyframes scrollText {
     0% {transform: translateX(40%)}
     100% {transform: translateX(-100%)}
@@ -257,6 +231,8 @@ nav {
 
 .btn-list{
   @include flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
 }
 
@@ -285,6 +261,9 @@ nav {
 
   ul{
     @include flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
 
@@ -378,8 +357,12 @@ nav {
     top: 25%;
     width: 30%;
     height: 100%;
-    display: flex;
+    @include flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
 
@@ -395,9 +378,13 @@ nav {
     width: 3rem;
     height: 3rem;
     position: absolute;
-    display: flex;
+    @include flex;
     z-index: 1;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     background-color: black;
     border-radius: 50%;
@@ -460,9 +447,16 @@ nav {
 }
 
 /*CONTACT*/
-.form-container{
-  display:flex;
+.meet{
   text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-container{
+  @include flex;
+  text-align: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 
   aside{
@@ -502,6 +496,7 @@ nav {
 
 .tools{
   @include flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin-top: 70px;
 
@@ -547,6 +542,8 @@ footer {
 
   ul {
     @include flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
   }
 
@@ -569,7 +566,18 @@ footer {
   left: 0;
   right: 0;
   margin: auto;
+  -webkit-animation: spin 1s infinite
   animation: spin 1s infinite;
+}
+
+@-webkit-keyframes spin {
+  from{
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }to{
+     -webkit-transform: rotate(360deg);
+     transform: rotate(360deg);
+   }
 }
 
 @keyframes spin {
@@ -615,8 +623,14 @@ footer {
 .underline{
   color: rgb(151, 191, 13);
   text-decoration: none;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(151, 191, 13, 0.5)),
+          color-stop(10%, rgba(151, 191, 13, 0.5)), color-stop(10.01%, transparent)) no-repeat left bottom / 0 100%;
+  background: -o-linear-gradient(bottom, rgba(151, 191, 13, 0.5) 0%,
+          rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   background: linear-gradient(to top, rgba(151, 191, 13, 0.5) 0%,
           rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  -webkit-transition: background-size .3s;
+  -o-transition: background-size .3s;
   transition: background-size .3s;
   font-weight: bold;
 
@@ -629,8 +643,14 @@ footer {
 .white-underline{
   color: rgb(255, 255, 255);
   text-decoration: none;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.5)),
+          color-stop(10%, rgba(255, 255, 255, 0.5)), color-stop(10.01%, transparent)) no-repeat left bottom / 0 100%;
+  background: -o-linear-gradient(bottom, rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%,
           rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  -webkit-transition: background-size .3s;
+  -o-transition: background-size .3s;
   transition: background-size .3s;
   font-weight: bold;
 
@@ -648,36 +668,50 @@ footer {
 }
 
 .reveal-loaded [class*="reveal-"]{
+  -webkit-transition: 1s cubic-bezier(.5,0,0,1);
+  -o-transition: 1s cubic-bezier(.5,0,0,1);
   transition: 1s cubic-bezier(.5,0,0,1);
 }
 
 .reveal-loaded .reveal-2 {
+  -webkit-transition-delay: .2s;
+  -o-transition-delay: .2s;
   transition-delay: .2s;
 }
 
 .reveal-loaded .reveal-3 {
+  -webkit-transition-delay: .3s;
+  -o-transition-delay: .3s;
   transition-delay: .3s;
 }
 
 .reveal-loaded .reveal-4 {
+  -webkit-transition-delay: .4s;
+  -o-transition-delay: .4s;
   transition-delay: .4s;
 }
 
 .reveal-loaded .reveal-5 {
+  -webkit-transition-delay: .5s;
+  -o-transition-delay: .5s;
   transition-delay: .5s;
 }
 
 .reveal-loaded .reveal-6 {
+  -webkit-transition-delay: .6s;
+  -o-transition-delay: .6s;
   transition-delay: .6s;
 }
 
 .reveal-loaded .reveal-7 {
+  -webkit-transition-delay: .7s;
+  -o-transition-delay: .7s;
   transition-delay: .7s;
 }
 
 @media #{$large-up} {
   .section-divider{
-    display: flex;
+    @include flex;
   }
 }
 
@@ -696,7 +730,7 @@ footer {
 @media #{$small-down} {
 
   #home{
-    article{
+    ul{
       width: 100%;
     }
   }
@@ -716,6 +750,9 @@ footer {
   }
 
   .tools{
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center;
   }

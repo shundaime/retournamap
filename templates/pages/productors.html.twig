@@ -6,12 +6,12 @@
 
 {% block body %}
 <main>
-    <div class="flex reveal" role="complementary">
-        <section class="container">
+    <div class="flex" role="complementary">
+        <section class="container reveal">
             <h2 class="reveal-2">Les producteurs</h2>
             <table class="table table-hover">
                 <caption>Liste des producteurs</caption>
-                <thead class="reveal-3">
+                <thead>
                 <tr>
                     <th scope="col">Producteurs</th>
                     <th scope="col">Produits / Contrats</th>
@@ -19,7 +19,7 @@
                     <th scope="col">Label</th>
                 </tr>
                 </thead>
-                <tbody class="table">
+                <tbody class="table reveal-3">
                 {% for productor in productors %}
                 <tr class="reveal">
                     <td class="reveal-4">

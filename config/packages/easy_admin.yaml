@@ -18,7 +18,8 @@ easy_admin:
                     - { property: 'image_description', label: "Description de l'image" }
                     - { property: 'delivery', label: "Livraison" }
                     - label
-                    - { property: 'position', label: 'Position', params: { sortDirection: 'ASC' }}
+                    - { property: 'position', label: 'Position'}
+                sort: ['position', 'ASC']
             show:
                 title: '%%entity_label%% (#%%entity_id%%)'
                 fields:
