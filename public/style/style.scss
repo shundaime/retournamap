@@ -179,6 +179,17 @@ nav {
     }
 }
 
+/*CONNECTION*/
+
+.connection{
+  width: 20%;
+  margin: 0 auto;
+
+  label{
+    font-weight: bold;
+  }
+}
+
 /*HOME*/
 
 #home{
@@ -733,6 +744,10 @@ footer {
     ul{
       width: 100%;
     }
+  }
+
+  .connection{
+    width: 100%;
   }
 
   .form-container{

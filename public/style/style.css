@@ -5954,6 +5954,15 @@ nav ul {
   color: #673b15;
 }
 
+/*CONNECTION*/
+.connection {
+  width: 20%;
+  margin: 0 auto;
+}
+.connection label {
+  font-weight: bold;
+}
+
 /*HOME*/
 #home ul {
   width: 70%;
@@ -6493,6 +6502,10 @@ footer .credit {
 }
 @media only screen and (max-width: 768px) {
   #home ul {
+    width: 100%;
+  }
+
+  .connection {
     width: 100%;
   }
 

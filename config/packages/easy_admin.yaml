@@ -36,7 +36,7 @@ easy_admin:
                     - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
-                    - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature': 'nature.png' } } }
+                    - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png' } } }
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format jpg ou png uniquement' }
                     - { property: 'image_description', label: "Description de l'image" }
@@ -47,7 +47,7 @@ easy_admin:
                     - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
-                    - { property: 'label', label: 'Label', type: 'text' }
+                    - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png' } } }
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image' }
                     - { property: 'image_description', label: "Description de l'image" }
