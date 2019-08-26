@@ -14,7 +14,7 @@
             <p class="reveal-3"><b>Venez nous rencontrer lors des distributons de Retourn'AMAP les jeudis soirs de 18h30 à 19h30, nous serons heureux de vous accueillir !</b></p>
         </article>
         <h2 class="reveal-2">Contactez-nous</h2>
-        <article class="form-container reveal reveal-3">
+        <article class="form-container reveal-3">
             {{ form_start(form) }}
             <h3 class="reveal-2"><i class="fas fa-feather-alt reveal-4"></i> Nous écrire :</h3>
             {% for message in app.flashes('success')  %}
@@ -22,7 +22,7 @@
                     {{ message }}
                 </p>
             {% endfor %}
-            {{ form_label(form.name, 'Nom / prénom') }}
+                {{ form_label(form.name, 'Nom / prénom') }}
                 {{ form_widget(form.name, {
                     attr:{
                         placeholder: 'Nom / prénom'
@@ -46,6 +46,10 @@
                         placeholder: 'Message'
                     }
                 }) }}
+            <ul>
+                {{ form_row(form.captcha) }}
+                {{ form_row(form.send) }}
+            </ul>
             {{ form_end(form) }}
             <aside class="reveal">
                 <h3 class="reveal-3"><i class="fas fa-map-signs reveal-4"></i> Nous situer :</h3>

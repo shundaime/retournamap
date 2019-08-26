@@ -470,6 +470,12 @@ nav {
   -ms-flex-pack: justify;
   justify-content: space-between;
 
+  ul{
+    @include flex;
+    justify-content: space-evenly;
+    margin: 15px 0;
+  }
+
   aside{
     width: 100%;
   }

@@ -9,6 +9,7 @@ parameters:
     contracts_directory: '%kernel.project_dir%/public/doc/contrats'
     gallery_directory: '%kernel.project_dir%/public/img/gallery'
 
+    google_recaptcha_site_key: '%env(APP_RECAPTCHA_SITE_KEY)%'
 
 services:
     # default configuration for services in *this* file

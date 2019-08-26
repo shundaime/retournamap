@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactMessageRepository")
@@ -52,6 +53,12 @@ class ContactMessage
      * @ORM\Column(type="datetime")
      */
     private $date;
+
+    /**
+     * @Recaptcha\IsTrue
+     * @var bool
+     */
+    private $recaptcha;
 
     public function __construct()
     {
@@ -120,6 +127,24 @@ class ContactMessage
     {
         $this->date = $date;
 
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRecaptcha(): ?bool
+    {
+        return $this->recaptcha;
+    }
+
+    /**
+     * @param bool $recaptcha
+     * @return ContactMessage
+     */
+    public function setRecaptcha(?bool $recaptcha): ContactMessage
+    {
+        $this->recaptcha = $recaptcha;
         return $this;
     }
 }
