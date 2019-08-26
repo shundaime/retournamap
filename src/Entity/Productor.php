@@ -79,6 +79,11 @@ class Productor
      */
     private $position;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
     public function __construct()
     {
         $this->contracts = new ArrayCollection();
@@ -223,6 +228,18 @@ class Productor
     public function setPosition(int $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }

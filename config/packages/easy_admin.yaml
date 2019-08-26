@@ -18,18 +18,22 @@ easy_admin:
                     - { property: 'image_description', label: "Description de l'image" }
                     - { property: 'delivery', label: "Livraison" }
                     - label
+                    - { property: 'link', label: 'Site web'}
                     - { property: 'position', label: 'Position'}
                 sort: ['position', 'ASC']
             show:
                 title: '%%entity_label%% (#%%entity_id%%)'
                 fields:
+                    - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
                     - { property: 'name', label: 'Nom' }
-                    - { property: 'filename', label: 'Image', type: 'image', base_path: 'img/producteurs/' }
-                    - { property: 'image_description', label: "Description de l'image" }
                     - { property: 'contracts', label: 'Contrats' }
                     - { property: 'delivery', label: "Livraison" }
                     - { property: 'label', label: 'Label' }
+                    - { property: 'link', label: 'Site web'}
                     - { property: 'position', label: 'Position' }
+                    - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
+                    - { property: 'filename', label: 'Image', type: 'image', base_path: 'img/producteurs/' }
+                    - { property: 'image_description', label: "Description de l'image" }
             new:
                 title: 'Créer un producteur'
                 fields:
@@ -37,6 +41,7 @@ easy_admin:
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
                     - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png' } } }
+                    - { property: 'link', label: 'Site web'}
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format jpg ou png uniquement' }
                     - { property: 'image_description', label: "Description de l'image" }
@@ -48,6 +53,7 @@ easy_admin:
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
                     - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png' } } }
+                    - { property: 'link', label: 'Site web'}
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image' }
                     - { property: 'image_description', label: "Description de l'image" }
