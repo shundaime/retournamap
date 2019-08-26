@@ -23,10 +23,7 @@ class ContactType extends AbstractType
             ->add('subject', TextType::class)
             ->add('content', TextareaType::class)
             ->add('send', SubmitType::class, ['label' => 'Envoyer'])
-            ->add('captcha', RecaptchaType::class, [
-                // "groups" option is not mandatory
-                'constraints' => new Recaptcha2(['groups' => ['create']]),
-            ])
+            ->add('recaptcha', RecaptchaType::class)
         ;
     }
 

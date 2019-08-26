@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
+use Beelab\Recaptcha2Bundle\Validator\Constraints\Recaptcha2;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactMessageRepository")
@@ -55,7 +55,7 @@ class ContactMessage
     private $date;
 
     /**
-     * @Recaptcha\IsTrue
+     * @Recaptcha2(message="Impossible de vérifier que vous êtes un humain et non un robot.")
      * @var bool
      */
     private $recaptcha;
@@ -137,7 +137,6 @@ class ContactMessage
     {
         return $this->recaptcha;
     }
-
     /**
      * @param bool $recaptcha
      * @return ContactMessage
