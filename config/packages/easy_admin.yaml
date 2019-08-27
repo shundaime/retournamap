@@ -41,11 +41,11 @@ easy_admin:
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
                     - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png' } } }
-                    - { property: 'link', label: 'Site web'}
+                    - { property: 'link', label: 'Site web', help: 'Si aucun site web, ajouter le caractère #' }
+                    - { property: 'position', label: 'Position', help: 'Positionnement dans le tableau à la page producteur, renseignez un chiffre' }
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format jpg ou png uniquement' }
                     - { property: 'image_description', label: "Description de l'image" }
-                    - { property: 'position', label: 'Position' }
             edit:
                 title: 'Modifier le producteur'
                 fields:
@@ -53,11 +53,11 @@ easy_admin:
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
                     - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png' } } }
-                    - { property: 'link', label: 'Site web'}
+                    - { property: 'link', label: 'Site web' }
+                    - { property: 'position', label: 'Position' }
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
                     - { property: 'imageFile', label: ' ', type: 'vich_image' }
                     - { property: 'image_description', label: "Description de l'image" }
-                    - { property: 'position', label: 'Position' }
 
         Contract:
             class: App\Entity\Contract
