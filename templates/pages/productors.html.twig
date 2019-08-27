@@ -24,8 +24,12 @@
                 <tr class="reveal">
                     <td class="reveal-4">
                         <figure>
-                            <figcaption><a href="{{ productor.link }}" class="underline" {% if productor.link == '#' %} style="cursor: default" {% else %}title="Voir le site" target="_blank"{% endif %}>{{ productor.name }}</a></figcaption>
-                            <img src="img/producteurs/{{ productor.filename }}" alt="{{ productor.imageDescription }}">
+                            <figcaption>
+                                <a href="{{ productor.link }}" class="underline" {% if productor.link == '#' %} style="cursor: default" {% else %}title="Voir le site" target="_blank"{% endif %}>{{ productor.name }}</a>
+                            </figcaption>
+                            <a href="{{ productor.link }}" {% if productor.link == '#' %} style="cursor: default" {% else %} title="Voir le site" target="_blank"{% endif %}>
+                                <img src="img/producteurs/{{ productor.filename }}" alt="{{ productor.imageDescription }}">
+                            </a>
                         </figure>
                     </td>
                     <td class="reveal-4">
