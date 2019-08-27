@@ -7,10 +7,12 @@
     <meta name="description" content="Bienvenue sur le site de Retourn'Amap ! Association de Retournac pour le maintien de l'agriculture paysanne">
     <meta name="keywords" content="retournac, amap, retournamap, panier, paysan, bio, haute-loire, légumes, agriculteur">
     <link rel="icon" type="image/png" href="{{ asset('img/logopetit.png') }}"/>
-    <title>{% block title %}Retourn'AMAP!{% endblock %}</title>
+    <title>{% block title %}Retourn'AMAP !{% endblock %}</title>
     {% block stylesheets %}
+        <!-- CSS VENDOR -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('style/libs/lightbox.min.css') }}" media="screen"/>
         <!-- CSS PERSO -->
         <link rel="stylesheet" type="text/css" href="{{ asset('style/style.css') }}" media="screen"/>
     {% endblock %}
@@ -59,7 +61,18 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    {% if active == 'contact' %}
     <script src="//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}"></script>
+    {% endif %}
+    {% if active == 'gallery' %}
+    <script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
+    <script>
+        lightbox.option({
+            'showImageNumberLabel' : false,
+            'disableScrolling' : true
+        })
+    </script>
+    {% endif %}
 {% endblock %}
 </body>
 </html>
