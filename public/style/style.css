@@ -5819,7 +5819,7 @@ body {
 }
 
 main {
-  max-width: 80%;
+  max-width: 85%;
   margin: 0 auto;
   min-height: 59vh;
 }
@@ -5895,7 +5895,7 @@ span {
   border: 2px solid #673b15;
   font-size: 1.8rem;
   font-weight: bold;
-  margin: 10px auto;
+  margin: 10px;
   background: #f29400;
   color: #fff;
 }
@@ -6179,25 +6179,21 @@ nav ul {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.form-container ul {
+.form-container .form-end {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   justify-content: space-evenly;
   margin: 15px 0;
 }
-.form-container aside {
-  width: 100%;
-}
-.form-container iframe {
-  width: 100%;
+.form-container aside iframe {
   margin: 0 15px;
 }
 .form-container form {
   width: 100%;
   margin: 0 15px;
 }
-.form-container label {
+.form-container .label-hidden {
   position: absolute;
   left: -10000px;
   width: 1px;
@@ -6225,7 +6221,7 @@ nav ul {
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-top: 70px;
+  margin-top: 80px;
 }
 .tools .fas, .tools .fab {
   font-size: 4rem;
@@ -6433,6 +6429,18 @@ footer .credit {
     width: 80%;
   }
 
+  .form-container {
+    display: block;
+    margin: 0 auto;
+  }
+  .form-container form {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .form-container aside {
+    width: 100%;
+  }
+
   .section-divider {
     display: block;
   }
@@ -6446,17 +6454,12 @@ footer .credit {
     width: 100%;
   }
 
-  .form-container {
-    display: block;
-    margin: 0 auto;
-  }
-  .form-container form {
-    width: 100%;
-    margin: 0 auto;
-  }
-
   .section-divider {
     display: block;
+  }
+
+  .form-end {
+    flex-direction: column;
   }
 
   .tools {

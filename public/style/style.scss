@@ -44,7 +44,7 @@ body {
 }
 
 main{
-  max-width: 80%;
+  max-width: 85%;
   margin: 0 auto;
   min-height: 59vh;
 }
@@ -113,7 +113,7 @@ span{
   border: 2px solid #673b15;
   font-size: 1.8rem;
   font-weight: bold;
-  margin: 10px auto;
+  margin: 10px;
   background: $carot;
   color: #fff;
 
@@ -395,19 +395,16 @@ nav {
   -ms-flex-pack: justify;
   justify-content: space-between;
 
-  ul{
+  .form-end{
     @include flex;
     justify-content: space-evenly;
     margin: 15px 0;
   }
 
   aside{
-    width: 100%;
-  }
-
-  iframe{
-    width: 100%;
-    margin: 0 15px;
+    iframe{
+      margin: 0 15px;
+    }
   }
 
   form{
@@ -415,8 +412,8 @@ nav {
     margin: 0 15px;
   }
 
-  label{
-    @include hidden();
+  .label-hidden{
+      @include hidden();
   }
 
   input{
@@ -440,7 +437,7 @@ nav {
   @include flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-top: 70px;
+  margin-top: 80px;
 
   .fas, .fab{
     font-size: 4rem;
@@ -664,6 +661,20 @@ footer {
     width: 80%;
   }
 
+  .form-container{
+    display: block;
+    margin: 0 auto;
+
+    form{
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    aside{
+      width: 100%;
+    }
+  }
+
   .section-divider{
     display: block;
   }
@@ -681,18 +692,12 @@ footer {
     width: 100%;
   }
 
-  .form-container{
-    display: block;
-    margin: 0 auto;
-
-    form{
-      width: 100%;
-      margin: 0 auto;
-    }
-  }
-
   .section-divider{
     display: block;
+  }
+
+  .form-end{
+    flex-direction: column;
   }
 
   .tools{

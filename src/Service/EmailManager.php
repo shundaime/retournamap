@@ -55,15 +55,33 @@ class EmailManager
      */
     public function sendContactMailToAdmin(ContactMessage $contactMessage)
     {
-        $message = Mailgun::create($this->apiKey, $this->endpoint);
-        $message->messages()->send($this->domain, [
-            'from' => $this->sender,
-            'to' => $this->recipient,
-            'subject' => 'Nouveau message depuis le site',
-            'html' => $this->twig->render('emails/contact.html.twig', [
-                'message' => $contactMessage,
-            ])
-        ]);
+        if($contactMessage->getAttachment() !== null){
+            $message = Mailgun::create($this->apiKey, $this->endpoint);
+            $message->messages()->send($this->domain, [
+                'from' => $this->sender,
+                'to' => $this->recipient,
+                'subject' => 'Nouveau message depuis le site',
+                'html' => $this->twig->render('emails/contact.html.twig', [
+                    'message' => $contactMessage,
+                ]),
+                'attachment' => [
+                    [
+                        'fileContent' => file_get_contents($contactMessage->getAttachment()->getPathname()),
+                        'filename' => $contactMessage->getAttachment()->getClientOriginalName()
+                    ]
+                ]
+            ]);
+        } else {
+            $message = Mailgun::create($this->apiKey, $this->endpoint);
+            $message->messages()->send($this->domain, [
+                'from' => $this->sender,
+                'to' => $this->recipient,
+                'subject' => 'Nouveau message depuis le site',
+                'html' => $this->twig->render('emails/contact.html.twig', [
+                    'message' => $contactMessage,
+                ])
+            ]);
+        }
     }
 
     /**

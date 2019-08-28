@@ -55,10 +55,20 @@ class ContactMessage
     private $date;
 
     /**
-     * @Recaptcha2(message="Impossible de vérifier que vous êtes un humain et non un robot.")
+     * @Recaptcha2(message = "Impossible de vérifier que vous êtes un humain et non un robot.")
      * @var bool
      */
     private $recaptcha;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "10m",
+     *     maxSizeMessage = "Votre fichier est trop volumineux, la taille maximum est de 10 Mo",
+     *     mimeTypes = {"application/pdf", "application/doc", "application/jpg"},
+     *     mimeTypesMessage = "Merci d'envoyer un fichier au format pdf, doc, ou jpg"
+     * )
+     */
+    private $attachment;
 
     public function __construct()
     {
@@ -144,6 +154,24 @@ class ContactMessage
     public function setRecaptcha(?bool $recaptcha): ContactMessage
     {
         $this->recaptcha = $recaptcha;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttachment()
+    {
+        return $this->attachment;
+    }
+
+    /**
+     * @param mixed $attachment
+     * @return ContactMessage
+     */
+    public function setAttachment($attachment)
+    {
+        $this->attachment = $attachment;
         return $this;
     }
 }
