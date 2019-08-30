@@ -45,15 +45,15 @@
     </header>
 {% block body %}
 {% endblock %}
-    <footer>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-light reveal">
+    <footer class="reveal">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
             <ul class="nav navbar-nav reveal-2">
                 <li class="nav-item"><a href="{{ path('status') }}" class="nav-link {% if active == 'status' %}active{% endif %}">Statuts</a></li>
                 <li class="nav-item"><a href="{{ path('legal') }}" class="nav-link {% if active == 'legal' %}active{% endif %}">Mentions légales</a></li>
             </ul>
         </nav>
         <button type="button" value="Haut de page" class="scrollUp"><i class="fas fa-chevron-up"></i></button>
-        <small>
+        <small class="reveal-3">
             <i class="far fa-copyright"></i>2019 Tous droits réservés <a href="https://gcharmasson.com/" class="credit white-underline">Guillaume Charmasson</a>
         </small>
     </footer>

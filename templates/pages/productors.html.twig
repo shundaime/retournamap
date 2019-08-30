@@ -7,8 +7,8 @@
 {% block body %}
 <main>
     <div class="flex" role="complementary">
-        <section class="container reveal">
-            <h2 class="reveal-2">Les producteurs</h2>
+        <section class="container">
+            <h2>Les producteurs</h2>
             <table class="table table-hover">
                 <caption>Liste des producteurs</caption>
                 <thead>
@@ -19,10 +19,10 @@
                     <th scope="col">Label</th>
                 </tr>
                 </thead>
-                <tbody class="table reveal-3">
+                <tbody class="table">
                 {% for productor in productors %}
-                <tr class="reveal">
-                    <td class="reveal-4">
+                <tr>
+                    <td>
                         <figure>
                             <figcaption>
                                 <a href="{{ productor.link }}" class="underline" {% if productor.link == '#' %} style="cursor: default" {% else %}title="Voir le site" target="_blank"{% endif %}>{{ productor.name }}</a>
@@ -32,7 +32,7 @@
                             </a>
                         </figure>
                     </td>
-                    <td class="reveal-4">
+                    <td>
                         {% for contract in productor.contracts %}
                             <h4>{{ contract.name }}</h4>
                             {% if contract.description %}
@@ -44,8 +44,8 @@
                             {% endif %}
                         {% endfor %}
                     </td>
-                    <td class="reveal-4">{{ productor.delivery }}</td>
-                    <td class="reveal-4"><img src="img/label/{{ productor.label }}" alt="logo du label" class="img-label"></td>
+                    <td>{{ productor.delivery }}</td>
+                    <td><img src="img/label/{{ productor.label }}" alt="logo du label" class="img-label"></td>
                 </tr>
                 {% endfor %}
                 </tbody>
