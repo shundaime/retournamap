@@ -44,8 +44,6 @@ body {
 }
 
 main{
-  max-width: 85%;
-  margin: 0 auto;
   min-height: 59vh;
 }
 img {
@@ -404,6 +402,7 @@ nav {
   aside{
     iframe{
       margin: 0 15px;
+      border: 0;
     }
   }
 

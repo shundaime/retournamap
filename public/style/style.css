@@ -5819,8 +5819,6 @@ body {
 }
 
 main {
-  max-width: 85%;
-  margin: 0 auto;
   min-height: 59vh;
 }
 
@@ -6188,6 +6186,7 @@ nav ul {
 }
 .form-container aside iframe {
   margin: 0 15px;
+  border: 0;
 }
 .form-container form {
   width: 100%;
