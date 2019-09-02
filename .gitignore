@@ -1,4 +1,3 @@
-/src/DataFixtures/
 /public/doc/contrats/*
 !public/doc/contrats/.gitkeep
 /public/img/gallery/*
