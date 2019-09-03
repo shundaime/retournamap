@@ -1,3 +1,7 @@
+/*------------------------------------*\
+  #SETTINGS
+\*------------------------------------*/
+
 @import "libs/normalize.css";
 @import "libs/responsive";
 @import "libs/mixin";
@@ -24,7 +28,9 @@ $grass:#8bc636;
   font-style: normal;
 }
 
-/*GENERAL*/
+/*------------------------------------*\
+  #GLOBAL
+\*------------------------------------*/
 
 * {
   -webkit-box-sizing: border-box; /* Android ≤ 2.3, iOS ≤ 4 */
@@ -121,7 +127,10 @@ span{
   }
 }
 
-/*HEADER*/
+/*------------------------------------*\
+  #GLOBAL-HEADER-PAGES
+\*------------------------------------*/
+
 header{
   @include flex();
   -webkit-box-pack: center;
@@ -177,18 +186,31 @@ nav {
     }
 }
 
-/*CONNECTION*/
+/*------------------------------------*\
+  #GLOBAL-FOOTER-PAGES
+\*------------------------------------*/
 
-.connection{
-  width: 20%;
-  margin: 0 auto;
+footer {
+  text-align: center;
+  background-color: #97bf0d;
+  color: #fff;
+  padding: 10px 0;
 
-  label{
-    font-weight: bold;
+  ul {
+    @include flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+  }
+
+  .credit{
+    color: #fff;
   }
 }
 
-/*HOME*/
+/*------------------------------------*\
+  #HOME-PAGE
+\*------------------------------------*/
 
 #home{
   ul{
@@ -236,7 +258,9 @@ nav {
     100% {transform: translateX(-100%)}
   }
 
-/*EXPLAIN*/
+/*------------------------------------*\
+  #EXPLAIN-PAGE
+\*------------------------------------*/
 
 .btn-list{
   @include flex;
@@ -245,7 +269,9 @@ nav {
   justify-content: space-evenly;
 }
 
-/*PRODUCTOR*/
+/*------------------------------------*\
+  #PRODUCTOR-PAGE
+\*------------------------------------*/
 
 .table{
   thead>tr>th:first-child{
@@ -329,7 +355,9 @@ nav {
   }
 }
 
-/*GALERIE*/
+/*------------------------------------*\
+  #GALLERY-PAGE
+\*------------------------------------*/
 
 #photos {
   line-height: 0;
@@ -380,7 +408,10 @@ nav {
   }
 }
 
-/*CONTACT*/
+/*------------------------------------*\
+  #CONTACT-PAGE
+\*------------------------------------*/
+
 .meet{
   text-align: center;
   margin-bottom: 40px;
@@ -448,7 +479,10 @@ nav {
   }
 }
 
-/*STATUTS*/
+/*------------------------------------*\
+  #STATUS-PAGE
+\*------------------------------------*/
+
 #status{
   text-align: left;
 
@@ -466,31 +500,34 @@ nav {
   }
 }
 
-/*LEGAL*/
+/*------------------------------------*\
+  #LEGAL-PAGE
+\*------------------------------------*/
+
 #legal{
   text-align: left;
 }
 
-/*FOOTER*/
-footer {
-  text-align: center;
-  background-color: #97bf0d;
-  color: #fff;
-  padding: 10px 0;
+/*------------------------------------*\
+  #LOGIN-PAGE
+\*------------------------------------*/
 
-  ul {
-    @include flex;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
-  }
+.log{
+  width: 20%;
+  margin: 0 auto;
 
-  .credit{
-    color: #fff;
+  label{
+    font-weight: bold;
   }
 }
 
-/*LOADER*/
+/*------------------------------------*\
+  #DYNAMIC-SECTION
+\*------------------------------------*/
+
+/*------------------------------------*\
+  #LOADER
+\*------------------------------------*/
 
 .loader {
   width: 80px;
@@ -535,9 +572,11 @@ footer {
   top: 0;
 }
 
-/*BOUTON SCROLL*/
+/*------------------------------------*\
+  #SCROLL
+\*------------------------------------*/
 
-.scrollUp {
+.scroll-up {
   width: 40px;
   height: 40px;
   position: fixed;
@@ -556,7 +595,9 @@ footer {
     }
 }
 
-/*UNDERLINE EFFECT*/
+/*------------------------------------*\
+  #UNDERLINE-EFFECT
+\*------------------------------------*/
 
 .underline{
   color: rgb(151, 191, 13);
@@ -598,7 +639,10 @@ footer {
   }
 }
 
-/*REVEAL*/
+/*------------------------------------*\
+  #REVEAL
+\*------------------------------------*/
+
 .reveal-loaded .reveal [class*="reveal-"] {
   opacity: 0!important;
   transform: translateY(30px)!important;
@@ -647,11 +691,23 @@ footer {
   transition-delay: .7s;
 }
 
+/*------------------------------------*\
+  #RESPONSIVE-SECTION
+\*------------------------------------*/
+
+/*------------------------------------*\
+  #LARGE-DEVICE
+\*------------------------------------*/
+
 @media #{$large-up} {
   .section-divider{
     @include flex;
   }
 }
+
+/*------------------------------------*\
+  #MEDIUM-DEVICE
+\*------------------------------------*/
 
 @media  #{$medium-down}{
   .news{
@@ -678,6 +734,10 @@ footer {
     display: block;
   }
 }
+
+/*------------------------------------*\
+  #SMALL DEVICE
+\*------------------------------------*/
 
 @media #{$small-down} {
 

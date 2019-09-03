@@ -5,7 +5,7 @@ $(window).on('load', function () {
 
 $(document).ready(function () {
 
-    var div = $('#scroll');
+    let div = $('#scroll');
     if (div) {
         div.scrollTop = div.scrollHeight; //Fait descendre le scroll à son niveau maximum
     }
@@ -45,19 +45,20 @@ $(document).ready(function () {
 
     $("nav a").on("click", function () {
 
-        var href = $(this).attr("href");
+        let href = $(this).attr("href");
 
         window.history.pushState(null, null, href);
 
         $.ajax({
             url:href,
             success: function (data) {
-                $("main").fadeOut(250, function () {
-                    var newPage = $(data).filter("main").html();
+                let main = $('main');
+                main.fadeOut(250, function () {
+                    let newPage = $(data).filter("main").html();
 
-                    $("main").html(newPage);
+                    main.html(newPage);
 
-                    $("main").fadeIn(250)
+                    main.fadeIn(250)
                 })
             }
         })
@@ -65,10 +66,11 @@ $(document).ready(function () {
 });
 
 function ScrollToTop() {
-    var s = $(window).scrollTop();
-    s > 400 ? $('.scrollUp').fadeIn() : $('.scrollUp').fadeOut(); //Ternaire
+    let s = $(window).scrollTop();
+    let scrollUp = $('.scroll-up');
+    s > 400 ? scrollUp.fadeIn() : scrollUp.fadeOut(); //Ternaire
 
-    $('.scrollUp').click(function () {
+    scrollUp.click(function() {
         $("html, body").animate({scrollTop: 0}, 500);
         return false;
     });
