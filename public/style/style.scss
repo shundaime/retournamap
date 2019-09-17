@@ -52,6 +52,17 @@ body {
 main{
   min-height: 59vh;
 }
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: $grass;
+
+  &:hover {
+    color: $grass;
+  }
+}
+
 img {
   max-width: 100%;
   margin: 0 auto;
@@ -67,16 +78,6 @@ h2{
   text-align: center;
   font-size: 2em;
   font-family: 'Smoothie', sans-serif;
-}
-
-a {
-  text-decoration: none;
-  font-weight: bold;
-  color: $grass;
-
-  &:hover {
-    color: $grass;
-  }
 }
 
 ul{
@@ -184,6 +185,10 @@ nav {
     &.active{
       color: #673b15;
     }
+}
+
+.logo-link{
+  margin: 0 auto;
 }
 
 /*------------------------------------*\
