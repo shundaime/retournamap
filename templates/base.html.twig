@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Bienvenue sur le site de Retourn'Amap ! Association de Retournac pour le maintien de l'agriculture paysanne">
-    <meta name="keywords" content="retournac, amap, retournamap, panier, paysan, bio, haute-loire, légumes, agriculteur">
+    <meta name="keywords" content="retournac, amap, retournamap, panier, paysan, bio, haute-loire, légumes, agriculteur, retourn'amap">
     <link rel="icon" type="image/png" href="{{ asset('img/logopetit.png') }}"/>
     <title>{% block title %}Retourn'AMAP{% endblock %}</title>
     {% block stylesheets %}
@@ -61,6 +61,7 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CIntersectionObserverEntry%2CNodeList.prototype.forEach"></script>
     {% if active == 'contact' %}
     <script src="//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}"></script>
     {% endif %}

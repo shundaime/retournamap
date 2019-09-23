@@ -5961,6 +5961,7 @@ nav ul {
 
 .logo-link {
   margin: 0 auto;
+  text-align: center;
 }
 
 /*------------------------------------*\
@@ -6001,34 +6002,10 @@ footer .credit {
   right: 70%;
   position: absolute;
 }
-
-.news-message {
+.news p {
   font-weight: bold;
 }
 
-/* .scroll-text {
-   -webkit-animation: scrollText 10s linear infinite;
-   animation: scrollText 10s linear infinite;
-   overflow: hidden;
-   text-align: center;
- }
-
- .scroll-wrapper {
-   width: 100%;
-   margin-left: auto;
-   margin-right: auto;
-   overflow: hidden;
- }
-
- @-webkit-keyframes scrollText {
-   0% {-webkit-transform: translateX(40%);transform: translateX(40%)}
-   100% {-webkit-transform: translateX(-100%);transform: translateX(-100%)}
- }
-
- @keyframes scrollText {
-   0% {transform: translateX(40%)}
-   100% {transform: translateX(-100%)}
- }*/
 /*------------------------------------*\
   #EXPLAIN-PAGE
 \*------------------------------------*/
@@ -6077,6 +6054,15 @@ footer .credit {
   overflow: hidden;
 }
 
+@media screen\0  {
+  .ie-picture-size {
+    width: 250px;
+  }
+
+  .img-label {
+    max-width: 90%;
+  }
+}
 @media only screen and (max-width: 970px) {
   /* Force table to not be like tables anymore */
   table, thead, tbody, th, td, tr {

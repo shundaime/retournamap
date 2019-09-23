@@ -19,7 +19,7 @@
                     <th scope="col">Label</th>
                 </tr>
                 </thead>
-                <tbody class="table">
+                <tbody>
                 {% for productor in productors %}
                 <tr>
                     <td>
@@ -28,7 +28,7 @@
                                 <a href="{{ productor.link }}" class="underline" {% if productor.link == '#' %} style="cursor: default" {% else %}title="Voir le site" target="_blank"{% endif %}>{{ productor.name }}</a>
                             </figcaption>
                             <a href="{{ productor.link }}" {% if productor.link == '#' %} style="cursor: default" {% else %} title="Voir le site" target="_blank"{% endif %}>
-                                <img src="img/producteurs/{{ productor.filename }}" alt="{{ productor.imageDescription }}">
+                                <img src="img/producteurs/{{ productor.filename }}" alt="{{ productor.imageDescription }}" class="ie-picture-size">
                             </a>
                         </figure>
                     </td>
