@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Entity\Articles;
 use App\Entity\Contract;
 use App\Entity\GalleryImage;
 use App\Entity\Productor;
@@ -15,12 +16,14 @@ class FileUploader
     private $productorDirectory;
     private $contractDirectory;
     private $galleryDirectory;
+    private $articlesDirectory;
 
-    public function __construct($productorDirectory, $contractDirectory, $galleryDirectory)
+    public function __construct($productorDirectory, $contractDirectory, $galleryDirectory, $articlesDirectory)
     {
         $this->productorDirectory = $productorDirectory;
         $this->contractDirectory = $contractDirectory;
         $this->galleryDirectory = $galleryDirectory;
+        $this->articlesDirectory = $articlesDirectory;
     }
 
     public function upload($entity)
@@ -31,6 +34,10 @@ class FileUploader
 
         if($entity instanceof Contract){
             return $this->uploadFile($entity->getPdfFile(), $this->contractDirectory);
+        }
+
+        if($entity instanceof Articles){
+            return $this->uploadFile($entity->getArticleImageFile(), $this->articlesDirectory);
         }
 
         if($entity instanceof GalleryImage){
@@ -59,6 +66,14 @@ class FileUploader
         if($entity instanceof GalleryImage){
             try {
                 unlink($this->galleryDirectory.'/'.$entity->getImageFileName());
+            }catch (\Exception $exception){
+
+            }
+        }
+
+        if($entity instanceof Articles){
+            try {
+                unlink($this->articlesDirectory.'/'.$entity->getImageFileName());
             }catch (\Exception $exception){
 
             }

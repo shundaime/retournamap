@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132763223-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132763223-4');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Bienvenue sur le site de Retourn'Amap ! Association de Retournac pour le maintien de l'agriculture paysanne">
     <meta name="keywords" content="retournac, amap, retournamap, panier, paysan, bio, haute-loire, légumes, agriculteur, retourn'amap">
+    <meta name="google-site-verification" content="DWsg6vexla155v-aa--PKvzeaRS0V41kcvVyjsW9FEo" />
     <link rel="icon" type="image/png" href="{{ asset('img/logopetit.png') }}"/>
     <title>{% block title %}Retourn'AMAP{% endblock %}</title>
     {% block stylesheets %}
         <!-- CSS VENDOR -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" media="screen">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" media="screen">
         <link rel="stylesheet" type="text/css" href="{{ asset('style/libs/lightbox.min.css') }}" media="screen"/>
         <!-- CSS PERSO -->
         <link rel="stylesheet" type="text/css" href="{{ asset('style/style.css') }}" media="screen"/>
@@ -31,6 +41,7 @@
                     <li class="nav-item"><a class="nav-link {% if active == 'home' %}active{% endif %}" href="{{ path('home') }}">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link {% if active == 'explain' %}active{% endif %}" href="{{ path('explain') }}">Fonctionnement</a></li>
                     <li class="nav-item"><a class="nav-link {% if active == 'productors' %}active{% endif %}" href="{{ path('productors') }}">Producteurs</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active == 'articles' %}active{% endif %}" href="{{ path('articles') }}">Articles</a></li>
                     <li class="nav-item"><a class="nav-link {% if active == 'gallery' %}active{% endif %}" href="{{ path('gallery') }}">Galerie</a></li>
                     <li class="nav-item"><a class="nav-link {% if active == 'contact' %}active{% endif %}" href="{{ path('contact') }}">Contact</a></li>
                     {% if app.user %}
@@ -58,22 +69,32 @@
         </small>
     </footer>
 {% block javascripts %}
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.js') }}" type="text/javascript"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" type="text/javascript" async></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CIntersectionObserverEntry%2CNodeList.prototype.forEach"></script>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CIntersectionObserverEntry%2CNodeList.prototype.forEach" type="text/javascript" async></script>
     {% if active == 'contact' %}
-    <script src="//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}"></script>
+    <script src="//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}" type="text/javascript"></script>
     {% endif %}
     {% if active == 'gallery' %}
-    <script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
-    <script>
+    <script src="{{ asset('js/lightbox-plus-jquery.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" defer>
         lightbox.option({
             'showImageNumberLabel' : false,
             'disableScrolling' : true
         })
     </script>
     {% endif %}
+    <script type="text/javascript" defer>
+        var el = document.createElement('script');
+        el.setAttribute('src', 'https://static.axept.io/sdk.js');
+        el.setAttribute('type', 'text/javascript');
+        el.setAttribute('async', true);
+        el.setAttribute('data-id', '5d6e35970f29990e81b9757f');
+        if (document.body !== null) {
+            document.body.appendChild(el);
+        }
+    </script>
 {% endblock %}
 </body>
 </html>

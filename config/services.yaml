@@ -8,6 +8,7 @@ parameters:
     productors_directory: '%kernel.project_dir%/public/img/producteurs'
     contracts_directory: '%kernel.project_dir%/public/doc/contrats'
     gallery_directory: '%kernel.project_dir%/public/img/gallery'
+    articles_directory: '%kernel.project_dir%/public/img/articles'
 
     google_recaptcha_site_key: '%env(APP_RECAPTCHA_SITE_KEY)%'
 
@@ -45,6 +46,7 @@ services:
             $productorDirectory: '%productors_directory%'
             $contractDirectory: '%contracts_directory%'
             $galleryDirectory: '%gallery_directory%'
+            $articlesDirectory: '%articles_directory%'
 
     App\Command\AutoDeleteUserMessage:
         public: true

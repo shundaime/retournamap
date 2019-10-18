@@ -61,4 +61,12 @@ class PagesController extends AbstractController
     {
         return $this->render('pages/status.html.twig');
     }
+
+    /**
+     * @Route("/articles", name="articles")
+     */
+    public function articles()
+    {
+        return $this->render('pages/articles.html.twig');
+    }
 }

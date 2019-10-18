@@ -140,6 +140,33 @@ easy_admin:
                 fields:
                     - { property: 'content', label: 'Contenu', type: 'text' }
 
+        Articles:
+            class: App\Entity\Articles
+            list:
+                title: 'Article'
+                help: 'Ajouter, modifier ou supprimer un article'
+                action:
+                    - { name: 'new', label: 'Ajouter un article'}
+                    - { name: 'edit', icon: 'pencil' }
+                    - { name: 'delete', icon: 'trash-alt'}
+                batch_actions: ['delete']
+                fields:
+                    - {property: 'title', label: 'Titre'}
+                    - {property: 'content', label: 'Contenu'}
+                    - { property: 'image_file_name', label: 'Image', type: 'image', base_path: 'img/articles' }
+            new:
+                title: 'Ajouter un article'
+                fields:
+                    - { type: 'group', columns: 4, label: 'Texte', icon: 'font' }
+                    - { property: 'title', label: 'Titre', type: 'text' }
+                    - { property: 'content', label: 'Contenu', type: 'text' }
+                    - { type: 'group', columns: 4, label: 'Photo', icon: 'image' }
+                    - { property: 'articleImageFile', label: ' ', type: 'vich_image', base_path: 'img/articles' }
+                    - { property: 'description', label: "Description de l'image", type: 'text' }
+                    - { type: 'group', columns: 4, label: 'Lien', icon: 'link' }
+                    - { property: 'link', label: "Ajouter un lien", type: 'text' }
+                    - { property: 'linktitle', label: "Titre du lien", type: 'text' }
+
         User:
             class: App\Entity\User
             list:
@@ -193,6 +220,7 @@ easy_admin:
             - { entity: 'Contract', label: 'Contrats', icon: 'file-contract' }
             - { entity: 'GalleryImage', label: 'Galerie', icon: 'camera' }
             - { entity: 'News', label: 'Actualité', icon: 'newspaper' }
+            - { entity: 'Articles', label: 'Articles', icon: 'scroll' }
             - { entity: 'User', label: 'Utilisateurs', icon: 'user' }
             - { label: 'Site', url: '/', icon: 'home'}
         assets:
