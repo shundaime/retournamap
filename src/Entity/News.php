@@ -41,26 +41,27 @@ class News
     public function setContent(string $content): self
     {
         $this->content = $content;
-
+        if($content){
+            $this->updatedAt = new \DateTime('now');
+        }
         return $this;
     }
 
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
 
     /**
-     * @param \DateTimeInterface|null $updatedAt
+     * @param \DateTime $updatedAt
      * @return News
      */
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-
         return $this;
     }
 }

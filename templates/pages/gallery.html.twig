@@ -7,22 +7,15 @@
 {% block body %}
 <main>
     <div id="scroll" class="flex reveal" role="complementary">
-        <section class="gallery">
+        <section>
             <h2 class="reveal-2">Galerie</h2>
-            <ul class="grid reveal-3" id="photos">
+            <div class="grid reveal-3 gallery" id="photos">
                 {% for image in images %}
-                    <li>
-                        <a href="#{{ image.id }}"><img src="img/gallery/{{ image.imageFileName }}" class="myImg" alt="{{ image.description }}"></a>
-                        <div class="lightbox" id="{{ image.id }}" role="complementary">
-                            <figure>
-                                <a href="#" class="close"></a>
-                                <img src="img/gallery/{{ image.imageFileName }}" class="diapo-img" alt="{{ image.description }}">
-                                <figcaption>{{ image.description }}</figcaption>
-                            </figure>
-                        </div>
-                    </li>
+                        <a href="img/gallery/{{ image.imageFileName }}" data-lightbox="mygallery" data-title="{{ image.description }}" class="img-link">
+                            <img src="img/gallery/{{ image.imageFileName }}" alt="{{ image.description }}">
+                        </a>
                 {% endfor %}
-            </ul>
+            </div>
         </section>
     </div>
 </main>

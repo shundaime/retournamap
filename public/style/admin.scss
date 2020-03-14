@@ -1,3 +1,7 @@
+/*------------------------------------*\
+  #SETTINGS
+\*------------------------------------*/
+
 @import "libs/normalize.css";
 @import "libs/responsive";
 @import "libs/mixin";
@@ -22,6 +26,10 @@ $grass:#8bc636;
   font-weight: normal;
   font-style: normal;
 }
+
+/*------------------------------------*\
+  #GLOBAL
+\*------------------------------------*/
 
 * {
   -webkit-box-sizing: border-box; /* Android ≤ 2.3, iOS ≤ 4 */

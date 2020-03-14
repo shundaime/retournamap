@@ -6,43 +6,43 @@
 
 {% block body %}
 <main>
-    <div class="flex reveal" role="complementary">
+    <div class="flex reveal" role="complementary" id="explain">
         <div class="section-divider" role="complementary">
         <section class="container reveal-2">
             <h2>Inscription</h2>
             <p>Adhérer à Retourn’AMAP vous garantit des produits locaux, issus de l’agriculture biologique tout en ayant
                 une consommation citoyenne et solidaire ! </p>
-            <p><strong>Si vous souhaitez adhérez, complétez et envoyez nous par mail les documents ci-dessous :</strong></p>
-            <ul class="btn-list reveal-4">
+            <p><strong>Si vous souhaitez adhérer, complétez et envoyez nous par mail les documents ci-dessous :</strong></p>
+            <ul class="btn-list reveal-2">
                 <li><a href="{{ asset('doc/Bulletin_adhesion.doc') }}" class="btn">Bulletin d'adhésion</a></li>
                 <li><a href="{{ asset('doc/charte.docx') }}" class="btn">Charte</a></li>
             </ul>
         </section>
-            <section class="container reveal-2">
-                <h2>Fonctionnement des permanences :</h2>
-                <p><b>Les distributions ont lieu les jeudis soirs de 18h30 à 19h30 salle La Forge, à la Filature de
-                        Retournac.</b></p>
-                <p><b>Venez récupérer les paniers commandés pendant ces horaires de permanences !</b></p>
-            </section>
+        <section class="container reveal-2">
+            <h2>Fonctionnement des permanences :</h2>
+            <p><strong>Les distributions ont lieu les jeudis soirs de 18h30 à 19h30 <a href="https://www.google.com/maps/place/La+Filature/@45.20166,4.039126,15z/data=!4m5!3m4!1s0x0:0xd3b753f697a3a251!8m2!3d45.2016604!4d4.0391256?hl=fr" target="_blank" class="underline">salle La Forge, à la Filature de Retournac.</a></strong></p>
+            <br>
+            <p><strong>Venez récupérer les paniers commandés pendant ces horaires de permanences !</strong></p>
+        </section>
         </div>
-        <div class="section-divider" role="complementary">
-            <section class="container reveal-2">
+        <div class="section-divider reveal" role="complementary">
+            <section class="container reveal-5">
                 <h2>Commander</h2>
                 <article>
                     <h3>Les contrats :</h3>
                     <p>L’AMAP est facilitatrice de contact : elle met en lien des Paysans et des Amapiens. Le contrat
                         encadre juridiquement le partenariat.</p>
-                        <b>L’Amapien est libre de choisir le nombre de Paysans avec lequel il a des contrats, libre de choisir le
+                        <p><b>L’Amapien est libre de choisir le nombre de Paysans avec lequel il a des contrats, libre de choisir le
                         contenu de ses paniers et la fréquence de ceux-ci.</b></p>
-                    <p>Ces contrats sont disponibles sur le site, ou directement lors des permanences de l’AMAP.
+                    <p><a href="{{ path('productors') }}" class="underline">Ces contrats sont disponibles sur le site</a> ou directement lors des permanences de l’AMAP.
                     <p>Chez Retourn’AMAP, le renouvellement des contrats se déroule deux fois par an, <b>au 1er avril et au
-                            1er octobre.</b> L’adhésion pour ces 6 mois est de 6€ minimum.</p>
+                            1er octobre</b>. <br>L’adhésion pour ces 6 mois est de 6€ minimum.</p>
                     <p>Le paiement des contrats s’effectue de la façon suivante : <b>paiement par chèque lors du
                             renouvellement des contrats, avec possibilité d’émettre plusieurs chèques encaissés le long du
                             semestre.</b></p>
                 </article>
             </section>
-            <section class="container reveal-2">
+            <section class="container reveal-5">
                 <h2>Devenez un Amapien actif !</h2>
                 <article>
                     <h3>Pendant les permanences :</h3>
@@ -50,12 +50,12 @@
                         <li>- Soyez présent tout au long de la permanence.</li>
                         <li>- Aidez les producteurs et le bureau à installer la salle.</li>
                         <li>- Aidez à la distribution des commandes.</li>
-                        <li>- Donnez un coup de main pour laissez la salle propre.</li>
+                        <li>- Donnez un coup de main pour laisser la salle propre.</li>
                     </ul>
                     <br>
                     <h3>Pour les commandes groupées à Meygalimenterre :</h3>
-                    <p>Les commandes groupées sont à aller chercher à l'espace culturel de St Julien Chapteuil. Un roulement
-                        est mis en place pour assurer la bonne distribution à Retournac.</p>
+                    <p>Les commandes groupées sont à aller chercher à l'espace culturel de St Julien Chapteuil. <br>
+                        Un roulement est mis en place pour assurer la bonne distribution à Retournac.</p>
                 </article>
             </section>
         </div>

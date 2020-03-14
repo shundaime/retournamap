@@ -28,11 +28,9 @@
         </section>
         <section class="news reveal-7">
             <h2 class="little-title">Actualité</h2>
-            <div class="scroll-wrapper" role="contentinfo">
-                {% for news in news %}
-                    <p class="news-message scroll-text">{{ news.content }}</p>
-                {% endfor %}
-            </div>
+            {% for news in news %}
+                <p>{{ news.content }}</p>
+            {% endfor %}
         </section>
     </div>
 </main>

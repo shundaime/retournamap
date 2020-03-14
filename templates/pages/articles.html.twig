@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title "Articles" %}
+
+{% set active = "articles" %}
+
+{% block body %}
+    <main>
+        <div id="scroll" class="flex reveal" role="complementary">
+            <section>
+                <h2 class="reveal-2">Articles</h2>
+                <div class="reveal-3">
+                    {% for article in articles %}
+                        <div class="flex">
+                            <article>
+                                <h3>{{ article.title }}</h3>
+                                <p>{{ article.content }}</p>
+                                <a href="{{ article.link }}" class="btn" target="_blank">{{ article.linktitle }}</a>
+                            </article>
+                            <img src="img/articles/{{ article.imageFileName }}" alt="{{ article.description }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}
+

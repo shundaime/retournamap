@@ -1,3 +1,9 @@
+/public/doc/contrats/*
+!public/doc/contrats/.gitkeep
+/public/img/gallery/*
+!public/img/gallery/.gitkeep
+/public/img/producteurs/*
+!public/img/producteurs/.gitkeep
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -21,3 +27,8 @@
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###

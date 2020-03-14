@@ -73,6 +73,17 @@ class Productor
      */
     private $image_description;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     */
+    private $position;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
     public function __construct()
     {
         $this->contracts = new ArrayCollection();
@@ -207,5 +218,29 @@ class Productor
     public function __toString(): ?string
     {
         return $this->getName();
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
+
+        return $this;
     }
 }

@@ -19,22 +19,19 @@ class ProductorRepository extends ServiceEntityRepository
         parent::__construct($registry, Productor::class);
     }
 
-    // /**
-    //  * @return Productor[] Returns an array of Productor objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Productor[] Returns an array of Productor objects
+    */
+
+    public function findByPosition()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('p.position', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Productor

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Beelab\Recaptcha2Bundle\Validator\Constraints\Recaptcha2;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactMessageRepository")
@@ -52,6 +53,22 @@ class ContactMessage
      * @ORM\Column(type="datetime")
      */
     private $date;
+
+    /**
+     * @Recaptcha2(message = "Impossible de vérifier que vous êtes un humain et non un robot.")
+     * @var bool
+     */
+    private $recaptcha;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "10m",
+     *     maxSizeMessage = "Votre fichier est trop volumineux, la taille maximum est de 10 Mo",
+     *     mimeTypes = {"application/pdf", "application/doc", "application/jpg"},
+     *     mimeTypesMessage = "Merci d'envoyer un fichier au format pdf, doc, ou jpg"
+     * )
+     */
+    private $attachment;
 
     public function __construct()
     {
@@ -120,6 +137,41 @@ class ContactMessage
     {
         $this->date = $date;
 
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRecaptcha(): ?bool
+    {
+        return $this->recaptcha;
+    }
+    /**
+     * @param bool $recaptcha
+     * @return ContactMessage
+     */
+    public function setRecaptcha(?bool $recaptcha): ContactMessage
+    {
+        $this->recaptcha = $recaptcha;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttachment()
+    {
+        return $this->attachment;
+    }
+
+    /**
+     * @param mixed $attachment
+     * @return ContactMessage
+     */
+    public function setAttachment($attachment)
+    {
+        $this->attachment = $attachment;
         return $this;
     }
 }
