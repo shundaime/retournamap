@@ -25,10 +25,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/retournadmin, roles: ROLE_ADMIN }
+         #- { path: ^/retournadmin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
     encoders:
         App\Entity\User:
-            algorithm: bcrypt
+            algorithm: auto
             cost: 13
