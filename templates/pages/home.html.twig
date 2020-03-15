@@ -26,12 +26,14 @@
                         agricole, pérennité des fermes et qui rétablit le lien entre paysans et consommateurs.</strong></li>
             </ul>
         </section>
-        <section class="news reveal-7">
-            <h2 class="little-title">Actualité</h2>
-            {% for news in news %}
-                <p>{{ news.content }}</p>
-            {% endfor %}
-        </section>
+        {% if news is defined %}
+            <section class="news reveal-7">
+                <h2 class="little-title">Actualité</h2>
+                {% for news in news %}
+                    <p>{{ news.content }}</p>
+                {% endfor %}
+            </section>
+        {%endif%}
     </div>
 </main>
 {% endblock %}

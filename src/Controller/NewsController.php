@@ -5,18 +5,27 @@ namespace App\Controller;
 
 
 use App\Entity\News;
+use App\Service\NewsService;
 use Symfony\Component\Routing\Annotation\Route;
 
 class NewsController extends PagesController
 {
     /**
-     * @Route("/", name="news")
+     * @Route("/", name="news", methods={"GET"})
      */
-    public function list()
+    public function list(NewsService $newsService)
     {
-        $repository = $this->getDoctrine()->getRepository(News::class);
-        $news = $repository->findAll();
-        return $this->render('pages/home.html.twig',
-            ['news' => $news]);
+
+        $news = $newsService->getAllNews();
+
+        if (empty($news))
+        {
+            return $this->render('pages/home.html.twig');
+        }
+        else
+        {
+            return $this->render('pages/home.html.twig',
+                ['news' => $news]);
+        }
     }
 }
