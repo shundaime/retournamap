@@ -5,17 +5,22 @@ namespace App\Controller;
 
 
 use App\Entity\Articles;
+use App\Service\ArticlesService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticlesController extends PagesController
+class ArticlesController extends AbstractController
 {
+
     /**
-     * @Route("/articles", name="show_articles")
+     * @Route("/articles", name="show_articles", methods={"GET"})
      */
-    public function showArticles()
+    public function showArticles(ArticlesService $articlesService) : Response
     {
-        $repository = $this->getDoctrine()->getRepository(Articles::class);
-        $articles = $repository->findAll();
+        
+        $articles = $articlesService->getAllArticle();
+
         return $this->render('pages/articles.html.twig',['articles' => $articles]);
     }
 }

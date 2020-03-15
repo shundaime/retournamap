@@ -24,7 +24,10 @@ class ContactType extends AbstractType
             ->add('content', TextareaType::class)
             ->add('attachment', FileType::class, [
                 'help' => "*Adresser nous directement des documents du type contrats, bulletin d'adhésion ou charte.",
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'lang' => 'fr'
+                ]
             ])
             ->add('send', SubmitType::class, ['label' => 'Envoyer'])
             ->add('recaptcha', RecaptchaType::class)

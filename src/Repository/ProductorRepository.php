@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Productor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Productor|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,22 +14,9 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class ProductorRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Productor::class);
-    }
-
-    /**
-    * @return Productor[] Returns an array of Productor objects
-    */
-
-    public function findByPosition()
-    {
-        return $this->createQueryBuilder('p')
-            ->orderBy('p.position', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
     }
 
 

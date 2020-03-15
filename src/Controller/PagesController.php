@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PagesController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="home", methods={"GET"})
      */
     public function home()
     {
@@ -23,7 +23,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/fonctionnement", name="explain")
+     * @Route("/fonctionnement", name="explain", methods={"GET"})
      */
     public function explain()
     {
@@ -31,7 +31,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/producteurs", name="productors")
+     * @Route("/producteurs", name="productors", methods={"GET"})
      */
     public function productors()
     {
@@ -39,7 +39,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/galerie", name="gallery")
+     * @Route("/galerie", name="gallery", methods={"GET"})
      */
     public function gallery()
     {
@@ -47,7 +47,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/legal", name="legal")
+     * @Route("/legal", name="legal", methods={"GET"})
      */
     public function legal()
     {
@@ -55,7 +55,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/status", name="status")
+     * @Route("/status", name="status", methods={"GET"})
      */
     public function status()
     {
@@ -63,7 +63,7 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/articles", name="articles")
+     * @Route("/articles", name="articles", methods={"GET"})
      */
     public function articles()
     {

@@ -4,18 +4,19 @@
 namespace App\Controller;
 
 use App\Entity\Productor;
+use App\Service\ProductorService;
 use Symfony\Component\Routing\Annotation\Route;
 
 
 class ProductorController extends PagesController
 {
     /**
-     * @Route("/producteurs", name="show_productors")
+     * @Route("/producteurs", name="show_productors", method={"GET"})
      */
-    public function list()
+    public function list(ProductorService $productorService)
     {
-        $repository = $this->getDoctrine()->getRepository(Productor::class);
-        $productors = $repository->findByPosition();
+        $productors = $productorService->getAllProductorByPosition();
+        
         return $this->render('pages/productors.html.twig', ['productors' => $productors]);
     }
 }
