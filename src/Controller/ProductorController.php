@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductorController extends PagesController
 {
     /**
-     * @Route("/producteurs", name="show_productors", method={"GET"})
+     * @Route("/producteurs", name="show_productors", methods={"GET"})
      */
     public function list(ProductorService $productorService)
     {
