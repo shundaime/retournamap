@@ -16,7 +16,7 @@ class ArticlesService
 
     public function getAllArticle() : array
     {
-        $articles = $this->articlesRepository->findAll([], ['id' => 'ASC']);
+        $articles = $this->articlesRepository->findAll();
         return $articles;
     }
 
