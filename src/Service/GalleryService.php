@@ -16,7 +16,7 @@ class GalleryService
 
     public function getAllImage() : array
     {
-        $image = $this->galleryImageRepository->findAll([], ['id' => 'ASC']);
+        $image = $this->galleryImageRepository->findAll();
         return $image;
     }
 }

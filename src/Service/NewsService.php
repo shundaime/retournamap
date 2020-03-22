@@ -16,7 +16,7 @@ class NewsService
 
     public function getAllNews()
     {
-        $news = $this->newsRepository->findAll([], ['id' => 'ASC']);
+        $news = $this->newsRepository->findAll();
 
         return $news;
     }
