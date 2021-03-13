@@ -14,7 +14,7 @@ class NewsService
         $this->newsRepository = $newsRepository;
     }
 
-    public function getAllNews()
+    public function getAllNews() : array
     {
         $news = $this->newsRepository->findAll();
 

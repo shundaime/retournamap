@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title "Les producteurs" %}
+{% block title 'Les producteurs' %}
 
-{% set active = "productors" %}
+{% set active = 'productors' %}
 
 {% block body %}
 <main>
-    <div class="flex" role="complementary">
-        <section class="container">
+    <div class='flex' role='complementary'>
+        <section class='container'>
             <h2>Les producteurs</h2>
-            <table class="table table-hover">
+            <table class='table table-hover'>
                 <caption>Liste des producteurs</caption>
                 <thead>
                 <tr>
-                    <th scope="col">Producteurs</th>
-                    <th scope="col">Produits / Contrats</th>
-                    <th scope="col">Livraison</th>
-                    <th scope="col">Label</th>
+                    <th scope='col'>Producteurs</th>
+                    <th scope='col'>Produits / Contrats</th>
+                    <th scope='col'>Livraison</th>
+                    <th scope='col'>Label</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,10 +25,10 @@
                     <td>
                         <figure>
                             <figcaption>
-                                <a href="{{ productor.link }}" class="underline" {% if productor.link == '#' %} style="cursor: default" {% else %}title="Voir le site" target="_blank"{% endif %}>{{ productor.name }}</a>
+                                <a href='{{ productor.link }}' class='underline' {% if productor.link == '#' %} style='cursor: default' {% else %}title='Voir le site' target='_blank' rel='noopener'{% endif %}>{{ productor.name }}</a>
                             </figcaption>
-                            <a href="{{ productor.link }}" {% if productor.link == '#' %} style="cursor: default" {% else %} title="Voir le site" target="_blank"{% endif %}>
-                                <img src="img/producteurs/{{ productor.filename }}" alt="{{ productor.imageDescription }}" class="ie-picture-size">
+                            <a href='{{ productor.link }}' {% if productor.link == '#' %} style='cursor: default' {% else %} title='Voir le site' target='_blank' rel='noopener'{% endif %}>
+                                <img src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}' class='ie-picture-size'>
                             </a>
                         </figure>
                     </td>
@@ -39,13 +39,13 @@
                                 <p>{{ contract.description }}</p>
                             {% endif %}
                             {% if contract.fileName %}
-                                <p><a href="/doc/contrats/{{ contract.fileName }}" target="_blank" class="underline">Voir le contrat&nbsp;
-                                        <img src="{{ asset('img/logopetit.png') }}" alt="petit logo"></a></p>
+                                <p><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat&nbsp;
+                                        <img src='{{ asset('img/logopetit.png') }}' alt='petit logo'></a></p>
                             {% endif %}
                         {% endfor %}
                     </td>
                     <td>{{ productor.delivery }}</td>
-                    <td><img src="img/label/{{ productor.label }}" alt="logo du label" class="img-label"></td>
+                    <td><img src='img/label/{{ productor.label }}' alt='logo du label' class='img-label'></td>
                 </tr>
                 {% endfor %}
                 </tbody>

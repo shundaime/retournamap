@@ -1,29 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title "Se connecter" %}
+{% block title 'Se connecter' %}
 
 {% set active = 'accueil' %}
 
 {% block body %}
 <main>
-    <section class="flex container">
+    <section class='flex container'>
 
         {% if error %}
-            <p class="alert alert-danger">
+            <p class='alert alert-danger'>
                 {{ error.messageKey |trans(error.messageData, 'security') }}
             </p>
         {% endif %}
 
-        <form action="{{ path('login') }}" method="post" class="log">
-            <div class="form-group" role="complementary">
-                <label for="username">Adresse Email</label>
-                <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}">
+        <form action='{{ path('login') }}' method='post' class='log'>
+            <div class='form-group' role='complementary'>
+                <label for='username'>Adresse Email</label>
+                <input type='text' id='username' name='_username' class='form-control' value='{{ last_username }}'>
             </div>
-            <div class="form-group" role="complementary">
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="_password" class="form-control">
+            <div class='form-group' role='complementary'>
+                <label for='password'>Mot de passe</label>
+                <input type='password' id='password' name='_password' class='form-control'>
             </div>
-            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <button type='submit' class='btn btn-primary'>Se connecter</button>
         </form>
     </section>
 </main>

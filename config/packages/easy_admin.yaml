@@ -154,12 +154,14 @@ easy_admin:
                     - {property: 'title', label: 'Titre'}
                     - {property: 'content', label: 'Contenu'}
                     - { property: 'image_file_name', label: 'Image', type: 'image', base_path: 'img/articles' }
+                    - {property: 'position', label: 'Position'}
             new:
                 title: 'Ajouter un article'
                 fields:
                     - { type: 'group', columns: 4, label: 'Texte', icon: 'font' }
                     - { property: 'title', label: 'Titre', type: 'text' }
                     - { property: 'content', label: 'Contenu', type: 'text' }
+                    - { property: 'position', label: 'Position'}
                     - { type: 'group', columns: 4, label: 'Photo', icon: 'image' }
                     - { property: 'articleImageFile', label: ' ', type: 'vich_image', base_path: 'img/articles' }
                     - { property: 'description', label: "Description de l'image", type: 'text' }
@@ -226,7 +228,7 @@ easy_admin:
         assets:
             favicon: 'img/logopetit.png'
             css:
-                - 'style/admin.css'
+                - 'style/admin.min.css'
         brand_color: '#f29400'
 
     user:

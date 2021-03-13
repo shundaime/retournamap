@@ -2,30 +2,32 @@
   #SETTINGS
 \*------------------------------------*/
 
-@import "libs/normalize.css";
-@import "libs/responsive";
-@import "libs/mixin";
-@import "scss/fontawesome.scss";
-@import "scss/solid.scss";
-
+@import 'libs/normalize.css';
+@import 'libs/responsive';
+@import 'libs/mixin';
+@import 'scss/fontawesome.scss';
+@import 'scss/solid.scss';
 
 $carot:#f29400;
 $grass:#8bc636;
 
 @font-face {
-  font-family: "Cabo";
-  src: url('../fonts/cabo/Cabo.woff') format("woff");
-  src: url('../fonts/cabo/Cabo.woff2') format("woff2");
+  font-family: 'Cabo';
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+  src:  url('../fonts/cabo/Cabo.woff') format('woff'),
+        url('../fonts/cabo/Cabo.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "Smoothie";
-  src: url('../fonts/smoothie/Smoothie.woff') format('woff');
-  src: url('../fonts/smoothie/Smoothie.woff2') format('woff2');
+  font-family: 'Smoothie';
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+  src:  url('../fonts/smoothie/Smoothie.woff') format('woff'),
+        url('../fonts/smoothie/Smoothie.woff2') format('woff2');
 }
 
 /*------------------------------------*\
@@ -50,7 +52,8 @@ body {
 }
 
 main{
-  min-height: 59vh;
+  position: relative;
+  height: calc(100% - 70px - 70px)
 }
 
 a {
@@ -145,7 +148,7 @@ header{
 
 nav {
   a{
-    font-family: "Cabo", sans-serif;
+    font-family: 'Cabo', sans-serif;
     letter-spacing: 3px;
     font-size: 2.5rem;
   }
@@ -197,10 +200,11 @@ nav {
 \*------------------------------------*/
 
 footer {
-  text-align: center;
-  background-color: #97bf0d;
-  color: #fff;
-  padding-bottom: 10px;
+    text-align: center;
+    background-color: #97bf0d;
+    color: #fff;
+    position: absolute;
+    width: 100%;
 
   ul {
     @include flex;
@@ -209,9 +213,17 @@ footer {
     justify-content: space-evenly;
   }
 
-  .credit{
-    color: #fff;
+  small{
+    color: #000;
+
+    .credit{
+      color:#000;
+    }
   }
+}
+
+.home_footer{
+  bottom: 0;
 }
 
 /*------------------------------------*\
@@ -229,11 +241,23 @@ footer {
   }
 }
 
+.letter_list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content!important;
+
+  li{
+    margin: 0 5px;
+  }
+}
+
 .news {
   width: 20%;
   top: 10%;
   right: 70%;
   position: absolute;
+  text-align: center;
 
   p{
     font-weight: bold;
@@ -316,7 +340,7 @@ footer {
   tr { border: 1px solid #ccc; }
 
   td {
-    /* Behave  like a "row" */
+    /* Behave  like a 'row' */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
@@ -337,13 +361,31 @@ footer {
   /*
   Label the data
   */
-  td:nth-of-type(1):before { content: ""; }
-  td:nth-of-type(2):before { content: ""; }
-  td:nth-of-type(3):before { content: ""; }
-  td:nth-of-type(4):before { content: ""; }
+  td:nth-of-type(1):before { content: ''; }
+  td:nth-of-type(2):before { content: ''; }
+  td:nth-of-type(3):before { content: ''; }
+  td:nth-of-type(4):before { content: ''; }
 
   .img-label{
     width: 30%;
+  }
+}
+
+/*------------------------------------*\
+  #ARTICLE-PAGE
+\*------------------------------------*/
+#article__section{
+  article{
+    margin-top: 20px;
+  }
+
+  hr{
+    border-bottom: 1px solid $carot;
+    width: 60%;
+  }
+
+  img {
+    width: 400px;
   }
 }
 
@@ -635,13 +677,13 @@ footer {
   #REVEAL
 \*------------------------------------*/
 
-.reveal-loaded .reveal [class*="reveal-"] {
+.reveal-loaded .reveal [class*='reveal-'] {
   opacity: 0!important;
   transform: translateY(30px)!important;
   transition: 0s!important;
 }
 
-.reveal-loaded [class*="reveal-"]{
+.reveal-loaded [class*='reveal-']{
   -webkit-transition: 1s cubic-bezier(.5,0,0,1);
   -o-transition: 1s cubic-bezier(.5,0,0,1);
   transition: 1s cubic-bezier(.5,0,0,1);
@@ -686,7 +728,7 @@ footer {
 
 .custom-file-label{
   &::after{
-    content: "Parcourir";
+    content: 'Parcourir';
   }
 }
 
@@ -744,6 +786,10 @@ footer {
     ul{
       width: 100%;
     }
+  }
+
+  footer{
+    position: relative;
   }
 
   .connection{

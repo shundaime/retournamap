@@ -2,22 +2,30 @@
 
 {% block title "Retourn'Amap" %}
 
-{% set active = "home" %}
+{% set active = 'home' %}
 
 {% block body %}
+{% if news is defined %}
+    <section class='news reveal-7'>
+        <h2 class='little-title'>Actualité</h2>
+        {% for news in news %}
+            <p>{{ news.content }}</p>
+        {% endfor %}
+    </section>
+{%endif%}
 <main>
-    <div class="flex reveal" role="complementary">
-        <section class="container" id="home">
+    <div class='flex reveal' role='complementary'>
+        <section class='container' id='home'>
             <h1>Retourn'amap</h1>
-            <p class="little-title reveal-2">L’amap est plus qu’un “panier” !</p>
-            <ul>
-                <li class="reveal-3"><span>A</span> comme <span>Association</span></li>
-                <li class="reveal-4"><span>M</span> comme <span>Maintien</span></li>
-                <li class="reveal-5"><span>A</span> comme <span>Agriculture</span></li>
-                <li class="reveal-6"><span>P</span> comme <span>Paysanne</span></li>
+            <p class='little-title reveal-2'>L’amap est plus qu’un “panier” !</p>
+            <ul class='letter_list'>
+                <li class='reveal-3'><span>A</span> comme <span>Association</span></li>
+                <li class='reveal-4'><span>M</span> comme <span>Maintien</span></li>
+                <li class='reveal-5'><span>A</span> comme <span>Agriculture</span></li>
+                <li class='reveal-6'><span>P</span> comme <span>Paysanne</span></li>
             </ul>
             <br>
-            <ul class="reveal-7">
+            <ul class='reveal-7'>
                 <li>En AMAP, pas d’intermédiaire commercial. C’est le seul système qui reverse <strong>100% du montant du panier au
                         paysan.</strong> Ce sont les amapiens qui s’organisent pour faire vivre le partenariat.</li>
                 <li><strong>Chaque amapien s’engage sur une saison :</strong> le paysan a l’assurance d’être rémunéré toute l’année pour son
@@ -26,14 +34,6 @@
                         agricole, pérennité des fermes et qui rétablit le lien entre paysans et consommateurs.</strong></li>
             </ul>
         </section>
-        {% if news is defined %}
-            <section class="news reveal-7">
-                <h2 class="little-title">Actualité</h2>
-                {% for news in news %}
-                    <p>{{ news.content }}</p>
-                {% endfor %}
-            </section>
-        {%endif%}
     </div>
 </main>
 {% endblock %}

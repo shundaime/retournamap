@@ -67,6 +67,11 @@ class Articles
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -182,6 +187,18 @@ class Articles
     public function setLinktitle($linktitle)
     {
         $this->linktitle = $linktitle;
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
+
         return $this;
     }
 }

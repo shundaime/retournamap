@@ -16,7 +16,7 @@ class ProductorService
 
     public function getAllProductorByPosition()
     {
-        $productor = $this->productorRepository->findAll([], ['position' => 'ASC']);
+        $productor = $this->productorRepository->findBy([], ['position' => 'ASC']);
 
         return $productor;
     }

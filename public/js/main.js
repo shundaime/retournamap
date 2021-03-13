@@ -1,7 +1,7 @@
 "use strict";
-$(window).on('load', function () {
+/*$(window).on('load', function () {
     $('#overlay').fadeOut('1500');
-});
+});*/
 
 $(document).ready(function () {
 
