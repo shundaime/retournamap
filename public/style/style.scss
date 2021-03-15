@@ -49,17 +49,19 @@ body {
   margin: 0 auto;
   text-align: justify;
   background: url(../img/bg-body.svg);
+  position: relative;
+  height: 100%;
 }
 
 main{
-  position: relative;
-  height: calc(100% - 70px - 70px)
+  padding-bottom: 60px;
 }
 
 a {
   text-decoration: none;
   font-weight: bold;
   color: $grass;
+  transition: all .3s ease-in;
 
   &:hover {
     color: $grass;
@@ -100,12 +102,7 @@ span{
 
 .flex{
   @include flex();
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   text-align: center;
 }
@@ -124,6 +121,7 @@ span{
   margin: 10px;
   background: $carot;
   color: #fff;
+  transition: all .3s ease-in;
 
   &:hover{
     color:#fff;
@@ -137,13 +135,24 @@ span{
 
 header{
   @include flex();
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
+
+  .navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    height: 60px;
+
+    @media  #{$medium-down}{
+      height: inherit;
+    }
+  }
+
+  .navbar-collapse{
+    transition: all .3s ease-in-out;
+  }
 }
 
 nav {
@@ -155,7 +164,6 @@ nav {
 
   ul{
     width: 100%;
-    -ms-flex-pack: distribute;
     justify-content: space-around;
   }
 }
@@ -167,17 +175,11 @@ nav {
 
 .navbar-dark .navbar-nav .nav-link {
   font-size: 1.4em;
-  color: #ffff;
+  color: #fff;
   text-decoration: none;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(103, 59, 21, 0.5)),
-          color-stop(10%, rgba(103, 59, 21, 0.5)), color-stop(10.01%, transparent)) no-repeat left bottom / 0 100%;
-  background: -o-linear-gradient(bottom, rgba(103, 59, 21, 0.5) 0%,
-          rgba(103, 59, 21, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   background: linear-gradient(to top, rgba(103, 59, 21, 0.5) 0%,
           rgba(103, 59, 21, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-  -webkit-transition: background-size .3s;
-  -o-transition: background-size .3s;
-  transition: background-size .3s;
+  transition: all .3s ease-in;
   font-weight: bold;
 
     &:hover {
@@ -192,7 +194,7 @@ nav {
 
 .logo-link{
   margin: 0 auto;
-  text-align: center;
+  padding-top: 60px;
 }
 
 /*------------------------------------*\
@@ -202,15 +204,34 @@ nav {
 footer {
     text-align: center;
     background-color: #97bf0d;
-    color: #fff;
-    position: absolute;
     width: 100%;
+    position: absolute;
+    bottom: 0;
 
   ul {
     @include flex;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
+
+    a{
+      font-size: 1em;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(to top, rgba(103, 59, 21, 0.5) 0%,
+              rgba(103, 59, 21, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+      transition: all .3s ease-in;
+      font-weight: bold;
+      text-transform: uppercase;
+    
+        &:hover {
+          text-decoration: none;
+          background-size: 100% 100%;
+          color: rgba(255,255,255,.75);
+        }
+    
+        &.active{
+          color: #673b15;
+        }
+    }
   }
 
   small{
@@ -220,10 +241,6 @@ footer {
       color:#000;
     }
   }
-}
-
-.home_footer{
-  bottom: 0;
 }
 
 /*------------------------------------*\
@@ -270,8 +287,6 @@ footer {
 
 .btn-list{
   @include flex;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
 }
 
@@ -302,9 +317,6 @@ footer {
 
   ul{
     @include flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
   }
 
@@ -385,7 +397,7 @@ footer {
   }
 
   img {
-    width: 400px;
+    max-width: 400px;
   }
 }
 
@@ -395,10 +407,6 @@ footer {
 
 #photos {
   line-height: 0;
-  -webkit-column-count: 5;
-  -webkit-column-gap: 5px;
-  -moz-column-count: 5;
-  -moz-column-gap: 5px;
   column-count: 5;
   column-gap: 5px;
 
@@ -407,7 +415,7 @@ footer {
   }
 
   .img-link {
-    transition: 0.3s;
+    transition: all .3s ease-in;
 
     &:hover {
       opacity: 0.7;
@@ -422,22 +430,16 @@ footer {
 
 @media (max-width: 1000px) {
   #photos {
-    -moz-column-count:    3;
-    -webkit-column-count: 3;
     column-count:         3;
   }
 }
 @media (max-width: 800px) {
   #photos {
-    -moz-column-count:    2;
-    -webkit-column-count: 2;
     column-count:         2;
   }
 }
 @media (max-width: 400px) {
   #photos {
-    -moz-column-count:    1;
-    -webkit-column-count: 1;
     column-count:         1;
   }
 }
@@ -454,8 +456,6 @@ footer {
 .form-container{
   @include flex;
   text-align: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 
   .form-end{
@@ -499,7 +499,6 @@ footer {
 
 .tools{
   @include flex;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin-top: 80px;
 
@@ -617,14 +616,14 @@ footer {
   bottom: 20px;
   right: 25px;
   display: none;
-  color: white;
+  color: #fff;
   background-color: $carot;
   border: 1px solid #CFCDC9;
   text-align: center;
   line-height: 37px;
 
     &:hover {
-      color: white;
+      color: #fff;
       cursor: pointer;
     }
 }
@@ -636,15 +635,9 @@ footer {
 .underline{
   color: rgb(151, 191, 13);
   text-decoration: none;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(151, 191, 13, 0.5)),
-          color-stop(10%, rgba(151, 191, 13, 0.5)), color-stop(10.01%, transparent)) no-repeat left bottom / 0 100%;
-  background: -o-linear-gradient(bottom, rgba(151, 191, 13, 0.5) 0%,
-          rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   background: linear-gradient(to top, rgba(151, 191, 13, 0.5) 0%,
           rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-  -webkit-transition: background-size .3s;
-  -o-transition: background-size .3s;
-  transition: background-size .3s;
+  transition: all .3s ease-in;
   font-weight: bold;
 
   &:hover {
@@ -656,15 +649,9 @@ footer {
 .white-underline{
   color: rgb(255, 255, 255);
   text-decoration: none;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.5)),
-          color-stop(10%, rgba(255, 255, 255, 0.5)), color-stop(10.01%, transparent)) no-repeat left bottom / 0 100%;
-  background: -o-linear-gradient(bottom, rgba(255, 255, 255, 0.5) 0%,
-          rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%,
           rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-  -webkit-transition: background-size .3s;
-  -o-transition: background-size .3s;
-  transition: background-size .3s;
+  transition: all .3s ease-in;
   font-weight: bold;
 
   &:hover {
@@ -702,9 +689,9 @@ footer {
 }
 
 .reveal-loaded .reveal-4 {
-  -webkit-transition-delay: .4s;
-  -o-transition-delay: .4s;
-  transition-delay: .4s;
+  -webkit-transition-delay: .3s;
+  -o-transition-delay: .3s;
+  transition-delay: .3s;
 }
 
 .reveal-loaded .reveal-5 {
@@ -805,9 +792,6 @@ footer {
   }
 
   .tools{
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center;
   }

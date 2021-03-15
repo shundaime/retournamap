@@ -12,7 +12,7 @@
             <div class='grid reveal-3 gallery' id='photos'>
                 {% for image in images %}
                         <a href='img/gallery/{{ image.imageFileName }}' data-lightbox='mygallery' data-title='{{ image.description }}' class='img-link'>
-                            <img src='img/gallery/{{ image.imageFileName }}' alt='{{ image.description }}'>
+                            <img src='img/gallery/{{ image.imageFileName }}' alt='{{ image.description }}' title='{{ image.description }}'>
                         </a>
                 {% endfor %}
             </div>

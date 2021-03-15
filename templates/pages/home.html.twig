@@ -5,14 +5,6 @@
 {% set active = 'home' %}
 
 {% block body %}
-{% if news is defined %}
-    <section class='news reveal-7'>
-        <h2 class='little-title'>Actualité</h2>
-        {% for news in news %}
-            <p>{{ news.content }}</p>
-        {% endfor %}
-    </section>
-{%endif%}
 <main>
     <div class='flex reveal' role='complementary'>
         <section class='container' id='home'>

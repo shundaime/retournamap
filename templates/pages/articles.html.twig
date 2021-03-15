@@ -15,10 +15,10 @@
                             <hr/>
                             <article>
                                 <h3>{{ article.title }}</h3>
+                                <img src='img/articles/{{ article.imageFileName }}' alt='{{ article.description }}' title='{{ article.description }}'>
                                 <p>{{ article.content }}</p>
                                 <a href='{{ article.link }}' class='btn' target='_blank' rel='noopener'>{{ article.linktitle }}</a>
                             </article>
-                            <img src='img/articles/{{ article.imageFileName }}' alt='{{ article.description }}'>
                         </div>
                     {% endfor %}
                 </div>

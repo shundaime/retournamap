@@ -160,7 +160,20 @@ easy_admin:
                 fields:
                     - { type: 'group', columns: 4, label: 'Texte', icon: 'font' }
                     - { property: 'title', label: 'Titre', type: 'text' }
-                    - { property: 'content', label: 'Contenu', type: 'text' }
+                    - { property: 'content', label: 'Contenu', type: 'textarea' }
+                    - { property: 'position', label: 'Position'}
+                    - { type: 'group', columns: 4, label: 'Photo', icon: 'image' }
+                    - { property: 'articleImageFile', label: ' ', type: 'vich_image', base_path: 'img/articles' }
+                    - { property: 'description', label: "Description de l'image", type: 'text' }
+                    - { type: 'group', columns: 4, label: 'Lien', icon: 'link' }
+                    - { property: 'link', label: "Ajouter un lien", type: 'text' }
+                    - { property: 'linktitle', label: "Titre du lien", type: 'text' }
+            edit:
+                title: 'Modifier un article'
+                fields:
+                    - { type: 'group', columns: 4, label: 'Texte', icon: 'font' }
+                    - { property: 'title', label: 'Titre', type: 'text' }
+                    - { property: 'content', label: 'Contenu', type: 'textarea' }
                     - { property: 'position', label: 'Position'}
                     - { type: 'group', columns: 4, label: 'Photo', icon: 'image' }
                     - { property: 'articleImageFile', label: ' ', type: 'vich_image', base_path: 'img/articles' }
