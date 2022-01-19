@@ -5,18 +5,14 @@
 {% set active = 'gallery' %}
 
 {% block body %}
-<main>
-    <div id='scroll' class='flex reveal' role='complementary'>
-        <section>
-            <h2 class='reveal-2'>Galerie</h2>
-            <div class='grid reveal-3 gallery' id='photos'>
-                {% for image in images %}
-                        <a href='img/gallery/{{ image.imageFileName }}' data-lightbox='mygallery' data-title='{{ image.description }}' class='img-link'>
-                            <img src='img/gallery/{{ image.imageFileName }}' alt='{{ image.description }}' title='{{ image.description }}'>
-                        </a>
-                {% endfor %}
-            </div>
-        </section>
-    </div>
-</main>
+    <section id='scroll'>
+        <h2>Galerie</h2>
+        <div class='grid gallery' id='photos'>
+            {% for image in images %}
+                    <a href='img/gallery/{{ image.imageFileName }}' data-lightbox='mygallery' data-title='{{ image.description }}' class='img-link'>
+                        <img src='img/gallery/{{ image.imageFileName }}' alt='{{ image.description }}' title='{{ image.description }}'>
+                    </a>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

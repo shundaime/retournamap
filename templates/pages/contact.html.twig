@@ -7,69 +7,63 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-<main>
-    <section class='container reveal'>
-        <div class='meet'>
-            <h2 class='reveal-2'>Rencontrons-nous</h2>
-            <p class='reveal-3'><b>Venez nous rencontrer lors des distributons de Retourn'AMAP les jeudis soirs de 18h30 à 19h30, nous serons heureux de vous accueillir !</b></p>
-        </div>
-        <h2 class='reveal-2'>Contactez-nous</h2>
-        <article class='form-container reveal-3'>
-            {{ form_start(form) }}
-            <h3 class='reveal-2'><i class='fas fa-feather-alt reveal-4'></i> Nous écrire :</h3>
-            {% for message in app.flashes('success')  %}
-                <p class='alert alert-success'>
-                    {{ message }}
-                </p>
-            {% endfor %}
-                {{ form_label(form.name, 'Nom / prénom', {'label_attr': {'class':'label-hidden'}}) }}
-                {{ form_widget(form.name, {
-                    attr:{
-                        placeholder: 'Nom / prénom'
-                    }
-                }) }}
-                {{ form_label(form.mail, 'Adresse mail', {'label_attr': {'class':'label-hidden'}}) }}
-                {{ form_widget(form.mail, {
-                    attr:{
-                        placeholder: 'Adresse mail'
-                    }
-                }) }}
-                {{ form_label(form.subject, 'Sujet', {'label_attr': {'class':'label-hidden'}}) }}
-                {{ form_widget(form.subject, {
-                    attr:{
-                        placeholder: 'Sujet'
-                    }
-                }) }}
-                {{ form_label(form.content, 'Message', {'label_attr': {'class':'label-hidden'}}) }}
-                {{ form_widget(form.content, {
-                    attr:{
-                        placeholder: 'Message'
-                    }
-                }) }}
-                <p>{{ form_row(form.attachment, {'label': ' '}) }}</p>
-            <div class='form-end'>
-                {{ form_row(form.recaptcha) }}
-                {{ form_row(form.send) }}
-            </div>
-            {{ form_end(form) }}
-            <aside class='reveal'>
-                <h3 class='reveal-3'><i class='fas fa-map-signs reveal-4'></i> Nous situer :</h3>
-                <div>
-                    <iframe title="Localisation Retourn'AMAP" class='reveal-3' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2811.2815334479724!2d4.039526025565037!3d45.2016381976201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5ea3a5bc97001%3A0xd3b753f697a3a251!2sLa+Filature!5e0!3m2!1sfr!2sfr!4v1559825895807!5m2!1sfr!2sfr' width='300' height='350' allowfullscreen></iframe>
+    <section id='contact'>
+        <p class='text-center my-4'><b>Venez nous rencontrer lors des distributons de Retourn'AMAP les jeudis soirs de 18h30 à 19h30, nous serons heureux de vous accueillir !</b></p>
+        <div class='form-container'>
+            <article>
+                <h5><img src='{{ asset('img/contact/email.svg') }}' alt='icone email'></i> Nous écrire</h5>
+                {{ form_start(form) }}
+                {% for message in app.flashes('success')  %}
+                    <p class='alert alert-success'>
+                        {{ message }}
+                    </p>
+                {% endfor %}
+                    {{ form_label(form.name, 'Nom / prénom', {'label_attr': {'class':'label-hidden'}}) }}
+                    {{ form_widget(form.name, {
+                        attr:{
+                            placeholder: 'Nom / prénom'
+                        }
+                    }) }}
+                    {{ form_label(form.mail, 'Adresse mail', {'label_attr': {'class':'label-hidden'}}) }}
+                    {{ form_widget(form.mail, {
+                        attr:{
+                            placeholder: 'Adresse mail'
+                        }
+                    }) }}
+                    {{ form_label(form.subject, 'Sujet', {'label_attr': {'class':'label-hidden'}}) }}
+                    {{ form_widget(form.subject, {
+                        attr:{
+                            placeholder: 'Sujet'
+                        }
+                    }) }}
+                    {{ form_label(form.content, 'Message', {'label_attr': {'class':'label-hidden'}}) }}
+                    {{ form_widget(form.content, {
+                        attr:{
+                            placeholder: 'Message'
+                        }
+                    }) }}
+                    {{ form_row(form.attachment, {'label': ' '}) }}
+                <div class='form-end'>
+                    {{ form_row(form.recaptcha) }}
+                    {{ form_row(form.send) }}
                 </div>
+                {{ form_end(form) }}
+            </article>
+            <aside>
+                <h5><img src='{{ asset('img/contact/place.svg') }}' alt='icone localalisation'></i> Nous situer</h5>
+                <iframe title="Localisation Retourn'AMAP" src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2811.2815334479724!2d4.039526025565037!3d45.2016381976201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5ea3a5bc97001%3A0xd3b753f697a3a251!2sLa+Filature!5e0!3m2!1sfr!2sfr!4v1559825895807!5m2!1sfr!2sfr' allowfullscreen></iframe>
             </aside>
-        </article>
-        <div class='reveal'>
-            <ul class='tools reveal-4'>
-                <li><i class='fas fa-phone'></i>&nbsp;<a href='tel:07.82.90.98.00' class='underline'>07.82.90.98.00</a></li>
+        </div>
+        <div>
+            <ul class='tools my-4'>
+                <li><img src='{{ asset('img/contact/phone.svg') }}' alt='icone téléphone'>&nbsp;<a href='tel:07.82.90.98.00' class='underline'>07.82.90.98.00</a></li>
                 <li>
-                    <i class='fas fa-envelope-square'></i>&nbsp;<a href='mailto:retournamap@gmail.com' class='underline'>retournamap@gmail.com</a>
+                    <img src='{{ asset('img/contact/email.svg') }}' alt='icone email'>&nbsp;<a href='mailto:retournamap@gmail.com' class='underline'>retournamap@gmail.com</a>
                 </li>
                 <li>
-                    <i class='fab fa-facebook'></i>&nbsp;<a href='https://www.facebook.com/RetournAMAP/' target='_blank' rel='noopener' class='underline'>@RetournAMAP</a>
+                    <img src='{{ asset('img/contact/facebook.svg') }}' alt='icone facebook'>&nbsp;<a href='https://www.facebook.com/RetournAMAP/' target='_blank' rel='noopener' class='underline'>@RetournAMAP</a>
                 </li>
             </ul>
         </div>
     </section>
-</main>
 {% endblock %}

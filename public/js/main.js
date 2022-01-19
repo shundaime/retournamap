@@ -1,7 +1,4 @@
 "use strict";
-/*$(window).on('load', function () {
-    $('#overlay').fadeOut('1500');
-});*/
 
 $(document).ready(function () {
 
@@ -13,29 +10,6 @@ $(document).ready(function () {
     $(window).scroll(function () {
         ScrollToTop();
         StopAnimation();
-    });
-
-    //Dynamic reveal
-    const ratio = .1;
-    const options = {
-        root : null,
-        rootMargin: '0px',
-        threshold: ratio
-    };
-
-    const handleIntersect = function (entries, observer) {
-        entries.forEach(function (entry) {
-            if(entry.intersectionRatio > ratio){
-                entry.target.classList.remove('reveal');
-                observer.unobserve(entry.target)
-            }
-        })
-    };
-
-    document.documentElement.classList.add('reveal-loaded');
-    const observer = new IntersectionObserver(handleIntersect, options);
-    document.querySelectorAll('.reveal').forEach(function (r) {
-        observer.observe(r)
     });
 
     $(document).on('change', '.custom-file-input', function () {
@@ -63,24 +37,33 @@ $(document).ready(function () {
             }
         })
     });
+
+    function ScrollToTop() {
+        let s = $(window).scrollTop();
+        let scrollUp = $('.scroll-up');
+        s > 400 ? scrollUp.fadeIn() : scrollUp.fadeOut(); //Ternaire
+    
+        scrollUp.click(function() {
+            $("html, body").animate({scrollTop: 0}, 500);
+            return false;
+        });
+    }
+    
+    function StopAnimation() {
+        $("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function () {
+            $('html, body').stop();
+        });
+    }
+
+    var el = document.createElement('script');
+    el.setAttribute('src', 'https://static.axept.io/sdk.js');
+    el.setAttribute('type', 'text/javascript');
+    el.setAttribute('async', true);
+    el.setAttribute('data-id', '5d6e35970f29990e81b9757f');
+    if (document.body !== null) {
+        document.body.appendChild(el);
+    }
 });
-
-function ScrollToTop() {
-    let s = $(window).scrollTop();
-    let scrollUp = $('.scroll-up');
-    s > 400 ? scrollUp.fadeIn() : scrollUp.fadeOut(); //Ternaire
-
-    scrollUp.click(function() {
-        $("html, body").animate({scrollTop: 0}, 500);
-        return false;
-    });
-}
-
-function StopAnimation() {
-    $("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function () {
-        $('html, body').stop();
-    });
-}
 
 
 

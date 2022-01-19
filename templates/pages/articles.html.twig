@@ -5,25 +5,21 @@
 {% set active = 'articles' %}
 
 {% block body %}
-    <main>
-        <div id='scroll' class='flex reveal' role='complementary'>
-            <section id='article__section'>
-                <h2 class='reveal-2'>Articles</h2>
-                <div class='reveal-3'>
-                    {% for article in articles %}
-                        <div class='flex'>
-                            <hr/>
-                            <article>
-                                <h3>{{ article.title }}</h3>
-                                <img src='img/articles/{{ article.imageFileName }}' alt='{{ article.description }}' title='{{ article.description }}'>
-                                <p>{{ article.content }}</p>
-                                <a href='{{ article.link }}' class='btn' target='_blank' rel='noopener'>{{ article.linktitle }}</a>
-                            </article>
-                        </div>
-                    {% endfor %}
+    <section id='article__section scroll'>
+        <h2>Articles</h2>
+        <div>
+            {% for article in articles %}
+                <div class='flex'>
+                    <hr/>
+                    <article>
+                        <h3>{{ article.title }}</h3>
+                        <img src='img/articles/{{ article.imageFileName }}' alt='{{ article.description }}' title='{{ article.description }}'>
+                        <p>{{ article.content }}</p>
+                        <a href='{{ article.link }}' class='btn' target='_blank' rel='noopener'>{{ article.linktitle }}</a>
+                    </article>
                 </div>
-            </section>
+            {% endfor %}
         </div>
-    </main>
+    </section>
 {% endblock %}
 

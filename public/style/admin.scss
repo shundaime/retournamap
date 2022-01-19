@@ -2,28 +2,15 @@
   #SETTINGS
 \*------------------------------------*/
 
-@import "libs/normalize.css";
-@import "libs/responsive";
-@import "libs/mixin";
-@import "scss/fontawesome.scss";
-@import "scss/solid.scss";
+@import './libs/responsive';
+@import './libs/mixin';
 
 $carot:#f29400;
 $grass:#8bc636;
 
 @font-face {
-  font-family: "Cabo";
-  src: url('../fonts/cabo/Cabo.woff') format("woff");
-  src: url('../fonts/cabo/Cabo.woff2') format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Smoothie";
+  font-family: 'Smoothie';
   src: url('../fonts/smoothie/Smoothie.woff') format('woff');
-  src: url('../fonts/smoothie/Smoothie.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -5,9 +5,7 @@
 {% set active = 'productors' %}
 
 {% block body %}
-<main>
-    <div class='flex' role='complementary'>
-        <section class='container'>
+        <section id='productors'>
             <h2>Les producteurs</h2>
             <table class='table table-hover'>
                 <caption>Liste des producteurs</caption>
@@ -23,18 +21,18 @@
                 {% for productor in productors %}
                 <tr>
                     <td>
-                        <figure>
-                            <figcaption>
-                                <a href='{{ productor.link }}' class='underline' {% if productor.link == '#' %} style='cursor: default' {% else %}title='Voir le site' target='_blank' rel='noopener'{% endif %}>{{ productor.name }}</a>
-                            </figcaption>
-                            <a href='{{ productor.link }}' {% if productor.link == '#' %} style='cursor: default' {% else %} title='Voir le site' target='_blank' rel='noopener'{% endif %}>
-                                <img src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}' class='ie-picture-size'>
-                            </a>
-                        </figure>
+                        <a href='{{ productor.link }}' class='underline' {% if productor.link == '#' %} {% else %}title='Voir le site' target='_blank' rel='noopener'{% endif %}>
+                            <figure>
+                                <figcaption class='underline'>
+                                    {{ productor.name }}
+                                </figcaption>
+                                <img class='productor_picture' src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}'>
+                            </figure>
+                        </a>
                     </td>
                     <td>
                         {% for contract in productor.contracts %}
-                            <h4>{{ contract.name }}</h4>
+                            <strong>{{ contract.name }}</strong>
                             {% if contract.description %}
                                 <p>{{ contract.description }}</p>
                             {% endif %}
@@ -51,6 +49,4 @@
                 </tbody>
             </table>
         </section>
-    </div>
-</main>
 {% endblock %}
