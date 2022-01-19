@@ -227,7 +227,7 @@ easy_admin:
                     - { property: 'city', label: 'Ville' }
                     - { property: 'phone', label: 'Téléphone' }
 
-    site_name: '<img src="/img/logo.svg"/>'
+    site_name: '<img src="/img/logo.webp"/>'
 
     design:
         menu:
