@@ -227,8 +227,6 @@ easy_admin:
                     - { property: 'city', label: 'Ville' }
                     - { property: 'phone', label: 'Téléphone' }
 
-    site_name: '<img src="/img/logo.webp"/>'
-
     design:
         menu:
             - { entity: 'Productor', label: 'Producteurs', icon: 'tractor' }
@@ -239,7 +237,6 @@ easy_admin:
             - { entity: 'User', label: 'Utilisateurs', icon: 'user' }
             - { label: 'Site', url: '/', icon: 'home'}
         assets:
-            favicon: 'img/logopetit.png'
             css:
                 - 'style/admin.min.css'
         brand_color: '#f29400'
