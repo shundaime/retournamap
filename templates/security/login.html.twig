@@ -5,9 +5,7 @@
 {% set active = 'accueil' %}
 
 {% block body %}
-<main>
-    <section class='flex container'>
-
+    <section>
         {% if error %}
             <p class='alert alert-danger'>
                 {{ error.messageKey |trans(error.messageData, 'security') }}
@@ -26,5 +24,4 @@
             <button type='submit' class='btn btn-primary'>Se connecter</button>
         </form>
     </section>
-</main>
 {% endblock %}
