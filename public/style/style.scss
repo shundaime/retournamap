@@ -7,6 +7,7 @@
 
 $carot:#f29400;
 $grass:#8bc636;
+$transition : all .4s ease-in-out;
 
 @font-face {
   font-family: 'Roboto';
@@ -40,12 +41,28 @@ body {
   position: relative;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
+  overflow: overlay;
+}
+
+::-webkit-scrollbar{
+  width: 6px;
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: .6rem;
+	background-color: #AAAAAA;
 }
 
 main{
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   place-content: center;
   margin: 1rem auto;
   min-height: calc(100vh - 130px);
@@ -59,7 +76,7 @@ a {
   text-decoration: none;
   font-weight: bold;
   color: $grass;
-  transition: all .3s ease-in;
+  transition: $transition;
 
   &:hover {
     color: $grass;
@@ -116,11 +133,42 @@ span{
   padding: 0.5rem 0.75rem;
   background: $carot;
   color: #fff;
-  transition: all .3s ease-in;
+  transition: $transition;
 
   &:hover{
     color:#fff;
     background: darken($carot, 5);
+  }
+}
+
+.card{
+  display: grid;
+  border: 1px solid $carot;
+  border-radius: .6rem;
+  overflow: auto;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: $transition;
+  height: 100%;
+
+  .card_head{
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    height: 8rem;
+  }
+
+  .card_body{
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
+    text-align: left;
+    list-style: disc;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  &:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
 }
 
@@ -151,7 +199,7 @@ header{
   }
 
   .navbar-collapse{
-    transition: all .3s ease-in-out;
+    transition: $transition;
   }
 }
 
@@ -172,20 +220,20 @@ nav {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #3F250D;
+  color: #fff;
   text-decoration: none;
-  background: linear-gradient(to top, rgba(63, 37, 13, 0.5) 0%,
-          rgba(63, 37, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-  transition: all .3s ease-in;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  transition: $transition;
   font-weight: bold;
 
     &:hover {
       background-size: 100% 100%;
-      color: lighten(#3F250D, 10%);
+      color: darken(#fff, 10%);
     }
 
     &.active{
-      color: #3F250D;
+      color: #fff;
       background-size: 100% 100%;
     }
 
@@ -219,31 +267,31 @@ footer {
 
     a{
       font-size: 1em;
-      color: #3F250D;
+      color: #fff;
       text-decoration: none;
-      background: linear-gradient(to top, rgba(63, 37, 13, 0.5) 0%,
-              rgba(63, 37, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-      transition: all .3s ease-in;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+      transition: $transition;
       text-transform: lowercase;
     
         &:hover {
           text-decoration: none;
           background-size: 100% 100%;
-          color: rgba(63, 37, 13, 0.75);
+          color: darken(#fff, 10%);
         }
     
         &.active{
-          color: #3F250D;
+          color: #fff;
           background-size: 100% 100%;
         }
     }
   }
 
   small{
-    color: #3F250D;
+    color: #fff;
 
     .credit{
-      color:#3F250D;
+      color:#fff;
     }
   }
 }
@@ -258,25 +306,24 @@ footer.absolute{
 \*------------------------------------*/
 
 #home{
-  ul{
-    width: 70%;
-    margin: 0 auto;
-    text-align: center;
-  }
+  display: grid;
+  gap: 1rem;
 
-  .letter_list{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: fit-content!important;
-  
-    li{
-      margin: 0px;
+  .card_list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    @media  #{$medium-down}{
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  li{
-    margin: 0.5rem 0;
+    @media  #{$small-down}{
+      grid-template-columns: repeat(1, 1fr);
+      max-width: 80%;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -317,20 +364,31 @@ footer.absolute{
   ul{
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    @media  #{$medium-down}{
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media  #{$small-down}{
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    figure img{
+      height: 170px;
+      width: 100%;
+    }
   }
 
-  .productor_card{
-    border: 1px solid $carot;
-    border-radius: .6rem;
-    overflow: auto;
-    background-color: #fff;
-    box-shadow: 0px 10px 13px -7px #000000, 15px 20px 50px 5px rgba(0,0,0,0);  }
-
   .productor_card_body{
-    padding: 0 1rem;
-    max-height: 100%;
+    margin-top: auto;
+    padding: 0 0.5rem;
+
+    h6{
+      color: $grass;
+      font-weight: bold;
+    }
   }
 }
 
@@ -366,7 +424,7 @@ footer.absolute{
   }
 
   .img-link {
-    transition: all .3s ease-in;
+    transition: $transition;
 
     &:hover {
       opacity: 0.7;
@@ -571,7 +629,7 @@ footer.absolute{
   text-decoration: none;
   background: linear-gradient(to top, rgba(151, 191, 13, 0.5) 0%,
           rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-  transition: all .3s ease-in;
+  transition: $transition;
   font-weight: bold;
   width: fit-content;
   text-align: center;
@@ -588,7 +646,7 @@ footer.absolute{
   text-decoration: none;
   background: linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%,
           rgba(255, 255, 255, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
-  transition: all .3s ease-in;
+  transition: $transition;
   font-weight: bold;
 
   &:hover {

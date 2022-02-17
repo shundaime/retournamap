@@ -9,28 +9,30 @@
         <h2>Les producteurs</h2>
         <ul>
             {% for productor in productors %}
-            <li class='productor_card'>
+            <li class='card'>
                 <figure>
                     <img class='productor_picture' src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}'>
                 </figure>
                 <div class='productor_card_body'>
-                    <h5 class='underline'> {{ productor.name }} </h3>
+                    {% if productor.link != '#' %}
+                            <h6 class='underline'>
+                                <a href='{{ productor.link }}' title='Voir le site' target='_blank' rel='noopener' class='underline'>{{ productor.name }}</a>
+                            </h6>
+                    {% else %}
+                        <h6> {{ productor.name }} </h6>
+                    {% endif %}
                     {% for contract in productor.contracts %}
                          <p>
                             <strong>{{ contract.name }}</strong>
                             </br>{{ productor.delivery }}
-                        </p>
                         {% if contract.description %}
-                            <p>{{ contract.description }}</p>
+                            </br>{{ contract.description }}
                         {% endif %}
                         {% if contract.fileName %}
-                            <p><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat&nbsp;
-                                    <img src='{{ asset('img/logopetit.png') }}' alt='petit logo'></a></p>
+                            </br><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat</a>&nbsp;
+                                    <img src='{{ asset('img/logopetit.png') }}' alt='petit logo'>
                         {% endif %}
                     {% endfor %}
-                    {% if productor.link != '#' %}
-                        <a href='{{ productor.link }}' title='Voir le site' target='_blank' rel='noopener'>Site web</a>
-                    {% endif %}
                 </div>
             </li>
             {% endfor %}
