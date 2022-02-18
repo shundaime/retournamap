@@ -6,7 +6,7 @@
 @import './libs/mixin';
 
 $carot:#f29400;
-$grass:#8bc636;
+$grass:#527b2d;
 $transition : all .4s ease-in-out;
 
 @font-face {
@@ -37,7 +37,7 @@ body {
   font-size: 1rem;
   margin: 0 auto;
   text-align: justify;
-  background: url(../img/bg-body.svg);
+  background: url(../img/bg-body.webp);
   position: relative;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
@@ -64,7 +64,7 @@ main{
   flex-direction: column;
   gap: 1rem;
   place-content: center;
-  margin: 1rem auto;
+  margin: 0 auto;
   min-height: calc(100vh - 130px);
 
   section{
@@ -124,6 +124,7 @@ span{
   color: $carot;
   font-style: italic;
   font-size: 2rem;
+  margin: 0;
   font-family: 'Smoothie', sans-serif;
 }
 
@@ -131,13 +132,14 @@ span{
   border: 2px solid #673b15;
   font-weight: bold;
   padding: 0.5rem 0.75rem;
-  background: $carot;
-  color: #fff;
+  background: lighten($carot, 10);
+  color: #673b15;
   transition: $transition;
+  min-width: 150px;
 
   &:hover{
-    color:#fff;
-    background: darken($carot, 5);
+    color: #673b15;
+    background: $carot;
   }
 }
 
@@ -215,7 +217,7 @@ nav {
 }
 
 .bg-light {
-  background-color: #97bf0d !important;
+  background-color: $grass !important;
   text-transform: uppercase;
 }
 
@@ -252,7 +254,7 @@ nav {
 
 footer {
     text-align: center;
-    background-color: #97bf0d;
+    background-color: $grass;
     width: 100%;
 
     .nav .navbar-nav{
@@ -314,6 +316,7 @@ footer.absolute{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    margin-bottom: 2rem;
 
     @media  #{$medium-down}{
       grid-template-columns: repeat(2, 1fr);
@@ -366,6 +369,7 @@ footer.absolute{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    margin-bottom: 2rem;
 
     @media  #{$medium-down}{
       grid-template-columns: repeat(3, 1fr);
@@ -389,24 +393,6 @@ footer.absolute{
       color: $grass;
       font-weight: bold;
     }
-  }
-}
-
-/*------------------------------------*\
-  #ARTICLE-PAGE
-\*------------------------------------*/
-#article__section{
-  article{
-    margin-top: 20px;
-  }
-
-  hr{
-    border-bottom: 1px solid $carot;
-    width: 60%;
-  }
-
-  img {
-    max-width: 400px;
   }
 }
 
@@ -479,14 +465,6 @@ footer.absolute{
 
   .form-group{
     margin-bottom: 0;
-  }
-
-  aside{
-    iframe{
-      border: 0;
-      width: 100%;
-      height: 90%;
-    }
   }
 
   .label-hidden{
@@ -591,7 +569,7 @@ footer.absolute{
 #overlay{
   height: 100%;
   width: 100%;
-  background: url(../img/bg-body.svg);
+  background: url(../img/bg-body.webp);
   position: fixed;
   left: 0;
   top: 0;
@@ -625,10 +603,10 @@ footer.absolute{
 \*------------------------------------*/
 
 .underline{
-  color: rgb(151, 191, 13);
+  color: $grass;
   text-decoration: none;
-  background: linear-gradient(to top, rgba(151, 191, 13, 0.5) 0%,
-          rgba(151, 191, 13, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  background: linear-gradient(to top, rgba(82, 123, 45, 0.5) 0%,
+          rgba(82, 123, 45, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   transition: $transition;
   font-weight: bold;
   width: fit-content;

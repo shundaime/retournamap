@@ -63,15 +63,6 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/articles", name="articles", methods={"GET"})
-     */
-    public function articles()
-    {
-        return $this->render('pages/articles.html.twig');
-    }
-
-    
-    /**
      * @Route("/amapj", name="amapj", methods={"GET"})
      */
     public function amapj()
