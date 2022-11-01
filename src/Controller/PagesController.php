@@ -31,6 +31,15 @@ class PagesController extends AbstractController
     }
 
     /**
+     * @Route("/agenda", name="agenda", methods={"GET"})
+     */
+    public function agenda()
+    {
+        return $this->render('pages/agenda.html.twig');
+    }
+
+
+    /**
      * @Route("/producteurs", name="productors", methods={"GET"})
      */
     public function productors()

@@ -1,1 +1,1 @@
-@font-face{font-family:'Smoothie';src:url("../fonts/smoothie/Smoothie.woff") format("woff");font-weight:normal;font-style:normal;font-display:swap}*{-webkit-box-sizing:border-box;box-sizing:border-box}body{background:url(../img/bg-body.webp)}h1{color:#f29400}
+@font-face{font-family:"Smoothie";src:url("../fonts/smoothie/Smoothie.woff") format("woff");font-weight:normal;font-style:normal;font-display:swap}*{box-sizing:border-box}body{background:url(../img/bg-body.webp)}h1{color:#f29400}

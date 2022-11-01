@@ -11,7 +11,7 @@
             {% for productor in productors %}
             <li class='card'>
                 <figure>
-                    <img class='productor_picture' src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}'>
+                    <img class='productor_picture' src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}'/>
                 </figure>
                 <div class='productor_card_body'>
                     {% if productor.link != '#' %}
@@ -24,12 +24,12 @@
                     {% for contract in productor.contracts %}
                          <p>
                             <strong>{{ contract.name }}</strong>
-                            </br>{{ productor.delivery }}
+                            <br/>{{ productor.delivery }}
                         {% if contract.description %}
-                            </br>{{ contract.description }}
+                            <br/>{{ contract.description }}
                         {% endif %}
                         {% if contract.fileName %}
-                            </br><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat</a>&nbsp;
+                            <br/><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat</a>&nbsp;
                                     <img src='{{ asset('img/logopetit.png') }}' alt='petit logo'>
                         {% endif %}
                     {% endfor %}
