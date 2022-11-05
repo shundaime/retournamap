@@ -5,15 +5,15 @@
 @import './libs/responsive';
 @import './libs/mixin';
 
-$carot:#f29400;
-$grass:#8bc636;
+$carot: #f29400;
+$grass: #8bc636;
 
 @font-face {
-  font-family: 'Smoothie';
-  src: url('../fonts/smoothie/Smoothie.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Smoothie';
+    src: url('../fonts/smoothie/Smoothie.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 /*------------------------------------*\
@@ -21,15 +21,15 @@ $grass:#8bc636;
 \*------------------------------------*/
 
 * {
-  -webkit-box-sizing: border-box; /* Android ≤ 2.3, iOS ≤ 4 */
-  -moz-box-sizing: border-box; /* Firefox 1+ */
-  box-sizing: border-box; /* Chrome, IE 8+, Opera, Safari 5.1 */
+    -webkit-box-sizing: border-box; /* Android ≤ 2.3, iOS ≤ 4 */
+    -moz-box-sizing: border-box; /* Firefox 1+ */
+    box-sizing: border-box; /* Chrome, IE 8+, Opera, Safari 5.1 */
 }
 
 body {
-  background: url(../img/bg-body.webp);
+    background: url(../img/bg-body.webp);
 }
 
-h1{
-  color: $carot;
+h1 {
+    color: $carot;
 }

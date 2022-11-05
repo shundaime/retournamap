@@ -5,37 +5,39 @@
 {% set active = 'productors' %}
 
 {% block body %}
-    <section id='productors'>
-        <h2>Les producteurs</h2>
-        <ul>
-            {% for productor in productors %}
-            <li class='card'>
-                <figure>
-                    <img class='productor_picture' src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}'/>
-                </figure>
-                <div class='productor_card_body'>
-                    {% if productor.link != '#' %}
-                            <h6 class='underline'>
-                                <a href='{{ productor.link }}' title='Voir le site' target='_blank' rel='noopener' class='underline'>{{ productor.name }}</a>
-                            </h6>
-                    {% else %}
-                        <h6> {{ productor.name }} </h6>
-                    {% endif %}
-                    {% for contract in productor.contracts %}
-                         <p>
-                            <strong>{{ contract.name }}</strong>
-                            <br/>{{ productor.delivery }}
-                        {% if contract.description %}
-                            <br/>{{ contract.description }}
-                        {% endif %}
-                        {% if contract.fileName %}
-                            <br/><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat</a>&nbsp;
-                                    <img src='{{ asset('img/logopetit.png') }}' alt='petit logo'>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-    </section>
-{% endblock %}
+	<section id='productors'>
+		<h2>Les producteurs</h2>
+		<ul>
+			{% for productor in productors %}
+				<li class='card'>
+					<figure>
+						<img class='productor_picture' src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}'/>
+					</figure>
+					<div class='productor_card_body'>
+						{% if productor.link != '#' %}
+							<h6 class='underline'>
+								<a href='{{ productor.link }}' title='Voir le site' target='_blank' rel='noopener' class='underline'>{{ productor.name }}</a>
+							</h6>
+						{% else %}
+							<h6>
+								{{ productor.name }}
+							</h6>
+						{% endif %}
+						{% for contract in productor.contracts %}
+							<p>
+								<strong>{{ contract.name }}</strong>
+								<br/>{{ productor.delivery }}
+								{% if contract.description %}
+									<br/>{{ contract.description }}
+								{% endif %}
+								{% if contract.fileName %}
+									<br/><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat</a>&nbsp;
+									<img src='{{ asset('img/logopetit.png') }}' alt='petit logo'>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</section>
+	{% endblock %}

@@ -5,54 +5,73 @@
 {% set active = 'home' %}
 
 {% block body %}
-    <section id='home'>
-        <h1>Retourn'amap</h1>
-        <h2 class='litle_title'>L’amap est plus qu’un “panier” !</h2>
-        <ul class='card_list'>
-            <li class='card'>
-                <div class='card_head'>
-                    <div><span>A</span> comme <span>Association</span></div>
-                    <img src='{{asset('img/home/local.png')}}' alt='icône local'/>
-                </div>
-                <ul class='card_body'>
-                    <li>Présente depuis 2012 à Retournac.</li> 
-                    <li>Permettre de rapprocher producteur et consommateur.</li>
-                    <li>Système reversant <strong>100% du montant du panier au paysan.</strong></li>
-                </ul>
-            </li>
-            <li class='card'>
-                <div class='card_head'>
-                    <div><span>M</span> comme <span>Maintien</span></div>
-                    <img src='{{asset('img/home/protecting.png')}}' alt='icône local'/>
-                </div>
-                <ul class='card_body'>
-                    <li>Soutenir une agriculture de proximité, à taille humaine.</li> 
-                    <li>Allier écologie, emploi agricole et pérennité des fermes.</li>
-                    <li>Rétablir le lien entre paysans et consommateurs.</li>
-                </ul>
-            </li>
-            <li class='card'>
-                <div class='card_head'>
-                    <div><span>A</span> comme <span>Agriculture</span></div>
-                    <img src='{{asset('img/home/planting.png')}}' alt='icône local'/>
-                </div>
-                <ul class='card_body'>
-                    <li>Proposer une palette de produits locaux, frais et de saisons.</li> 
-                    <li>S'engager pour fournir des produits issus de l'agriculture biologique.</li>
-                    <li>Légumes, pain, oeufs, viande, produits laitiers, confitures, plantes ...</li>
-                </ul>
-            </li>
-            <li class='card'>
-                <div class='card_head'>
-                    <div><span>P</span> comme <span>Paysanne</span></div>
-                    <img src='{{asset('img/home/harvest.png')}}' alt='icône local'/>
-                </div>
-                <ul class='card_body'>
-                    <li> Chaque amapien s’engage sur une saison.</li> 
-                    <li>Le paysan a l’assurance d’être rémunéré et d’écouler sa production.</li>
-                    <li>Permettre de soutenir l’agriculture paysanne de notre région.</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+	<section id='home'>
+		<h1>Retourn'amap</h1>
+		<h2 class='litle_title'>L’amap est plus qu’un “panier” !</h2>
+		<ul class='card_list'>
+			<li class='card'>
+				<div class='card_head'>
+					<div>
+						<span>A</span>
+						comme
+						<span>Association</span>
+					</div>
+					<img src='{{asset('img/home/local.png')}}' alt='icône local'/>
+				</div>
+				<ul class='card_body'>
+					<li>Présente depuis 2012 à Retournac.</li>
+					<li>Permettre de rapprocher producteur et consommateur.</li>
+					<li>Système reversant
+						<strong>100% du montant du panier au paysan.</strong>
+					</li>
+				</ul>
+			</li>
+			<li class='card'>
+				<div class='card_head'>
+					<div>
+						<span>M</span>
+						comme
+						<span>Maintien</span>
+					</div>
+					<img src='{{asset('img/home/protecting.png')}}' alt='icône local'/>
+				</div>
+				<ul class='card_body'>
+					<li>Soutenir une agriculture de proximité, à taille humaine.</li>
+					<li>Allier écologie, emploi agricole et pérennité des fermes.</li>
+					<li>Rétablir le lien entre paysans et consommateurs.</li>
+				</ul>
+			</li>
+			<li class='card'>
+				<div class='card_head'>
+					<div>
+						<span>A</span>
+						comme
+						<span>Agriculture</span>
+					</div>
+					<img src='{{asset('img/home/planting.png')}}' alt='icône local'/>
+				</div>
+				<ul class='card_body'>
+					<li>Proposer une palette de produits locaux, frais et de saisons.</li>
+					<li>S'engager pour fournir des produits issus de l'agriculture biologique.</li>
+					<li>Légumes, pain, oeufs, viande, produits laitiers, confitures, plantes ...</li>
+				</ul>
+			</li>
+			<li class='card'>
+				<div class='card_head'>
+					<div>
+						<span>P</span>
+						comme
+						<span>Paysanne</span>
+					</div>
+					<img src='{{asset('img/home/harvest.png')}}' alt='icône local'/>
+				</div>
+				<ul class='card_body'>
+					<li>
+						Chaque amapien s’engage sur une saison.</li>
+					<li>Le paysan a l’assurance d’être rémunéré et d’écouler sa production.</li>
+					<li>Permettre de soutenir l’agriculture paysanne de notre région.</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
 {% endblock %}

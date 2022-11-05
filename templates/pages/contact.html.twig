@@ -7,65 +7,70 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-    <section id='contact' class='grid'>
-        <h5 class='text-center my-4'><b>Venez nous rencontrer lors des distributons de Retourn'AMAP les jeudis soirs de 18h30 à 19h30, nous serons heureux de vous accueillir !</b></h5>
-        <div class='form-container'>
-            <article>
-                <h5><img src='{{ asset('img/contact/email.svg') }}' alt='icone email'/> Nous écrire</h5>
-                {{ form_start(form) }}
-                {% for message in app.flashes('success')  %}
-                    <p class='alert alert-success'>
-                        {{ message }}
-                    </p>
-                {% endfor %}
-                    {{ form_label(form.name, 'Nom / prénom', {'label_attr': {'class':'label-hidden'}}) }}
-                    {{ form_widget(form.name, {
+	<section id='contact' class='grid'>
+		<h5 class='text-center my-4'>
+			<b>Venez nous rencontrer lors des distributons de Retourn'AMAP les jeudis soirs de 18h30 à 19h30, nous serons heureux de vous accueillir !</b>
+		</h5>
+		<div class='form-container'>
+			<article>
+				<h5><img src='{{ asset('img/contact/email.svg') }}' alt='icone email'/>
+					Nous écrire</h5>
+				{{ form_start(form) }}
+				{% for message in app.flashes('success')  %}
+					<p class='alert alert-success'>
+						{{ message }}
+					</p>
+				{% endfor %}
+				{{ form_label(form.name, 'Nom / prénom', {'label_attr': {'class':'label-hidden'}}) }}
+				{{ form_widget(form.name, {
                         attr:{
                             placeholder: 'Nom / prénom'
                         }
                     }) }}
-                    {{ form_label(form.mail, 'Adresse mail', {'label_attr': {'class':'label-hidden'}}) }}
-                    {{ form_widget(form.mail, {
+				{{ form_label(form.mail, 'Adresse mail', {'label_attr': {'class':'label-hidden'}}) }}
+				{{ form_widget(form.mail, {
                         attr:{
                             placeholder: 'Adresse mail'
                         }
                     }) }}
-                    {{ form_label(form.subject, 'Sujet', {'label_attr': {'class':'label-hidden'}}) }}
-                    {{ form_widget(form.subject, {
+				{{ form_label(form.subject, 'Sujet', {'label_attr': {'class':'label-hidden'}}) }}
+				{{ form_widget(form.subject, {
                         attr:{
                             placeholder: 'Sujet'
                         }
                     }) }}
-                    {{ form_label(form.content, 'Message', {'label_attr': {'class':'label-hidden'}}) }}
-                    {{ form_widget(form.content, {
+				{{ form_label(form.content, 'Message', {'label_attr': {'class':'label-hidden'}}) }}
+				{{ form_widget(form.content, {
                         attr:{
                             placeholder: 'Message'
                         }
                     }) }}
-                    {{ form_row(form.attachment, {'label': ' '}) }}
-                <div class='form-end'>
-                    {{ form_row(form.recaptcha) }}
-                    {{ form_row(form.send) }}
-                </div>
-                {{ form_end(form) }}
-            </article>
-            <aside>
-                <h5><img src='{{ asset('img/contact/place.svg') }}' alt='icone localalisation'/> Nous situer</h5>
-                <a href='https://g.page/retourn-amap?share' title='Voir le plan' target='_blank'>
-                    <img src='{{ asset('img/contact/map.webp') }}' alt='carte localisation retournamap'/>
-                </a>
-            </aside>
-        </div>
-        <div>
-            <ul class='tools my-4'>
-                <li><img src='{{ asset('img/contact/phone.svg') }}' alt='icone téléphone'>&nbsp;<a href='tel:07.82.90.98.00' class='underline'>07.82.90.98.00</a></li>
-                <li>
-                    <img src='{{ asset('img/contact/email.svg') }}' alt='icone email'>&nbsp;<a href='mailto:retournamap@gmail.com' class='underline'>retournamap@gmail.com</a>
-                </li>
-                <li>
-                    <img src='{{ asset('img/contact/facebook.svg') }}' alt='icone facebook'/>&nbsp;<a href='https://www.facebook.com/RetournAMAP/' target='_blank' rel='noopener' class='underline'>@RetournAMAP</a>
-                </li>
-            </ul>
-        </div>
-    </section>
+				{{ form_row(form.attachment, {'label': ' '}) }}
+				<div class='form-end'>
+					{{ form_row(form.recaptcha) }}
+					{{ form_row(form.send) }}
+				</div>
+				{{ form_end(form) }}
+			</article>
+			<aside>
+				<h5><img src='{{ asset('img/contact/place.svg') }}' alt='icone localalisation'/>
+					Nous situer</h5>
+				<a href='https://g.page/retourn-amap?share' title='Voir le plan' target='_blank'>
+					<img src='{{ asset('img/contact/map.webp') }}' alt='carte localisation retournamap'/>
+				</a>
+			</aside>
+		</div>
+		<div>
+			<ul class='tools my-4'>
+				<li><img src='{{ asset('img/contact/phone.svg') }}' alt='icone téléphone'>&nbsp;<a href='tel:07.82.90.98.00' class='underline'>07.82.90.98.00</a>
+				</li>
+				<li>
+					<img src='{{ asset('img/contact/email.svg') }}' alt='icone email'>&nbsp;<a href='mailto:retournamap@gmail.com' class='underline'>retournamap@gmail.com</a>
+				</li>
+				<li>
+					<img src='{{ asset('img/contact/facebook.svg') }}' alt='icone facebook'/>&nbsp;<a href='https://www.facebook.com/RetournAMAP/' target='_blank' rel='noopener' class='underline'>@RetournAMAP</a>
+				</li>
+			</ul>
+		</div>
+	</section>
 {% endblock %}
