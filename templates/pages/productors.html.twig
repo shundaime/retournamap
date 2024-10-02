@@ -1,56 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title 'Les producteurs' %}
+{% block title 'Retourn\'AMAP - producteurs' %}
 
 {% set active = 'productors' %}
 
 {% block body %}
-<main>
-    <div class='flex' role='complementary'>
-        <section class='container'>
-            <h2>Les producteurs</h2>
-            <table class='table table-hover'>
-                <caption>Liste des producteurs</caption>
-                <thead>
-                <tr>
-                    <th scope='col'>Producteurs</th>
-                    <th scope='col'>Produits / Contrats</th>
-                    <th scope='col'>Livraison</th>
-                    <th scope='col'>Label</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for productor in productors %}
-                <tr>
-                    <td>
-                        <figure>
-                            <figcaption>
-                                <a href='{{ productor.link }}' class='underline' {% if productor.link == '#' %} style='cursor: default' {% else %}title='Voir le site' target='_blank' rel='noopener'{% endif %}>{{ productor.name }}</a>
-                            </figcaption>
-                            <a href='{{ productor.link }}' {% if productor.link == '#' %} style='cursor: default' {% else %} title='Voir le site' target='_blank' rel='noopener'{% endif %}>
-                                <img src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}' class='ie-picture-size'>
-                            </a>
-                        </figure>
-                    </td>
-                    <td>
-                        {% for contract in productor.contracts %}
-                            <h4>{{ contract.name }}</h4>
-                            {% if contract.description %}
-                                <p>{{ contract.description }}</p>
-                            {% endif %}
-                            {% if contract.fileName %}
-                                <p><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat&nbsp;
-                                        <img src='{{ asset('img/logopetit.png') }}' alt='petit logo'></a></p>
-                            {% endif %}
-                        {% endfor %}
-                    </td>
-                    <td>{{ productor.delivery }}</td>
-                    <td><img src='img/label/{{ productor.label }}' alt='logo du label' class='img-label'></td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </div>
-</main>
-{% endblock %}
+	<section id='productors'>
+		<h2>Les producteurs</h2>
+		<ul>
+		{% for productor in productors %}
+			<li class='card'>
+				<figure>
+					<img class='productor_picture' src='img/producteurs/{{ productor.filename }}' alt='{{ productor.imageDescription }}'/>
+				</figure>
+				<div class='productor_card_body'>
+					{% if productor.link != '#' %}
+						<h6>
+							<a href='{{ productor.link }}' title='Voir le site' target='_blank' rel='noopener' class='underline'>
+								{{ productor.name }}
+								<img src='{{ asset('img/arrow-up-right-from-square-solid.png') }}' alt='' aria-hidden='true'/>
+							</a>
+						</h6>
+					{% else %}
+						<h6>
+							{{ productor.name }}
+						</h6>
+					{% endif %}
+					{% for contract in productor.contracts %}
+						<p>
+							<strong>{{ contract.name }}</strong>
+							<br/>{{ productor.delivery }}
+							{% if contract.description %}
+								<br/><p>{{ contract.description }}</p>
+							{% endif %}
+							{% if contract.fileName %}
+								<br/><a href='/doc/contrats/{{ contract.fileName }}' target='_blank' rel='noopener' class='underline'>Voir le contrat</a>&nbsp;
+							{% endif %}
+						</p>
+						{% if productor.label %}
+							<img src='img/label/{{ productor.label }}' alt='{{ productor.label }}' class='mt-2'/>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+	{% endblock %}

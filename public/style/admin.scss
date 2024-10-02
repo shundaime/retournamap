@@ -2,31 +2,18 @@
   #SETTINGS
 \*------------------------------------*/
 
-@import "libs/normalize.css";
-@import "libs/responsive";
-@import "libs/mixin";
-@import "scss/fontawesome.scss";
-@import "scss/solid.scss";
+@import './libs/responsive';
+@import './libs/mixin';
 
-$carot:#f29400;
-$grass:#8bc636;
+$carot: #f29400;
+$grass: #8bc636;
 
 @font-face {
-  font-family: "Cabo";
-  src: url('../fonts/cabo/Cabo.woff') format("woff");
-  src: url('../fonts/cabo/Cabo.woff2') format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Smoothie";
-  src: url('../fonts/smoothie/Smoothie.woff') format('woff');
-  src: url('../fonts/smoothie/Smoothie.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Rockwell';
+    src: url('../fonts/Rockwell-Bold.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
 }
 
 /*------------------------------------*\
@@ -34,15 +21,15 @@ $grass:#8bc636;
 \*------------------------------------*/
 
 * {
-  -webkit-box-sizing: border-box; /* Android ≤ 2.3, iOS ≤ 4 */
-  -moz-box-sizing: border-box; /* Firefox 1+ */
-  box-sizing: border-box; /* Chrome, IE 8+, Opera, Safari 5.1 */
+    -webkit-box-sizing: border-box; /* Android ≤ 2.3, iOS ≤ 4 */
+    -moz-box-sizing: border-box; /* Firefox 1+ */
+    box-sizing: border-box; /* Chrome, IE 8+, Opera, Safari 5.1 */
 }
 
 body {
-  background: url(../img/bg-body.svg);
+    background: url(../img/bg-body.webp);
 }
 
-h1{
-  color: $carot;
+h1 {
+    color: $carot;
 }

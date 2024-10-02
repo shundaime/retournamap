@@ -29,8 +29,8 @@ class GalleryImage
      * @Vich\UploadableField(mapping="gallery_directory", fileNameProperty="image_file_name")
      * @var File
      * @Assert\Image(
-     *     mimeTypes={"image/jpeg", "image/png"},
-     *     mimeTypesMessage="Merci d'enregistrer une image au format .jpg ou .png"
+     *     mimeTypes={"image/jpeg", "image/png", "image/webp"},
+     *     mimeTypesMessage="Merci d'enregistrer une image au format webp, jpg ou png"
      * )
      */
     private $imageFile;
@@ -83,7 +83,7 @@ class GalleryImage
     public function setImageFile(File $ImageFileName = null)
     {
         $this->imageFile = $ImageFileName;
-        if ($ImageFileName){
+        if ($ImageFileName) {
             $this->updatedAt = new \DateTime('now');
         }
     }

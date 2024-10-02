@@ -32,8 +32,8 @@ class Productor
      * @Vich\UploadableField(mapping="productors_directory", fileNameProperty="filename")
      * @var File
      * @Assert\Image(
-     *     mimeTypes={"image/jpeg", "image/png"},
-     *     mimeTypesMessage="Merci d'enregistrer une image au format .jpg ou .png"
+     *     mimeTypes={"image/jpeg", "image/png", "image/webp"},
+     *     mimeTypesMessage="Merci d'enregistrer une image au format webp, jpg ou png"
      * )
      */
     private $imageFile;

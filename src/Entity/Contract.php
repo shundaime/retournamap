@@ -30,8 +30,8 @@ class Contract
      * @Vich\UploadableField(mapping="contracts_directory", fileNameProperty="filename")
      * @var File
      * @Assert\File(
-     *     mimeTypes={"application/pdf"},
-     *     mimeTypesMessage="Merci d'enregistrer un fichier au format .pdf"
+     *     mimeTypes={"application/pdf", "image/webp", "image/png", "image/jpeg"},
+     *     mimeTypesMessage="Merci d'enregistrer un fichier au format pdf, jpg, png ou webp"
      * )
      */
     private $pdfFile;
