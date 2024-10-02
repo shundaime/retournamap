@@ -110,11 +110,11 @@ gtag ('config', 'UA-132763223-4');
 					<a href="{{ path('legal') }}" class="{% if active == 'legal' %}active{% endif %}">Mentions légales</a>
 				</li>
 			</ul>
-			<button type='button' title='Haut de page' class='scroll-up'>
-				<img src='{{ asset('img/arrow_up.svg') }}' alt='flêche haut'/>
+			<button type='button' title='Haut de page' aria-label='Haut de page' class='scroll-up'>
+				<img src='{{ asset('img/arrow_up.svg') }}' alt='' aria-hidden='true'/>
 			</button>
 			<small>
-				<i class='far fa-copyright'></i>2019 Tous droits réservés
+				2019 Tous droits réservés
 				<b>Guillaume Charmasson</b>
 			</small>
 		</footer>

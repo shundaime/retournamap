@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title "Retourn'Amap - accueil" %}
+{% block title "Retourn'Amap - amap de retournac" %}
 
 {% set active = 'home' %}
 
 {% block body %}
 	<section id='home'>
 		<h2 class='litle_title'>L’amap est plus qu’un “panier” !</h2>
+		<ul class="btn-list">
+			<li>
+				<a href="https://www.helloasso.com/associations/retourn-amap/adhesions/adhesion-annuelle" target="_blank" class="btn">Adhérer à l'AMAP</a>
+			</li>
+		</ul>
 		<ul class='card_list'>
 			<li class='card'>
 				<div class='card_head'>
@@ -15,7 +20,7 @@
 						comme
 						<span>Association</span>
 					</div>
-					<img src='{{asset('img/home/local.png')}}' alt='icône local'/>
+					<img src='{{asset('img/home/local.png')}}' alt='' aria-hidden='true'/>
 				</div>
 				<ul class='card_body'>
 					<li>Présente depuis 2012 à Retournac.</li>
@@ -32,7 +37,7 @@
 						comme
 						<span>Maintien</span>
 					</div>
-					<img src='{{asset('img/home/protecting.png')}}' alt='icône local'/>
+					<img src='{{asset('img/home/protecting.png')}}' alt='' aria-hidden='true'/>
 				</div>
 				<ul class='card_body'>
 					<li>Soutenir une agriculture de proximité, à taille humaine.</li>
@@ -47,7 +52,7 @@
 						comme
 						<span>Agriculture</span>
 					</div>
-					<img src='{{asset('img/home/planting.png')}}' alt='icône local'/>
+					<img src='{{asset('img/home/planting.png')}}' alt='' aria-hidden='true'/>
 				</div>
 				<ul class='card_body'>
 					<li>Proposer une palette de produits locaux, frais et de saisons.</li>
@@ -62,7 +67,7 @@
 						comme
 						<span>Paysanne</span>
 					</div>
-					<img src='{{asset('img/home/harvest.png')}}' alt='icône local'/>
+					<img src='{{asset('img/home/harvest.png')}}' alt='' aria-hidden='true'/>
 				</div>
 				<ul class='card_body'>
 					<li>
@@ -72,5 +77,23 @@
 				</ul>
 			</li>
 		</ul>
-	</section>
-{% endblock %}
+	</hr>
+	<h2>Nos partenaires</h2>
+	<ul class='flex-row'>
+		<li>
+			<a href='https://www.ville-retournac.fr/' target='_blank' title='Ville de Retournac' aria-label='Ville de Retournac'>
+				<img src='{{asset('img/home/logo-ville-de-retournac.png')}}' alt='logo ville de Retournac'/>
+			</a>
+		</li>
+		<li>
+			<a href='https://amap-aura.org/' target='_blank' title='AMAP AURA' aria-label='AMAP AURA'>
+				<img src='{{asset('img/home/amap-aura-logo.png')}}' alt='logo AMAP AURA'/>
+			</a>
+		</li>
+		<li>
+			<a href='https://www.fne-aura.org/haute-loire/' target='_blank' title='France Nature Environnement 43' aria-label='France Nature Environnement 43'>
+				<img src='{{asset('img/home/logo-france-nature-environnement-43.png')}}' alt='logo France Nature Environnement 43'/>
+			</a>
+		</li>
+	</ul>
+</section>{% endblock %}

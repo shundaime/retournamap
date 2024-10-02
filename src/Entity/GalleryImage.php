@@ -30,7 +30,7 @@ class GalleryImage
      * @var File
      * @Assert\Image(
      *     mimeTypes={"image/jpeg", "image/png", "image/webp"},
-     *     mimeTypesMessage="Merci d'enregistrer une image au format .jpg, .png . webp"
+     *     mimeTypesMessage="Merci d'enregistrer une image au format webp, jpg ou png"
      * )
      */
     private $imageFile;

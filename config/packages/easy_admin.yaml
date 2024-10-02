@@ -40,11 +40,11 @@ easy_admin:
                     - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
-                    - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png', 'AB + Nature & Progrès': 'logo-ab-nature.png',  'AB + Ecocert': 'ab-ecocert.png' } } }
+                    - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png', 'AB + Nature & Progrès': 'logo-ab-nature.png' } } }
                     - { property: 'link', label: 'Site web', help: 'Si aucun site web, ajouter le caractère #' }
                     - { property: 'position', label: 'Position', help: 'Positionnement dans le tableau à la page producteur, renseignez un chiffre' }
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
-                    - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format jpg ou png uniquement' }
+                    - { property: 'imageFile', label: ' ', type: 'vich_image', help: 'Format webp, jpg ou png' }
                     - { property: 'image_description', label: "Description de l'image" }
             edit:
                 title: 'Modifier le producteur'
@@ -71,7 +71,7 @@ easy_admin:
                 fields:
                     - { property: 'productor', label: 'Producteur' }
                     - { property: 'name', label: 'Nom' }
-                    - { property: 'fileName', label: 'Fichier PDF', type: 'file', base_path: 'doc/contrats', filename: 'Voir le contrat (PDF)' }
+                    - { property: 'fileName', label: 'Fichier', type: 'file', base_path: 'img/contrats' }
                     - { property: 'description', label: 'Descritpion'}
             new:
                 title: 'Ajouter un contrat'
@@ -79,7 +79,7 @@ easy_admin:
                     - { type: 'section', label: ' ', icon: 'file-contract' }
                     - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
                     - { property: 'name', label: 'Nom du contrat', type: 'text', help: 'Choisissez un intitulé court' }
-                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
+                    - { property: 'pdfFile', label: 'Fichier', type: 'vich_file', base_path: 'img/contrats' }
                     - { property: 'description', label: 'Descritpion', help: 'Champ à remplir si aucun contrat pdf'}
             edit:
                 title: 'Modifier un contrat'
@@ -87,7 +87,7 @@ easy_admin:
                     - { type: 'section', label: ' ', icon: 'file-contract' }
                     - { property: 'productor', label: 'Producteur', help: 'Choisissez un producteur existant' }
                     - { property: 'name', label: 'Nom', type: 'text', help: 'Choisissez un intitulé court' }
-                    - { property: 'pdfFile', label: 'Fichier PDF', type: 'vich_file', base_path: 'doc/contrats', help: 'Format pdf uniqument' }
+                    - { property: 'pdfFile', label: 'Fichier', type: 'vich_file', base_path: 'img/contrats' }
                     - { property: 'description', label: 'Descritpion', help: 'Champ à remplir si aucun contrat pdf'}
 
 
