@@ -94,10 +94,8 @@ gtag ('config', 'UA-132763223-4');
 		</header>
 		<main class='container'>
 			<h1>Retourn'amap</h1>
-			{% if active != 'agenda' %}
-				<a href="{{ path('home') }}" title='Accueil' class='logo-link'>
-					<img src='{{ asset('img/logo.webp') }}' alt="logo Retourn'AMAP">
-				</a>
+			{% if active == 'home' %}
+				<img src='{{ asset('img/logo.webp') }}' alt="logo Retourn'AMAP">
 			{% endif %}
 			{% block body %}{% endblock %}
 		</main>
@@ -119,7 +117,7 @@ gtag ('config', 'UA-132763223-4');
 			</small>
 		</footer>
 		{% block javascripts %}
-			<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+			<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" async></script>
 			<script src='{{ asset('js/main.min.js') }}'></script>
 			{% if active == 'contact' %}
