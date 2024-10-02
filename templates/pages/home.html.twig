@@ -4,7 +4,14 @@
 
 {% set active = 'home' %}
 
+
 {% block body %}
+	<section class='news'>
+		<h2 class='little-title'>Actualité</h2>
+		{% for news in news %}
+			<p>{{ news.content }}</p>
+		{% endfor %}
+	</section>
 	<section id='home'>
 		<h2 class='litle_title'>L’amap est plus qu’un “panier” !</h2>
 		<ul class="btn-list">
