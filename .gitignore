@@ -1,9 +1,6 @@
-/public/doc/contrats/*
-!public/doc/contrats/.gitkeep
-/public/img/gallery/*
-!public/img/gallery/.gitkeep
-/public/img/producteurs/*
-!public/img/producteurs/.gitkeep
+/public/doc/contrats/
+/public/img/gallery/
+/public/img/producteurs/
 
 ###> symfony/framework-bundle ###
 /.env
@@ -36,4 +33,5 @@
 ###< phpunit/phpunit ###
 
 /node_modules/
-
+composer.lock
+.git
