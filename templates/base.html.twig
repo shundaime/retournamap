@@ -92,12 +92,15 @@ gtag ('config', 'UA-132763223-4');
 			{% block body %}{% endblock %}
 		</main>
 		<footer class='{% if active == 'amapj' %}absolute{% endif %}'>
-			<ul>
+			<ul class="pt-2 d-flex align-items-center">
 				<li>
 					<a href="{{ path('status') }}" class="{% if active == 'status' %}active{% endif %}">Statuts</a>
 				</li>
 				<li>
 					<a href="{{ path('legal') }}" class="{% if active == 'legal' %}active{% endif %}">Mentions légales</a>
+				</li>
+				<li>
+					<div id="ecoindex-badge"></div>
 				</li>
 			</ul>
 			<button type='button' title='Haut de page' aria-label='Haut de page' class='scroll-up'>
@@ -115,6 +118,7 @@ gtag ('config', 'UA-132763223-4');
 			<script src='//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}'></script>
 			<script src='{{ asset('js/lightbox-plus-jquery.min.js') }}'></script>
 			<script src='{{ asset('js/accept.io.min.js') }}'></script>
+			<script src="https://cdn.jsdelivr.net/gh/cnumr/ecoindex_badge@3/assets/js/ecoindex-badge.js" defer></script>
 		{% endblock %}
 	</body>
 </html>
