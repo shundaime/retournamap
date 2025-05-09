@@ -40,7 +40,7 @@ easy_admin:
                     - { type: 'group', columns: 6, label: 'Informations générales', icon: 'info-circle' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'delivery', label: "Livraison", type: 'text' }
-                    - { property: 'label', label: 'Label', type: 'choice', type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png', 'AB + Nature & Progrès': 'logo-ab-nature.png' } } }
+                    - { property: 'label', required: false, label: 'Label', type: 'choice', empty_data: null, type_options: {choices: { 'Bio': 'bio.png', 'EcoCert': 'ecocert.png', 'Nature & Progrès': 'nature.png', 'AB + Nature & Progrès': 'logo-ab-nature.png' } } }
                     - { property: 'link', label: 'Site web', help: 'Si aucun site web, ajouter le caractère #' }
                     - { property: 'position', label: 'Position', help: 'Positionnement dans le tableau à la page producteur, renseignez un chiffre' }
                     - { type: 'group', columns: 6, label: 'Photo', icon: 'image' }
